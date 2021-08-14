@@ -200,19 +200,19 @@ function run_code_tests {
     pip install --user beautifulsoup4 -q
     shopt -s globstar
     run_test "check unit tests contains all maps" "scripts/validateTestingContainsAllMaps.sh"
-    run_test_fail "maps contain no step_[xy]" "grep 'step_[xy]' maps/**/*.dmm"
-    run_test_fail "maps contain no layer adjustments" "grep 'layer = ' maps/**/*.dmm"
-    run_test_fail "maps contain no plane adjustments" "grep 'plane = ' maps/**/*.dmm"
-    run_test_fail "ensure nanoui templates unique" "find nano/templates/ -type f -exec md5sum {} + | sort | uniq -D -w 32 | grep nano"
+    run_test_fail "maps contain no step_[xy]" "grep 'step_[xy]' src/maps/**/*.dmm"
+    run_test_fail "maps contain no layer adjustments" "grep 'layer = ' src/maps/**/*.dmm"
+    run_test_fail "maps contain no plane adjustments" "grep 'plane = ' src/maps/**/*.dmm"
+    run_test_fail "ensure nanoui templates unique" "find src/nano/templates/ -type f -exec md5sum {} + | sort | uniq -D -w 32 | grep nano"
     run_test_fail "no invalid spans" "grep -En \"<\s*span\s+class\s*=\s*('[^'>]+|[^'>]+')\s*>\" **/*.dm"
     run_test "code quality checks" "test/check-paths.sh"
     run_test "indentation check" "awk -f tools/indentation.awk **/*.dm"
-    run_test "check changelog example unchanged" "md5sum -c - <<< '683a3e0d21b90581ae6e4c95052d461e *html/changelogs/example.yml'"
+    run_test "check changelog example unchanged" "md5sum -c - <<< '683a3e0d21b90581ae6e4c95052d461e *src/html/changelogs/example.yml'"
     run_test "check tags" "python3 tools/TagMatcher/tag-matcher.py ."
     run_test "check color hex" "python3 tools/ColorHexChecker/color-hex-checker.py ."
     run_test "check punctuation" "python3 tools/PunctuationChecker/punctuation-checker.py ."
     run_test "check icon state limit" "python3 tools/dmitool/check_icon_state_limit.py ."
-    run_test_ci "check changelog builds" "python3 tools/changelog/ss13_genchangelog.py html/changelog.html html/changelogs"
+    run_test_ci "check changelog builds" "python3 tools/changelog/ss13_genchangelog.py src/html/changelog.html src/html/changelogs"
 }
 
 function run_byond_tests {
@@ -228,8 +228,8 @@ function run_byond_tests {
         ./install-byond.sh || exit 1
         source $HOME/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
     fi
-    run_test_ci "check globals build" "python3 tools/GenerateGlobalVarAccess/gen_globals.py baystation12.dme code/_helpers/global_access.dm"
-    run_test "check globals unchanged" "md5sum -c - <<< '71a518e374f7d7f56aeb71ea7b302343 *code/_helpers/global_access.dm'"
+    run_test_ci "check globals build" "python3 tools/GenerateGlobalVarAccess/gen_globals.py baystation12.dme src/code/_helpers/global_access.dm"
+    run_test "check globals unchanged" "md5sum -c - <<< '71a518e374f7d7f56aeb71ea7b302343 *src/code/_helpers/global_access.dm'"
     run_test "build map unit tests" "scripts/dm.sh -DUNIT_TEST -M$MAP_PATH baystation12.dme"
     run_test "check no warnings in build" "grep ', 0 warnings' build_log.txt"
     run_test "run unit tests" "DreamDaemon baystation12.dmb -invisible -trusted -core 2>&1 | tee log.txt"

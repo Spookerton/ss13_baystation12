@@ -9,7 +9,7 @@ if(not path.isdir(args.dir)):
 	print('Not a directory')
 	sys.exit(1)
 
-exceptions = [('code/modules/hydroponics/grown.dm', 'desc = "A"')]
+exceptions = [('src/code/modules/hydroponics/grown.dm', 'desc = "A"')]
 end_desc_exceptions = ['."', '?"', '!"', ')"', ']"', '.</I>"', '!</I>"', '.</i>"', '?</i>"', '!\'</i>"', '.\'</i>"', '~"', '.</b>"', '"', '\"']
 found_bad_descriptions = False
 

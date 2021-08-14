@@ -1,3 +1,3 @@
 @echo off
-call python color-hex-checker.py ../..
+call python color-hex-checker.py ../../src
 pause
