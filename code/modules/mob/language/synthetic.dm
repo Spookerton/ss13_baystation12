@@ -9,6 +9,7 @@
 	flags = RESTRICTED | HIVEMIND
 	shorthand = "N/A"
 	var/drone_only
+	accent = /decl/accent/none
 
 /datum/language/binary/broadcast(mob/living/speaker,message,speaker_mask)
 
