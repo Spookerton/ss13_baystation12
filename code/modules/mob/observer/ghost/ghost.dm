@@ -2,6 +2,7 @@ var/global/list/image/ghost_darkness_images = list() //this is a list of images 
 var/global/list/image/ghost_sightless_images = list() //this is a list of images for things ghosts should still be able to see even without ghost sight
 
 /mob/observer/ghost
+	movable_flags = MOVABLE_FLAG_PROXMOVE | MOVABLE_FLAG_HEARER
 	name = "ghost"
 	desc = "It's a g-g-g-g-ghooooost!" //jinkies!
 	icon = 'icons/mob/mob.dmi'

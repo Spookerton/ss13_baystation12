@@ -849,6 +849,7 @@
 	activate_pin(2)
 
 /obj/item/integrated_circuit/input/microphone
+	movable_flags = MOVABLE_FLAG_HEARER
 	name = "microphone"
 	desc = "Useful for spying on people, or for voice-activated machines."
 	extended_desc = "This will automatically translate most human languages to Zurich Accord Common. \

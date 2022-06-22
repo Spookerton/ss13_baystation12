@@ -1,4 +1,5 @@
 /obj/item/device/radio
+	movable_flags = MOVABLE_FLAG_HEARER
 	icon = 'icons/obj/radio.dmi'
 	name = "shortwave radio"
 	suffix = "\[3\]"

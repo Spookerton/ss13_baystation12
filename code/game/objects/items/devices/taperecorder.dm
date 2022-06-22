@@ -1,4 +1,5 @@
 /obj/item/device/taperecorder
+	movable_flags = MOVABLE_FLAG_HEARER
 	name = "universal recorder"
 	desc = "A device that can record to cassette tapes, and play them. It automatically translates the content in playback."
 	icon = 'icons/obj/tape_recorder.dmi'

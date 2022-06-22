@@ -1,4 +1,5 @@
 /mob/living
+	movable_flags = MOVABLE_FLAG_PROXMOVE | MOVABLE_FLAG_HEARER
 	see_in_dark = 2
 	see_invisible = SEE_INVISIBLE_LIVING
 	waterproof = FALSE
