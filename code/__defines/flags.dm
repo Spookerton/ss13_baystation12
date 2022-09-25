@@ -47,6 +47,7 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define ITEM_FLAG_CAN_HIDE_IN_SHOES         FLAG(14) // Items that can be hidden in shoes that permit it
 #define ITEM_FLAG_WASHER_ALLOWED            FLAG(15) // Items that can be washed in washing machines
 #define ITEM_FLAG_TRY_ATTACK                FLAG(16) // Use the item's attack() when set before trying the receiver's attackby()
+#define ITEM_FLAG_PRESERVE_ON_DESPAWN       FLAG(17)
 
 // Flags for pass_flags.
 #define PASS_FLAG_TABLE     FLAG(0)
