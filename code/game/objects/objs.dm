@@ -16,9 +16,122 @@
 	var/anchor_fall = FALSE
 	var/holographic = 0 //if the obj is a holographic object spawned by the holodeck
 
+
+	/**
+	* A mixed flags and scalar field describing how to initialize object reagents. Any value below the
+	* 17th bit is considered part of the volume of the reagents datum to be created. Higher bits are
+	* reserved for flags. This means that explicitly set reagents volumes may range from 1 to 65535.
+	* The reagents var will be nulled for cleanliness and an error produced when:
+	* - This field is EMPTY_BITFIELD (0) and reagents is not already null.
+	* - This field and the initial reagents list makes a valid initial reagents datum impossible.
+	* Setting this field is expected to be done like <volume> | <flags ...>, where both are optional.
+	* eg: (120) or (60 | REAGENTS_LAZY) or (REAGENTS_FIT)
+	*/
+	var/reagents_init = EMPTY_BITFIELD
+
+	/// Causes initially added reagents to not be mixed during initialization.
+	var/const/REAGENTS_INIT_LAZY = FLAG(23)
+
+	/// Causes the reagents volume to resize if not large enough for the initial reagents.
+	var/const/REAGENTS_INIT_FIT = FLAG(22)
+
+	/// Map of (type = TRUE): Avoids spamming invalid configuration errors.
+	var/static/list/obj/invalid_reagents_configurations = list()
+
+
 /obj/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	return ..()
+
+
+/obj/Initialize()
+	. = ..()
+	if (isnull(temperature_coefficient))
+		temperature_coefficient = clamp(MAX_TEMPERATURE_COEFFICIENT - w_class, MIN_TEMPERATURE_COEFFICIENT, MAX_TEMPERATURE_COEFFICIENT)
+	if (!reagents_init)
+		if (reagents)
+			HandleInvalidReagentsConfiguration("A")
+		return
+	InitializeReagents()
+
+
+/// Convenience thing for handling InitializeReagents failures
+/obj/proc/HandleInvalidReagentsConfiguration(condition)
+	QDEL_NULL(reagents)
+	var/key = "[condition]-[type]"
+	if (invalid_reagents_configurations[key])
+		return
+	invalid_reagents_configurations[key] = TRUE
+	log_error("Invalid Reagents Configuration ([condition]): [type]")
+
+
+/**
+* Initializes reagents according to reagents_init and reagents.
+* Skips /datum/reagents procs to maximize performance. Dragons?
+*
+* When reagents is a reagent path, fills reagents to volume with that reagent.
+* When reagents is a map, assumes the keys are reagent paths to add.
+* - When a value is a number, adds that amount of the reagent.
+* - When the value is a list, adds the FIRST entry as amount and OTHERS as data.
+*
+* eg:
+* reagents = /datum/reagent/water
+* reagents = list(/datum/reagent/water = 30)
+* reagents = list(/datum/reagent/blood = list(30, "blood_type" = "O-"))
+*/
+/obj/proc/InitializeReagents()
+	var/volume = reagents_init & 0xFFFF
+	var/restrict_volume = !HAS_FLAGS(reagents_init, REAGENTS_INIT_FIT)
+	if (!volume)
+		if (restrict_volume)
+			HandleInvalidReagentsConfiguration("B")
+			return
+		if (!islist(reagents))
+			HandleInvalidReagentsConfiguration("C")
+			return
+	var/list/datum/reagent/initial_reagents = reagents
+	reagents = new (volume, src)
+	if (isnull(initial_reagents))
+		return
+	if (ispath(initial_reagents, /datum/reagent)) // Shortcut; single simple reagent to a fixed max volume.
+		var/datum/reagent/reagent = new initial_reagents (reagents)
+		reagent.volume = volume
+		reagents.total_volume = volume
+		reagents.reagent_list += reagent
+	else if (islist(initial_reagents))
+		for (var/datum/reagent/reagent as anything in initial_reagents)
+			if (!ispath(reagent, /datum/reagent))
+				HandleInvalidReagentsConfiguration("E")
+				return
+			var/list/reagent_volume = initial_reagents[reagent] // Convenience typing for when compounded with data.
+			var/list/reagent_data
+			if (!isnum(reagent_volume))
+				if (islist(reagent_volume))
+					reagent_data = reagent_volume.Copy(2)
+					reagent_volume = reagent_volume[1]
+					if (!isnum(reagent_volume))
+						HandleInvalidReagentsConfiguration("F")
+						return
+				else
+					HandleInvalidReagentsConfiguration("G")
+					return
+			if (restrict_volume && reagents.total_volume + reagent_volume > volume)
+				HandleInvalidReagentsConfiguration("H")
+				return
+			reagent = new reagent (reagents)
+			if (reagent_data)
+				reagent.data = reagent_data
+			reagent.volume = reagent_volume
+			reagents.total_volume += reagent_volume
+			reagents.reagent_list += reagent
+		if (reagents.total_volume > volume) // Resize to fit. We can't get here without allowing it anyway.
+			reagents.maximum_volume = reagents.total_volume
+	else
+		HandleInvalidReagentsConfiguration("D")
+		return
+	if (!HAS_FLAGS(reagents_init, REAGENTS_INIT_LAZY))
+		HANDLE_REACTIONS(src)
+	on_reagent_change()
 
 
 /obj/assume_air(datum/gas_mixture/giver)

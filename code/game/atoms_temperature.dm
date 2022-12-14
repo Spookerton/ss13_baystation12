@@ -54,6 +54,3 @@
 	else
 		temperature = adjust_temp
 		return PROCESS_KILL
-
-#undef MIN_TEMPERATURE_COEFFICIENT
-#undef MAX_TEMPERATURE_COEFFICIENT
