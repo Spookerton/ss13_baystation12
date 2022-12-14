@@ -1,6 +1,3 @@
-#define MIN_TEMPERATURE_COEFFICIENT 1
-#define MAX_TEMPERATURE_COEFFICIENT 10
-
 /// Float. The atom's current temperature.
 /atom/var/temperature = T20C
 /// Float. Multiplier used to determine how much temperature can change/transfer to this atom when a temperature change proc is called. See `ProcessAtomTemperature()` and `/obj/proc/HandleObjectHeating()`. Should be a value between `MIN_TEMPERATURE_COEFFICIENT` and `MAX_TEMPERATURE_COEFFICIENT`.
@@ -15,10 +12,6 @@
 /mob/temperature_coefficient = null
 
 /turf/temperature_coefficient = MIN_TEMPERATURE_COEFFICIENT
-
-/obj/Initialize()
-	. = ..()
-	temperature_coefficient = isnull(temperature_coefficient) ? clamp(MAX_TEMPERATURE_COEFFICIENT - w_class, MIN_TEMPERATURE_COEFFICIENT, MAX_TEMPERATURE_COEFFICIENT) : temperature_coefficient
 
 /obj/proc/HandleObjectHeating(obj/item/heated_by, mob/user, adjust_temp)
 	if(ATOM_IS_TEMPERATURE_SENSITIVE(src))

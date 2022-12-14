@@ -222,3 +222,11 @@
 		for(var/datum/reagent/R in reagents.reagent_list)
 			R.ex_act(src, severity)
 	..()
+
+/obj/item/reagent_containers/Value()
+	. = ..()
+	if(reagents)
+		for(var/a in reagents.reagent_list)
+			var/datum/reagent/reg = a
+			. += reg.Value() * reg.volume
+	. = round(.)
