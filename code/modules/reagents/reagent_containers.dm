@@ -9,26 +9,22 @@
 	var/volume = 30
 	var/label_text
 
-/obj/item/reagent_containers/proc/cannot_interact(mob/user)
-	if(!CanPhysicallyInteract(user))
-		to_chat(usr, SPAN_NOTICE("You're in no condition to do that!'"))
-		return TRUE
-	if(ismob(loc) && loc != user)
-		to_chat(usr, SPAN_NOTICE("You can't set transfer amounts while [src] is being held by someone else."))
-		return TRUE
-	return FALSE
 
-/obj/item/reagent_containers/verb/set_amount_per_transfer_from_this()
-	set name = "Set transfer amount"
-	set category = "Object"
-	set src in range(1)
-	if (cannot_interact(usr))
+/obj/proc/ActionSetReagentsTransferAmount()
+	set name = "Set Transfer Amount"
+	set category = null
+	set src in usr
+	var/mob/living/user = usr
+	if (PreventInteraction(user, src))
 		return
-	var/N = input("Amount per transfer from this:","[src]") as null|anything in cached_number_list_decode(possible_transfer_amounts)
-	if (cannot_interact(usr)) // because input takes time and the situation can change
+	var/list/options = cached_number_list_decode(possible_transfer_amounts)
+	var/response = input(user, "Set Transfer Amount:", null, amount_per_transfer_from_this) as null | anything in options
+	if (isnull(response) || !(response in options))
 		return
-	if(N)
-		amount_per_transfer_from_this = N
+	if (PreventInteraction(user, src))
+		return
+	amount_per_transfer_from_this = response
+
 
 /obj/item/reagent_containers/New()
 	create_reagents(volume)
