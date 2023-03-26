@@ -436,6 +436,12 @@
 
 	var/static/run_empty_levels = FALSE
 
+	var/static/topic_secret
+
+	var/static/topic_allow_json
+
+	var/static/topic_allow_params
+
 
 /datum/configuration/New()
 	load_config()
@@ -855,6 +861,12 @@
 				run_empty_levels = TRUE
 			if ("warn_if_staff_same_ip")
 				warn_if_staff_same_ip = TRUE
+			if ("topic_secret")
+				topic_secret = value
+			if ("topic_allow_json")
+				topic_allow_json = TRUE
+			if ("topic_allow_params")
+				topic_allow_params = TRUE
 			else
 				log_misc("Unknown setting in config/config.txt: '[name]'")
 
