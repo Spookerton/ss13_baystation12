@@ -85,26 +85,17 @@ var/global/datum/announcement/minor/minor_announcement = new(new_sound = 'sound/
 /datum/announcement/proc/NewsCast(message, list/zlevels)
 	if (!message || !islist(zlevels))
 		return
-	var/datum/feed_network/network
-	for (var/datum/feed_network/candidate as anything in news_network)
+	var/datum/news_network/network
+	for (var/datum/news_network/candidate as anything in GLOB.news_networks)
 		if (zlevels[1] in candidate.z_levels)
 			network = candidate
 			break
 	if (!network)
 		return
-	var/datum/feed_channel/channel
-	for (var/datum/feed_channel/candidate as anything in network.network_channels)
-		if (candidate.channel_name == channel_name)
-			channel = candidate
-			break
+	var/datum/news_channel/channel = network.channels[channel_name]
 	if (!channel)
-		channel = new
-		channel.channel_name = channel_name
-		channel.author = announcer
-		channel.locked = TRUE
-		channel.is_admin_channel = TRUE
-		network.network_channels += channel
-	network.SubmitArticle(message, announcer || channel.author, channel_name, null, FALSE, announcement_type)
+		channel = network.CreateChannel(channel_name, announcer, TRUE, FALSE)
+	network.CreateArticle(channel, announcer message)
 
 
 /proc/GetNameAndAssignmentFromId(obj/item/card/id/I)

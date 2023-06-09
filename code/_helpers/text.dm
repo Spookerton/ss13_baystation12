@@ -669,6 +669,17 @@
 			return "North-Northwest"
 
 
+/// Remove symbols from text according to regex
+/proc/text_strip_symbols(text, regex/regex)
+	return replacetext_char(text, regex, "")
+
+
+/// Collapse duplicate whitespace into a single space
+/proc/text_squash_whitespace(text)
+	var/static/regex/regex = regex(@"\s+", "g")
+	return replacetext_char(text, regex, " ")
+
+
 /// Check if thing is an SUID. If other is supplied, check if other matches thing.
 /proc/is_suid(thing, other)
 	var/static/regex/suid_check = regex(@"^~[0-9a-zA-Z]{15}$")

@@ -440,11 +440,6 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	return pick(empty_levels)
 
 /datum/map/proc/setup_economy()
-	for (var/datum/feed_network/N in news_network)
-		N.CreateFeedChannel("Nyx Daily", "SolGov Minister of Information", TRUE, TRUE)
-		N.CreateFeedChannel("The Gibson Gazette", "Editor Mike Hammers", TRUE, TRUE)
-		N.CreateFeedChannel("Official News Bulletin", "Ministry of Solar Enlightenment", TRUE, TRUE, TRUE)
-
 	for(var/loc_type in typesof(/datum/trade_destination) - /datum/trade_destination)
 		var/datum/trade_destination/D = new loc_type
 		weighted_randomevent_locations[D] = length(D.viable_random_events)

@@ -16,7 +16,7 @@
 		os.create_file(new/datum/computer_file/program/crew_manifest())
 		os.create_file(new/datum/computer_file/program/wordprocessor())
 		os.create_file(new/datum/computer_file/program/records())
-		os.create_file(new/datum/computer_file/program/newscast())
+		os.create_file(new/datum/computer_file/program/newsreel())
 		if(prob(50)) //harmless tax software
 			os.create_file(new /datum/computer_file/program/uplink())
 		os.set_autorun("emailc")

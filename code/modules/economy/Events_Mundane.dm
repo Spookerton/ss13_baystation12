@@ -1,6 +1,8 @@
-
 /datum/event/mundane_news
 	endWhen = 10
+	var/datum/news_channel/channel = /datum/news_channel/stock/broadsheet
+	var/author = initial(channel.creator)
+
 
 /datum/event/mundane_news/announce()
 	var/datum/trade_destination/affected_dest = pickweight(weighted_mundaneevent_locations)
@@ -10,11 +12,6 @@
 
 	if(!event_type)
 		return
-
-	var/author = "Nyx Daily"
-	var/channel = author
-
-	//see if our location has custom event info for this event
 	var/body = affected_dest.get_custom_eventstring()
 	if(!body)
 		body = ""
@@ -121,17 +118,17 @@
 				body += "Tourists are flocking to [affected_dest.name] after the surprise announcement of [pick("major shopping bargains by a wily retailer",\
 				"a huge new ARG by a popular entertainment company","a secret tour by popular artiste [random_name(pick(MALE,FEMALE))]")]. \
 				Nyx Daily is offering discount tickets for two to see [random_name(pick(MALE,FEMALE))] live in return for eyewitness reports and up to the minute coverage."
+	for (var/datum/news_network/network as anything in GLOB.news_networks)
+		network.CreateArticle(initial(channel.name), author, body)
 
-	for (var/datum/feed_network/N in news_network)
-		N.SubmitArticle(body, author, channel, null, 1)
 
 /datum/event/trivial_news
 	endWhen = 10
+	var/datum/news_channel/channel = /datum/news_channel/stock/tabloid
+	var/author = "Mike Hammers"
+
 
 /datum/event/trivial_news/announce()
-	var/author = "Editor Mike Hammers"
-	var/channel = "The Gibson Gazette"
-
 	var/datum/trade_destination/affected_dest = pick(weighted_mundaneevent_locations)
 	var/body = pick(
 	"Armadillos want aardvarks removed from dictionary claims 'here first'.",\
@@ -211,5 +208,5 @@
 	"If Tin Whistles Are Made Of Tin, What Do They Make Foghorns Out Of?",\
 	"Broccoli discovered to be colonies of tiny aliens with murder on their minds"\
 	)
-	for (var/datum/feed_network/N in news_network)
-		N.SubmitArticle(body, author, channel, null, 1)
+	for (var/datum/news_network/network as anything in GLOB.news_networks)
+		network.CreateArticle(initial(channel.name), author, body)

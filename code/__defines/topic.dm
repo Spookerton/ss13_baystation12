@@ -1,3 +1,9 @@
 #define TOPIC_NOACTION 0
 #define TOPIC_HANDLED 1
 #define TOPIC_REFRESH 2
+
+#define TOPIC_REF(REF, TEXT, PARAMS) "<a href=\"?src=\ref[REF];[PARAMS]\">[TEXT]</a>"
+
+#define TOPIC_SRC(TEXT, PARAMS) TOPIC_REF(src, TEXT, PARAMS)
+
+#define TOPIC_USR(TEXT, PARAMS) TOPIC_REF(usr, TEXT, PARAMS)
