@@ -20,6 +20,7 @@
 		/obj/item/reagent_containers/food/snacks/sliceable/mushroompizza = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/sliceable/vegetablepizza = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/sliceable/fruitpizza = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/sliceable/chocopizza = TRADER_THIS_TYPE
 	)
 	speech = list(
 		TRADER_HAIL_GENERIC = "Hello! Welcome to ORIGIN, may I take your order?",

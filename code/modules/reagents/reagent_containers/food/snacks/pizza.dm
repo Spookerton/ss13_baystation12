@@ -196,6 +196,48 @@
 	)
 
 
+/obj/item/reagent_containers/food/snacks/sliceable/chocopizza
+	name = "chocolate pizza"
+	desc = "A sinful confection. You probably shouldn't eat the whole thing."
+	icon_state = "chocopizza"
+	slice_path = /obj/item/reagent_containers/food/snacks/slice/chocopizza
+	slices_num = 6
+	center_of_mass = "x=16;y=11"
+	filling_color = "#baa14c"
+	bitesize = 2
+	reagents = list(
+		/datum/reagent/nutriment = list(15, list(
+			"pizza crust" = 10,
+			"chocolate" = 10,
+			"caramel" = 10,
+			"sugar" = 5
+		)),
+		/datum/reagent/drink/syrup_chocolate = 5,
+		/datum/reagent/drink/syrup_caramel = 5,
+		/datum/reagent/sugar = 5
+	)
+
+
+/obj/item/reagent_containers/food/snacks/slice/chocopizza
+	name = "chocolate pizza slice"
+	desc = "A slice of sin."
+	icon_state = "fruitpizzaslice"
+	filling_color = "#baa14c"
+	bitesize = 2
+	center_of_mass = "x=18;y=13"
+	reagents = list(
+		/datum/reagent/nutriment = list(15 / 6, list(
+			"pizza crust" = 10 / 6,
+			"chocolate" = 10 / 6,
+			"caramel" = 10 / 6,
+			"sugar" = 5 / 6
+		)),
+		/datum/reagent/drink/syrup_chocolate = 5 / 6,
+		/datum/reagent/drink/syrup_caramel = 5 / 6,
+		/datum/reagent/sugar = 5 / 6
+	)
+
+
 /obj/item/pizzabox
 	name = "pizza box"
 	desc = "A box suited for pizzas."
@@ -382,3 +424,8 @@
 /obj/item/pizzabox/fruit
 	boxtag = "Fruit Fanatic"
 	pizza = /obj/item/reagent_containers/food/snacks/sliceable/fruitpizza
+
+
+/obj/item/pizzabox/chocolate
+	boxtag = "Candy Catastrophe"
+	pizza = /obj/item/reagent_containers/food/snacks/sliceable/chocopizza

@@ -102,7 +102,8 @@
 		/obj/item/pizzabox/mushroom,
 		/obj/item/pizzabox/meat,
 		/obj/item/pizzabox/vegetable,
-		/obj/item/pizzabox/fruit
+		/obj/item/pizzabox/fruit,
+		/obj/item/pizzabox/chocolate
 	)
 	cost = 15
 	containertype = /obj/structure/closet/crate/freezer
