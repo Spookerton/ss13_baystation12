@@ -34,7 +34,9 @@
 	slices_num = 2
 	bitesize = 1
 	center_of_mass = "x=16;y=16"
-	nutriment_desc = list("soft, slimey flesh" = 10)
+	reagents = list(
+		/datum/reagent/nutriment = list(1, list("soft, slimey flesh" = 10))
+	)
 
 
 /obj/item/reagent_containers/food/snacks/cutlet/bugmeat
@@ -47,7 +49,10 @@
 	slices_num = 2
 	bitesize = 2
 	center_of_mass = "x=16;y=16"
-	nutriment_desc = list("rubbery meat" = 10)
+	reagents = list(
+		/datum/reagent/nutriment = list(2, list("rubbery meat" = 10))
+	)
+
 
 
 /obj/item/reagent_containers/food/snacks/rawbacon/bugmeat
@@ -58,7 +63,9 @@
 	filling_color = "#7bc578"
 	bitesize = 1
 	center_of_mass = "x=16;y=16"
-	nutriment_desc = list("soft, slimey flesh" = 10)
+	reagents = list(
+		/datum/reagent/nutriment = list(1, list("soft, slimey flesh" = 10))
+	)
 
 
 /obj/item/reagent_containers/food/snacks/bacon/bugmeat
@@ -69,7 +76,9 @@
 	filling_color = "#858040"
 	bitesize = 2
 	center_of_mass = "x=16;y=16"
-	nutriment_desc = list("rubbery meat" = 10)
+	reagents = list(
+		/datum/reagent/nutriment = list(2, list("rubbery meat" = 10))
+	)
 
 
 /datum/microwave_recipe/bugmeat_cutlet

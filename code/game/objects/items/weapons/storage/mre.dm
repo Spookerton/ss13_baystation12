@@ -190,7 +190,7 @@ MRE Stuff
 	max_w_class = ITEM_SIZE_SMALL
 	opened = FALSE
 	open_sound = 'sound/effects/bubbles.ogg'
-	startswith = list(/obj/item/reagent_containers/food/snacks/slice/meatpizza/filled)
+	startswith = list(/obj/item/reagent_containers/food/snacks/slice/meatpizza)
 
 /obj/item/storage/mrebag/Initialize()
 	. = ..()
@@ -209,10 +209,10 @@ MRE Stuff
 	. = ..()
 
 /obj/item/storage/mrebag/menu2
-	startswith = list(/obj/item/reagent_containers/food/snacks/slice/margherita/filled)
+	startswith = list(/obj/item/reagent_containers/food/snacks/slice/margherita)
 
 /obj/item/storage/mrebag/menu3
-	startswith = list(/obj/item/reagent_containers/food/snacks/slice/vegetablepizza/filled)
+	startswith = list(/obj/item/reagent_containers/food/snacks/slice/vegetablepizza)
 
 /obj/item/storage/mrebag/menu4
 	startswith = list(/obj/item/reagent_containers/food/snacks/plainburger)
@@ -221,7 +221,7 @@ MRE Stuff
 	startswith = list(/obj/item/reagent_containers/food/snacks/taco)
 
 /obj/item/storage/mrebag/menu6
-	startswith = list(/obj/item/reagent_containers/food/snacks/slice/meatbread/filled)
+	startswith = list(/obj/item/reagent_containers/food/snacks/slice/meatbread)
 
 /obj/item/storage/mrebag/menu7
 	startswith = list(/obj/item/reagent_containers/food/snacks/tossedsalad)

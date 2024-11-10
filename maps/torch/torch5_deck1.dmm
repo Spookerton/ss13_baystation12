@@ -25717,7 +25717,7 @@
 "qLr" = (
 /obj/floor_decal/corner/paleblue/mono,
 /obj/structure/table/standard,
-/obj/item/reagent_containers/food/snacks/lunacake/mooncake,
+/obj/item/reagent_containers/food/snacks/choco_luna_cake,
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22

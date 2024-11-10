@@ -8,20 +8,13 @@
 	var/sushi_type
 
 /obj/item/reagent_containers/food/snacks/sushi/New(newloc, obj/item/reagent_containers/food/snacks/rice, obj/item/reagent_containers/food/snacks/topping)
-
 	..(newloc)
-
 	if(istype(topping))
-		for(var/taste_thing in topping.nutriment_desc)
-			if(!nutriment_desc[taste_thing]) nutriment_desc[taste_thing] = 0
-			nutriment_desc[taste_thing] += topping.nutriment_desc[taste_thing]
-
 		sushi_overlay = topping.sushi_overlay
 		var/image/I = image(icon, sushi_overlay)
 		if(sushi_overlay == "fish" || sushi_overlay == "meat")
 			I.color = topping.filling_color
 		AddOverlays(I)
-
 		if(istype(topping, /obj/item/reagent_containers/food/snacks/sashimi))
 			var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = topping
 			sushi_type = sashimi.fish_type
@@ -31,22 +24,20 @@
 				sushi_type = trimtext(copytext(sushi_type, 4))
 		if(topping.reagents)
 			topping.reagents.trans_to(src, topping.reagents.total_volume)
-
 		var/mob/M = topping.loc
 		if(istype(M)) M.drop_from_inventory(topping)
 		qdel(topping)
-
 	else
 		var/image/I = image(icon, sushi_overlay)
 		I.color = "#ff4040"
 		AddOverlays(I)
-
 	if(istype(rice))
 		if(rice.reagents)
 			rice.reagents.trans_to(src, 1)
 		if(!rice.reagents || !rice.reagents.total_volume)
 			var/mob/M = rice.loc
-			if(istype(M)) M.drop_from_inventory(rice)
+			if(istype(M))
+				M.drop_from_inventory(rice)
 			qdel(rice)
 	update_icon()
 

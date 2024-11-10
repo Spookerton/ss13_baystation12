@@ -1,37 +1,15 @@
 /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel
 	abstract_type = /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel
-	name = "parent cheese wheel"
-	desc = "A wheel of impossible dreams."
-	icon_state = "cheesewheel"
 	slice_path = /obj/item/reagent_containers/food/snacks/cheesewedge
 	slices_num = 5
-	filling_color = "#fff700"
+	bitesize = 10
 	center_of_mass = "x=16;y=10"
-	nutriment_amt = 10
-	bitesize = 2
-
-
-/obj/item/reagent_containers/food/snacks/sliceable/cheesewheel/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 10)
 
 
 /obj/item/reagent_containers/food/snacks/cheesewedge
 	abstract_type = /obj/item/reagent_containers/food/snacks/cheesewedge
-	name = "parent cheese wedge"
-	desc = "A slice of impossible dreams."
-	icon_state = "cheesewedge"
-	filling_color = "#fff700"
 	bitesize = 2
 	center_of_mass = "x=16;y=10"
-
-
-/obj/item/reagent_containers/food/snacks/cheesewedge/Initialize()
-	. = ..()
-	if (!reagents.has_reagent(/datum/reagent/nutriment))
-		reagents.add_reagent(/datum/reagent/nutriment, 2, nutriment_desc)
-	if (!reagents.has_reagent(/datum/reagent/nutriment/protein))
-		reagents.add_reagent(/datum/reagent/nutriment/protein, 2)
 
 
 /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel/fresh
@@ -39,8 +17,11 @@
 	desc = "A wheel of soft, fresh cheese."
 	icon_state = "cheesewheel-fresh"
 	filling_color = "#fffddd"
-	nutriment_desc = list("mild cheese" = 10)
 	slice_path = /obj/item/reagent_containers/food/snacks/cheesewedge/fresh
+	reagents = list(
+		/datum/reagent/nutriment = list(10, list("mild cheese" = 10)),
+		/datum/reagent/nutriment/protein = 10
+	)
 
 
 /obj/item/reagent_containers/food/snacks/cheesewedge/fresh
@@ -48,29 +29,35 @@
 	desc = "A wedge of soft, fresh cheese."
 	icon_state = "cheesewedge-fresh"
 	filling_color = "#fffddd"
-	nutriment_desc = list("mild cheese" = 10)
-
-
-/obj/item/reagent_containers/food/snacks/cheesewedge/fresh/Initialize()
-	. = ..()
-
+	reagents = list(
+		/datum/reagent/nutriment = list(10 / 5, list("mild cheese" = 10 / 5)),
+		/datum/reagent/nutriment/protein = 10 / 5
+	)
 
 
 /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel/aged
 	name = "aged cheese wheel"
 	desc = "A wheel of firm, sharp cheese."
+	icon_state = "cheesewheel"
 	filling_color = "#fff700"
-	nutriment_desc = list("sharp cheese" = 10)
 	slice_path = /obj/item/reagent_containers/food/snacks/cheesewedge/aged
 	scent_extension = /datum/extension/scent/cheese_aged
+	reagents = list(
+		/datum/reagent/nutriment = list(10, list("sharp cheese" = 10)),
+		/datum/reagent/nutriment/protein = 10
+	)
 
 
 /obj/item/reagent_containers/food/snacks/cheesewedge/aged
 	name = "aged cheese wedge"
 	desc = "A wedge of firm, sharp cheese."
+	icon_state = "cheesewedge"
 	filling_color = "#fff700"
-	nutriment_desc = list("sharp cheese" = 10)
 	scent_extension = /datum/extension/scent/cheese_aged
+	reagents = list(
+		/datum/reagent/nutriment = list(10 / 5, list("sharp cheese" = 10 / 5)),
+		/datum/reagent/nutriment/protein = 10 / 5
+	)
 
 
 /datum/extension/scent/cheese_aged
@@ -107,9 +94,12 @@
 	desc = "A wheel of intense blue cheese."
 	icon_state = "cheesewheel-blue"
 	filling_color = "#9eee86"
-	nutriment_desc = list("funky cheese" = 10)
 	slice_path = /obj/item/reagent_containers/food/snacks/cheesewedge/blue
 	scent_extension = /datum/extension/scent/cheese_blue
+	reagents = list(
+		/datum/reagent/nutriment = list(10, list("funky cheese" = 10)),
+		/datum/reagent/nutriment/protein = 10
+	)
 
 
 /obj/item/reagent_containers/food/snacks/cheesewedge/blue
@@ -117,8 +107,11 @@
 	desc = "A wedge of intense blue cheese."
 	icon_state = "cheesewedge-blue"
 	filling_color = "#9eee86"
-	nutriment_desc = list("funky cheese" = 10)
 	scent_extension = /datum/extension/scent/cheese_blue
+	reagents = list(
+		/datum/reagent/nutriment = list(10 / 5, list("funky cheese" = 10 / 5)),
+		/datum/reagent/nutriment/protein = 10 / 5
+	)
 
 
 /datum/extension/scent/cheese_blue

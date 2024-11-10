@@ -1,10 +1,3 @@
-/**
-* Donk Pockets are a food item that is a reference to a mass market
-* brand of turnovers. They come with various "fillings" and can be
-* cooked (or self-heat in some cases) to cause them to temporarily
-* become more useful.
-*/
-
 /obj/item/reagent_containers/food/snacks/donkpocket
 	abstract_type = /obj/item/reagent_containers/food/snacks/donkpocket
 	name = "donk-pocket"
@@ -12,11 +5,6 @@
 	filling_color = "#dedeab"
 	center_of_mass = "x=16;y=10"
 	bitesize = 3
-	nutriment_amt = 2
-	nutriment_desc = list(
-		"heartiness" = 1,
-		"dough" = 2
-	)
 
 	/// Whether the donk pocket is currently hot. Hot donk pockets have additional reagents
 	var/is_hot = FALSE
@@ -27,21 +15,10 @@
 	/// Whether the donk pocket was heated up already. Reheating does not re-add the extra reagents.
 	var/was_heated = FALSE
 
-	/// The reagents to be added to the donk pocket when it is made hot (and removed when made cold)
+	/// Reagents to be added to the donk pocket when it is made hot (and removed when made cold)
 	var/list/hot_reagents = list(
 		/datum/reagent/tricordrazine = 5
 	)
-
-	/// The reagents to be added to the donk pocket when it is initialized
-	var/list/filling_options
-
-
-/obj/item/reagent_containers/food/snacks/donkpocket/Initialize()
-	. = ..()
-	if (. == INITIALIZE_HINT_QDEL)
-		return
-	if (filling_options)
-		SetInitialReagents(filling_options)
 
 
 /obj/item/reagent_containers/food/snacks/donkpocket/OnConsume(mob/living/consumer, mob/living/feeder)
@@ -104,68 +81,49 @@
 		reagents.del_reagent(reagent)
 
 
-/obj/item/reagent_containers/food/snacks/donkpocket/proc/SetInitialReagents(list/options, amount = 3)
-	var/list/entry = pick(options)
-	if (!islist(entry))
-		reagents.add_reagent(entry, amount)
-		return
-	var/sub_amount = amount / length(entry)
-	for (var/reagent in entry)
-		reagents.add_reagent(reagent, sub_amount)
-
-
-
-
 /obj/item/reagent_containers/food/snacks/donkpocket/protein
 	name = "protein donk-pocket"
 	desc = "A mass produced shelf-stable turnover. Allegedly contains mixed meat product."
-	filling_options = list(
-		/datum/reagent/nutriment/protein,
-		/datum/reagent/drink/porksoda
+	reagents = list(
+		/datum/reagent/nutriment = list(2, list("heartiness" = 1, "dough" = 2)),
+		/datum/reagent/nutriment/protein = 1,
+		/datum/reagent/drink/porksoda = 1
 	)
 
 
 /obj/item/reagent_containers/food/snacks/donkpocket/vegetable
 	name = "vegetable donk-pocket"
 	desc = "A mass produced shelf-stable turnover. Allegedly contains plant based nutrients."
-	filling_options = list(
-		list(
-			/datum/reagent/drink/juice/potato,
-			/datum/reagent/drink/juice/onion,
-			/datum/reagent/drink/juice/tomato
-		),
-		/datum/reagent/drink/juice/potato,
-		/datum/reagent/drink/juice/turnip,
-		/datum/reagent/drink/juice/cabbage,
-		/datum/reagent/drink/milk/soymilk
+	reagents = list(
+		/datum/reagent/nutriment = list(2, list("heartiness" = 1, "dough" = 2)),
+		/datum/reagent/drink/juice/potato = 1,
+		/datum/reagent/drink/juice/turnip = 1,
+		/datum/reagent/drink/juice/cabbage = 1,
+		/datum/reagent/drink/milk/soymilk = 1
 	)
 
 
 /obj/item/reagent_containers/food/snacks/donkpocket/fruit
 	name = "fruit donk-pocket"
 	desc = "A mass produced shelf-stable turnover. Allegedly contains fruit derivatives."
-	filling_options = list(
-		/datum/reagent/drink/juice/apple,
-		/datum/reagent/drink/juice/berry,
-		/datum/reagent/drink/juice/melon,
-		/datum/reagent/drink/juice/orange,
-		/datum/reagent/drink/coconut
+	reagents = list(
+		/datum/reagent/nutriment = list(2, list("heartiness" = 1, "dough" = 2)),
+		/datum/reagent/drink/juice/apple = 1,
+		/datum/reagent/drink/juice/berry = 1,
+		/datum/reagent/drink/juice/melon = 1,
+		/datum/reagent/drink/juice/orange = 1
 	)
 
 
 /obj/item/reagent_containers/food/snacks/donkpocket/dessert
 	name = "dessert donk-pocket"
 	desc = "A mass produced shelf-stable turnover. Allegedly contains unnatural delights."
-	filling_options = list(
-		/datum/reagent/drink/milk/chocolate,
-		/datum/reagent/drink/milk/cream,
-		/datum/reagent/drink/coffee/soy_latte/mocha,
-		/datum/reagent/drink/coffee/soy_latte/pumpkin,
-		/datum/reagent/drink/milkshake,
-		/datum/reagent/drink/maplesyrup,
-		/datum/reagent/drink/kiraspecial,
-		/datum/reagent/cinnamon,
-		/datum/reagent/drink/kefir
+	reagents = list(
+		/datum/reagent/nutriment = list(2, list("heartiness" = 1, "dough" = 2)),
+		/datum/reagent/drink/milk/chocolate = 1,
+		/datum/reagent/drink/milk/cream = 1,
+		/datum/reagent/drink/maplesyrup = 1,
+		/datum/reagent/cinnamon = 1
 	)
 
 
@@ -174,18 +132,14 @@
 	desc = "A \"premium\" shelf-stable turnover. Possibly contains \"real\" fruit paste. Crush the packaging to cook it on the go!"
 	filling_color = "#6d6d00"
 	can_self_heat = TRUE
-	nutriment_amt = 4
-	nutriment_desc = list(
-		"nutritious goodness" = 1,
-		"flaky pastry" = 2
+	reagents = list(
+		/datum/reagent/nutriment = list(4, list("nutritious goodness" = 1, "flaky pastry" = 2))
 	)
 	hot_reagents = list(
 		/datum/reagent/drink/doctor_delight = 4,
 		/datum/reagent/hyperzine = 0.5,
 		/datum/reagent/synaptizine = 0.1
 	)
-
-
 
 
 /obj/random/donkpocket
@@ -203,8 +157,6 @@
 		/obj/item/reagent_containers/food/snacks/donkpocket/dessert = 5,
 		/obj/item/reagent_containers/food/snacks/donkpocket/premium = 1
 	)
-
-
 
 
 /obj/item/storage/box/donkpocket_protein
@@ -260,8 +212,6 @@
 	startswith = list(
 		/obj/random/donkpocket = 6
 	)
-
-
 
 
 /obj/random/donkpocket_box

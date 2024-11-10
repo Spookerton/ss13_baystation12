@@ -530,7 +530,7 @@
 	required_produce = list(
 		"tomato" = 1
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/sliceable/pizza/margherita
+	result_path = /obj/item/reagent_containers/food/snacks/sliceable/margherita
 
 
 /datum/microwave_recipe/meatpizza
@@ -543,7 +543,7 @@
 	required_produce = list(
 		"tomato" = 1
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/sliceable/pizza/meatpizza
+	result_path = /obj/item/reagent_containers/food/snacks/sliceable/meatpizza
 
 
 /datum/microwave_recipe/mushroompizza
@@ -555,7 +555,7 @@
 		"mushroom" = 5,
 		"tomato" = 1
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/sliceable/pizza/mushroompizza
+	result_path = /obj/item/reagent_containers/food/snacks/sliceable/mushroompizza
 
 
 /datum/microwave_recipe/vegetablepizza
@@ -569,7 +569,7 @@
 		"corn" = 1,
 		"tomato" = 1
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza
+	result_path = /obj/item/reagent_containers/food/snacks/sliceable/vegetablepizza
 
 
 /datum/microwave_recipe/fruitpizza
@@ -585,7 +585,7 @@
 		"banana" = 1,
 		"blueberries" = 1
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/sliceable/pizza/fruitpizza
+	result_path = /obj/item/reagent_containers/food/snacks/sliceable/fruitpizza
 
 
 /datum/microwave_recipe/spacylibertyduff
@@ -862,17 +862,17 @@
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/slice/bread
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/jelliedtoast/slime
+	result_path = /obj/item/reagent_containers/food/snacks/slimetoast
 
 
-/datum/microwave_recipe/jelliedtoast
+/datum/microwave_recipe/cherrytoast
 	required_reagents = list(
 		/datum/reagent/nutriment/cherryjelly = 5
 	)
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/slice/bread
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/jelliedtoast/cherry
+	result_path = /obj/item/reagent_containers/food/snacks/cherrytoast
 
 
 /datum/microwave_recipe/pbtoast
@@ -940,9 +940,20 @@
 
 /datum/microwave_recipe/chazuke
 	required_reagents = list(
-		/datum/reagent/nutriment/rice/chazuke = 10
+		/datum/reagent/nutriment/rice = 10,
+		/datum/reagent/drink/tea/green = 10
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/boiledrice/chazuke
+	result_path = /obj/item/reagent_containers/food/snacks/chazuke
+
+
+/datum/microwave_recipe/chazuke2
+	required_reagents = list(
+		/datum/reagent/drink/tea/green = 5
+	)
+	required_items = list(
+		/obj/item/reagent_containers/food/snacks/boiledrice
+	)
+	result_path = /obj/item/reagent_containers/food/snacks/chazuke
 
 
 /datum/microwave_recipe/katsucurry
@@ -1076,17 +1087,17 @@
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/bun
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/jellyburger/slime
+	result_path = /obj/item/reagent_containers/food/snacks/slimeburger
 
 
-/datum/microwave_recipe/jellyburger
+/datum/microwave_recipe/cherryburger
 	required_reagents = list(
 		/datum/reagent/nutriment/cherryjelly = 5
 	)
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/bun
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/jellyburger/cherry
+	result_path = /obj/item/reagent_containers/food/snacks/cherryburger
 
 
 /datum/microwave_recipe/twobread
@@ -1116,7 +1127,7 @@
 		/obj/item/reagent_containers/food/snacks/slice/bread,
 		/obj/item/reagent_containers/food/snacks/slice/bread
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/jellysandwich/slime
+	result_path = /obj/item/reagent_containers/food/snacks/slimesandwich
 
 
 /datum/microwave_recipe/cherrysandwich
@@ -1127,10 +1138,10 @@
 		/obj/item/reagent_containers/food/snacks/slice/bread,
 		/obj/item/reagent_containers/food/snacks/slice/bread
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/jellysandwich/cherry
+	result_path = /obj/item/reagent_containers/food/snacks/cherrysandwich
 
 
-/datum/microwave_recipe/pbjsandwich_cherry
+/datum/microwave_recipe/cherrypbj
 	required_reagents = list(
 		/datum/reagent/nutriment/cherryjelly = 5,
 		/datum/reagent/nutriment/peanutbutter = 5
@@ -1139,10 +1150,10 @@
 		/obj/item/reagent_containers/food/snacks/slice/bread,
 		/obj/item/reagent_containers/food/snacks/slice/bread
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/pbjsandwich/cherry
+	result_path = /obj/item/reagent_containers/food/snacks/cherrypbj
 
 
-/datum/microwave_recipe/pbjsandwich_slime
+/datum/microwave_recipe/slimepbj
 	required_reagents = list(
 		/datum/reagent/slimejelly = 5,
 		/datum/reagent/nutriment/peanutbutter = 5
@@ -1151,7 +1162,7 @@
 		/obj/item/reagent_containers/food/snacks/slice/bread,
 		/obj/item/reagent_containers/food/snacks/slice/bread
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/pbjsandwich/slime
+	result_path = /obj/item/reagent_containers/food/snacks/slimepbj
 
 
 /datum/microwave_recipe/bloodsoup

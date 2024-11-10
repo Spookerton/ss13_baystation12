@@ -166,14 +166,15 @@
 	icon_state = "checker_black"
 	w_class = ITEM_SIZE_TINY
 	center_of_mass = "x=16;y=16"
-	nutriment_desc = list("a choking hazard" = 4)
-	nutriment_amt = 1
 	var/piece_color ="black"
+	reagents = list(
+		/datum/reagent/nutriment/cornoil = list(1, list("a choking hazard" = 4))
+	)
 
-/obj/item/reagent_containers/food/snacks/checker/New()
-	..()
+/obj/item/reagent_containers/food/snacks/checker/Initialize()
+	. = ..()
 	icon_state = "[name]_[piece_color]"
-	name = "[piece_color] [name]"
+	SetName("[piece_color] [name]")
 
 /obj/item/reagent_containers/food/snacks/checker/red
 	piece_color ="red"

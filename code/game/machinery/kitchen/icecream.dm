@@ -190,11 +190,13 @@
 /obj/item/reagent_containers/food/snacks/icecream
 	name = "ice cream cone"
 	desc = "Delicious waffle cone, but no ice cream."
-	icon_state = "icecream_cone_waffle" //default for admin-spawned cones, href_list["cone"] should overwrite this all the time
+	icon_state = "icecream_cone_waffle"
 	layer = ABOVE_OBJ_LAYER
-	bitesize = 3
+	bitesize = 2
 	volume = 20
-	nutriment_amt = 5
+	reagents = list(
+		/datum/reagent/nutriment/protein = list(4, list("icecream" = 4))
+	)
 
 	var/ice_creamed = 0
 	var/cone_type
