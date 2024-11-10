@@ -9,6 +9,16 @@
 	var/volume = 30
 	var/label_text
 
+
+/obj/item/reagent_containers/Initialize()
+	. = ..()
+	var/initial_reagents = reagents
+	reagents = null
+	create_reagents(volume, initial_reagents)
+	if (!possible_transfer_amounts)
+		verbs -= /obj/item/reagent_containers/verb/set_amount_per_transfer_from_this
+
+
 /obj/item/reagent_containers/proc/cannot_interact(mob/user)
 	if(!CanPhysicallyInteract(user))
 		to_chat(usr, SPAN_NOTICE("You're in no condition to do that!'"))
@@ -29,15 +39,6 @@
 		return
 	if(N)
 		amount_per_transfer_from_this = N
-
-/obj/item/reagent_containers/New()
-	create_reagents(volume)
-	..()
-	if(!possible_transfer_amounts)
-		src.verbs -= /obj/item/reagent_containers/verb/set_amount_per_transfer_from_this
-
-/obj/item/reagent_containers/attack_self(mob/user as mob)
-	return
 
 /obj/item/reagent_containers/proc/reagentlist() // For attack logs
 	if(reagents)

@@ -20,7 +20,7 @@
 /obj/item/reagent_containers/chem_disp_cartridge/medium
 	volume = CARTRIDGE_VOLUME_MEDIUM
 
-/obj/item/reagent_containers/chem_disp_cartridge/New()
+/obj/item/reagent_containers/chem_disp_cartridge/Initialize()
 	. = ..()
 	if(spawn_reagent)
 		reagents.add_reagent(spawn_reagent, volume)

@@ -525,14 +525,22 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
  *
  * **Parameters**:
  * - `max_vol` integer - The maximum volume of the new reagents holder.
+ * - `initial_reagents` list - If set, a list of reagents to immediately add to the new reagents holder.
  *
  * Returns instance of `/datum/reagents`. The newly created reagents holder or, if the atom already had a holder, the
  * pre-existing holder.
  */
-/atom/proc/create_reagents(max_vol)
-	if(reagents)
+/atom/proc/create_reagents(max_vol, list/initial_reagents)
+	if (reagents)
 		log_debug("Attempted to create a new reagents holder when already referencing one: [log_info_line(src)]")
 		reagents.maximum_volume = max(reagents.maximum_volume, max_vol)
-	else
-		reagents = new/datum/reagents(max_vol, src)
+		return reagents
+	reagents = new (max_vol, src)
+	var/list/details
+	for (var/reagent in initial_reagents)
+		details = initial_reagents[reagent]
+		if (islist(details))
+			reagents.add_reagent(reagent, details[1], details[2])
+		else
+			reagents.add_reagent(reagent, details)
 	return reagents
