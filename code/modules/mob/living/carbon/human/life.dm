@@ -547,13 +547,16 @@
 	var/datum/reagents/metabolism/ingested = get_ingested_reagents()
 
 	if(reagents)
-		if(touching) touching.metabolize()
-		if(bloodstr) bloodstr.metabolize()
-		if(ingested) metabolize_ingested_reagents()
+		if(touching)
+			touching.metabolize()
+		var/datum/reagents/metabolism/bloodstream = reagents
+		bloodstream.metabolize()
+		if(ingested)
+			metabolize_ingested_reagents()
 
 	// Trace chemicals
 	for(var/T in chem_doses)
-		if(bloodstr?.has_reagent(T) || ingested?.has_reagent(T) || touching?.has_reagent(T))
+		if(reagents?.has_reagent(T) || ingested?.has_reagent(T) || touching?.has_reagent(T))
 			continue
 		var/datum/reagent/R = T
 		chem_doses[T] -= initial(R.metabolism)*2

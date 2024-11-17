@@ -35,9 +35,9 @@
 //Makes a blood drop, leaking amt units of blood from the mob
 /mob/living/carbon/human/proc/drip(amt, tar = src, ddir)
 	if(remove_blood(amt))
-		if(bloodstr.total_volume && vessel.total_volume)
-			var/chem_share = round(0.3 * amt * (bloodstr.total_volume/vessel.total_volume), 0.01)
-			bloodstr.remove_any(chem_share * bloodstr.total_volume)
+		if(reagents.total_volume && vessel.total_volume)
+			var/chem_share = round(0.3 * amt * (reagents.total_volume/vessel.total_volume), 0.01)
+			reagents.remove_any(chem_share * reagents.total_volume)
 		blood_splatter(tar, src, (ddir && ddir>0), spray_dir = ddir)
 		return amt
 	return 0
