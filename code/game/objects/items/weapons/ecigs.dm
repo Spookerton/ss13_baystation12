@@ -325,6 +325,5 @@
 	)
 
 
-obj/item/clothing/mask/smokable/ecig/smoke(amount)
+/obj/item/clothing/mask/smokable/ecig/smoke(amount)
 	..(amount * 0.1)
-
