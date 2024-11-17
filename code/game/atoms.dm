@@ -21,7 +21,15 @@
 	var/simulated = TRUE
 	/// Integer (One of `ATOM_FLOURESCENCE_*`). Whether or not the atom is visible under a UV light. If set to `2`, the atom is actively highlighted by a light. See `code\__defines\misc.dm`.
 	var/fluorescent = ATOM_FLOURESCENCE_NONE
-	/// The reagents contained within the atom. Handles all reagent interactions and processing.
+	/// The volume that the atom's reagents datum should be initialized with, if any.
+	var/reagents_volume
+	/**
+	* The reagents contained within the atom. Handles all reagent interactions and processing.
+	* If set as a /datum/reagent/... path, the container will be filled with that on initialization.
+	* If set as a list, the list can be of (/datum/reagent/... = amount) entries OR
+	* of (/datum/reagent/... = list(amount, data)) entries that will be added to the
+	* container on initialization.
+	*/
 	var/datum/reagents/reagents
 	/// LAZYLIST of mobs currently climbing the atom.
 	var/list/climbers
@@ -53,8 +61,6 @@
 			argument_list = args.Copy(2)
 		if (argument_list || atom_init_stage == INITIALIZATION_INSSATOMS_LATE)
 			init_queue[src] = argument_list
-	if (atom_flags & ATOM_FLAG_CLIMBABLE)
-		verbs += /atom/proc/climb_on
 	..()
 
 
@@ -94,6 +100,16 @@
 
 	if (health_max)
 		health_current = health_max
+
+	if (atom_flags & ATOM_FLAG_CLIMBABLE)
+		verbs += /atom/proc/climb_on
+
+	if (reagents_volume)
+		var/initial_reagents = reagents
+		reagents = null
+		create_reagents(reagents_volume, initial_reagents)
+	else
+		reagents = null
 
 	return INITIALIZE_HINT_NORMAL
 

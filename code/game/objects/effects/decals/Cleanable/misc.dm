@@ -5,6 +5,7 @@
 	icon = 'icons/obj/materials/shards.dmi'
 	icon_state = "shards"
 
+
 /obj/decal/cleanable/ash
 	name = "ashes"
 	desc = "Ashes to ashes, dust to dust, and into space."
@@ -12,16 +13,19 @@
 	icon = 'icons/obj/ash.dmi'
 	icon_state = "ash"
 
+
 /obj/decal/cleanable/ash/attack_hand(mob/user)
 	to_chat(user, SPAN_NOTICE("[src] sifts through your fingers."))
-	var/turf/simulated/floor/F = get_turf(src)
-	if (istype(F))
-		F.dirt += 4
+	var/turf/simulated/floor/floor = get_turf(src)
+	if (istype(floor))
+		floor.dirt += 4
 	qdel(src)
+
 
 /obj/decal/cleanable/greenglow/Initialize()
 	. = ..()
 	QDEL_IN(src, 2 MINUTES)
+
 
 /obj/decal/cleanable/dirt
 	name = "dirt"
@@ -29,8 +33,9 @@
 	gender = PLURAL
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "dirt"
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_UNCLICKABLE
 	persistent = TRUE
+
 
 /obj/decal/cleanable/flour
 	name = "flour"
@@ -39,6 +44,7 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "flour"
 	persistent = TRUE
+
 
 /obj/decal/cleanable/greenglow
 	name = "glowing goo"
@@ -50,12 +56,14 @@
 	persistent = TRUE
 	generic_filth = TRUE
 
+
 /obj/decal/cleanable/cobweb
 	name = "cobweb"
 	desc = "Somebody should remove that."
 	layer = ABOVE_HUMAN_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "cobweb1"
+
 
 /obj/decal/cleanable/molten_item
 	name = "gooey grey mass"
@@ -65,6 +73,7 @@
 	persistent = TRUE
 	generic_filth = TRUE
 
+
 /obj/decal/cleanable/cobweb2
 	name = "cobweb"
 	desc = "Somebody should remove that."
@@ -72,7 +81,7 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "cobweb2"
 
-//Vomit (sorry)
+
 /obj/decal/cleanable/vomit
 	name = "vomit"
 	desc = "Gosh, how unpleasant."
@@ -81,17 +90,20 @@
 	icon_state = "vomit_1"
 	persistent = TRUE
 	generic_filth = TRUE
+	reagents_volume = 20
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
-/obj/decal/cleanable/vomit/New()
+
+/obj/decal/cleanable/vomit/Initialize()
+	. = ..()
 	random_icon_states = icon_states(icon)
-	..()
-	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
-	create_reagents(30, src)
-	if(prob(75))
+	if (prob(75))
 		SetTransform(rotation = pick(90, 180, 270))
+
 
 /obj/decal/cleanable/vomit/on_update_icon()
 	color = reagents.get_color()
+
 
 /obj/decal/cleanable/tomato_smudge
 	name = "tomato smudge"
@@ -101,6 +113,7 @@
 	persistent = TRUE
 	generic_filth = TRUE
 
+
 /obj/decal/cleanable/egg_smudge
 	name = "smashed egg"
 	desc = "Seems like this one won't hatch."
@@ -109,13 +122,15 @@
 	persistent = TRUE
 	generic_filth = TRUE
 
-/obj/decal/cleanable/pie_smudge //honk
+
+/obj/decal/cleanable/pie_smudge
 	name = "smashed pie"
 	desc = "It's pie cream from a cream pie."
 	icon = 'icons/effects/tomatodecal.dmi'
 	random_icon_states = list("smashed_pie")
 	persistent = TRUE
 	generic_filth = TRUE
+
 
 /obj/decal/cleanable/fruit_smudge
 	name = "smudge"
