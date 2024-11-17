@@ -119,6 +119,8 @@
 		var/initial_reagents = reagents
 		reagents = null
 		create_reagents(reagents_volume, initial_reagents)
+	else
+		reagents = null
 
 /obj/item/Destroy()
 	QDEL_NULL(hidden_uplink)

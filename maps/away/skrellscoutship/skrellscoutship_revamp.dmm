@@ -1135,8 +1135,8 @@
 /obj/machinery/light/skrell{
 	dir = 8
 	},
-/obj/item/reagent_containers/injector/hypo,
-/obj/item/reagent_containers/injector/hypo{
+/obj/item/reagent_containers/injector/hypo/loaded,
+/obj/item/reagent_containers/injector/hypo/loaded{
 	pixel_x = 4
 	},
 /turf/simulated/floor/tiled/skrell/white,

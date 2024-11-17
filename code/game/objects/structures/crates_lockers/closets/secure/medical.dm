@@ -114,7 +114,7 @@
 		/obj/item/clothing/shoes/brown,
 		/obj/item/device/radio/headset/heads/cmo,
 		/obj/item/device/flash,
-		/obj/item/reagent_containers/injector/hypo,
+		/obj/item/reagent_containers/injector/hypo/loaded,
 		RANDOM_SCRUBS
 	)
 

@@ -4687,9 +4687,9 @@
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/reagent_containers/injector/hypo,
-/obj/item/reagent_containers/injector/hypo,
-/obj/item/reagent_containers/injector/hypo,
+/obj/item/reagent_containers/injector/hypo/loaded,
+/obj/item/reagent_containers/injector/hypo/loaded,
+/obj/item/reagent_containers/injector/hypo/loaded,
 /obj/item/storage/box/syringes,
 /turf/unsimulated/floor{
 	dir = 1;
@@ -4704,9 +4704,9 @@
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/reagent_containers/injector/hypo,
-/obj/item/reagent_containers/injector/hypo,
-/obj/item/reagent_containers/injector/hypo,
+/obj/item/reagent_containers/injector/hypo/loaded,
+/obj/item/reagent_containers/injector/hypo/loaded,
+/obj/item/reagent_containers/injector/hypo/loaded,
 /obj/item/storage/box/syringes,
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/unsimulated/floor{

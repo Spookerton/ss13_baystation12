@@ -13,24 +13,6 @@
 	var/obj/item/reagent_containers/glass/beaker/vial/loaded_vial
 
 
-/obj/item/reagent_containers/injector/hypo/Initialize()
-	. = ..()
-	loaded_vial = new (src)
-	reagents_volume = loaded_vial.reagents_volume
-	reagents.maximum_volume = loaded_vial.reagents.maximum_volume
-
-
-/obj/item/reagent_containers/injector/hypo/proc/remove_vial(mob/user, swap_mode)
-	if (!loaded_vial)
-		return
-	reagents.trans_to_holder(loaded_vial.reagents, reagents_volume)
-	reagents.maximum_volume = 0
-	loaded_vial.update_icon()
-	user.put_in_hands(loaded_vial)
-	loaded_vial = null
-	if (swap_mode != "swap")
-		to_chat(user, "You remove the vial from the [src].")
-
 /obj/item/reagent_containers/injector/hypo/attack_hand(mob/user)
 	if (user.get_inactive_hand() == src)
 		if (!loaded_vial)
@@ -89,3 +71,24 @@
 	else
 		standard_pour_into(user, target)
 		return TRUE
+
+
+/obj/item/reagent_containers/injector/hypo/proc/remove_vial(mob/user, swap_mode)
+	if (!loaded_vial)
+		return
+	reagents.trans_to_holder(loaded_vial.reagents, reagents_volume)
+	reagents.maximum_volume = 0
+	loaded_vial.update_icon()
+	user.put_in_hands(loaded_vial)
+	loaded_vial = null
+	if (swap_mode != "swap")
+		to_chat(user, "You remove the vial from the [src].")
+
+
+/obj/item/reagent_containers/injector/hypo/loaded
+	reagents_volume = 30
+
+
+/obj/item/reagent_containers/injector/hypo/loaded/Initialize()
+	. = ..()
+	loaded_vial = new (src)

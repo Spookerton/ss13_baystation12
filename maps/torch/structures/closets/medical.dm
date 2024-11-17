@@ -40,7 +40,7 @@
 		/obj/item/device/radio/headset/heads/cmo/alt,
 		/obj/item/device/flash,
 		/obj/item/device/megaphone,
-		/obj/item/reagent_containers/injector/hypo,
+		/obj/item/reagent_containers/injector/hypo/loaded,
 		/obj/item/storage/fancy/vials,
 		/obj/item/device/scanner/health,
 		/obj/item/clothing/accessory/stethoscope,

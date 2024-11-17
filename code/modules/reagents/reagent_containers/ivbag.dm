@@ -264,7 +264,10 @@
 
 
 /obj/item/reagent_containers/ivbag/glucose
-	reagents = list(/datum/reagent/nutriment/glucose)
+	reagents = list(
+		/datum/reagent/nutriment/glucose = 60,
+		/datum/reagent/water = 60
+	)
 	w_class = ITEM_SIZE_SMALL
 
 
