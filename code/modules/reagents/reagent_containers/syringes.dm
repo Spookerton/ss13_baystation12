@@ -352,64 +352,47 @@
 /obj/item/reagent_containers/syringe/inaprovaline
 	name = "Syringe (inaprovaline)"
 	desc = "Contains inaprovaline - used to stabilize patients."
-
-/obj/item/reagent_containers/syringe/inaprovaline/New()
-	..()
-	reagents.add_reagent(/datum/reagent/inaprovaline, 15)
 	mode = SYRINGE_INJECT
-	update_icon()
+	reagents = /datum/reagent/inaprovaline
 
 /obj/item/reagent_containers/syringe/antitoxin
 	name = "Syringe (anti-toxin)"
 	desc = "Contains anti-toxins."
-
-/obj/item/reagent_containers/syringe/antitoxin/New()
-	..()
-	reagents.add_reagent(/datum/reagent/dylovene, 15)
 	mode = SYRINGE_INJECT
-	update_icon()
+	reagents = /datum/reagent/dylovene
 
 /obj/item/reagent_containers/syringe/antiviral
 	name = "Syringe (spaceacillin)"
 	desc = "Contains antiviral agents."
-
-/obj/item/reagent_containers/syringe/antiviral/New()
-	..()
-	reagents.add_reagent(/datum/reagent/spaceacillin, 15)
 	mode = SYRINGE_INJECT
-	update_icon()
+	reagents = /datum/reagent/spaceacillin
 
 /obj/item/reagent_containers/syringe/drugs
 	name = "Syringe (drugs)"
 	desc = "Contains aggressive drugs meant for torture."
-
-/obj/item/reagent_containers/syringe/drugs/New()
-	..()
-	reagents.add_reagent(/datum/reagent/drugs/hextro, 5)
-	reagents.add_reagent(/datum/reagent/drugs/mindbreaker, 5)
-	reagents.add_reagent(/datum/reagent/drugs/cryptobiolin, 5)
 	mode = SYRINGE_INJECT
-	update_icon()
+	reagents = list(
+		/datum/reagent/drugs/hextro = 5,
+		/datum/reagent/drugs/mindbreaker = 5,
+		/datum/reagent/drugs/cryptobiolin = 5
+	)
+
 
 /obj/item/reagent_containers/syringe/ld50_syringe/choral
-
-/obj/item/reagent_containers/syringe/ld50_syringe/choral/New()
-	..()
-	reagents.add_reagent(/datum/reagent/chloralhydrate, 60)
 	mode = SYRINGE_INJECT
-	update_icon()
+	reagents = list(
+		/datum/reagent/chloralhydrate = 60
+	)
 
 /obj/item/reagent_containers/syringe/steroid
 	name = "Syringe (anabolic steroids)"
 	desc = "Contains drugs for muscle growth."
+	mode = SYRINGE_INJECT
+	reagents = list(
+		/datum/reagent/adrenaline = 5,
+		/datum/reagent/hyperzine = 10
+	)
 
-/obj/item/reagent_containers/syringe/steroid/New()
-	..()
-	reagents.add_reagent(/datum/reagent/adrenaline, 5)
-	reagents.add_reagent(/datum/reagent/hyperzine, 10)
-
-
-// TG ports
 
 /obj/item/reagent_containers/syringe/bluespace
 	name = "bluespace syringe"
@@ -417,6 +400,7 @@
 	amount_per_transfer_from_this = 20
 	volume = 60
 	icon_state = "bs"
+
 
 /obj/item/reagent_containers/syringe/noreact
 	name = "cryostasis syringe"

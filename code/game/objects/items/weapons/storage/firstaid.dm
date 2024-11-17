@@ -132,13 +132,13 @@
 	w_class = ITEM_SIZE_SMALL
 	storage_slots = 7
 	startswith = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/coagulant,
-		/obj/item/reagent_containers/hypospray/autoinjector/pain,
-		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
-		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
-		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
-		/obj/item/reagent_containers/hypospray/autoinjector/dexalin_plus,
-		/obj/item/reagent_containers/hypospray/autoinjector/detox
+		/obj/item/reagent_containers/injector/auto/coagulant,
+		/obj/item/reagent_containers/injector/auto/pain,
+		/obj/item/reagent_containers/injector/auto/pouch_adrenaline,
+		/obj/item/reagent_containers/injector/auto/pouch_inaprovaline,
+		/obj/item/reagent_containers/injector/auto/pouch_inaprovaline,
+		/obj/item/reagent_containers/injector/auto/dexalin_plus,
+		/obj/item/reagent_containers/injector/auto/detox
 	)
 
 
@@ -153,14 +153,14 @@
 	max_w_class = ITEM_SIZE_SMALL
 	startswith = list(
 		/obj/item/clothing/gloves/latex/nitrile,
-		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
-		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/deletrathol,
-		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin,
+		/obj/item/reagent_containers/injector/auto/pouch_inaprovaline,
+		/obj/item/reagent_containers/injector/auto/pouch_deletrathol,
+		/obj/item/reagent_containers/injector/auto/pouch_dexalin,
 		/obj/item/stack/medical/bruise_pack
 	)
 	contents_allowed = list(
 		/obj/item/clothing/gloves/latex,
-		/obj/item/reagent_containers/hypospray/autoinjector,
+		/obj/item/reagent_containers/injector/auto,
 		/obj/item/stack/medical/bruise_pack
 	)
 

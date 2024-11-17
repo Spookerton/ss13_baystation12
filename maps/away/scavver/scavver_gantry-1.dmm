@@ -832,7 +832,7 @@
 /area/scavver/yachtdown)
 "np" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human_oneg,
 /obj/floor_decal/corner/blue/mono,
 /obj/item/reagent_containers/food/drinks/cans/waterbottle,
 /obj/item/reagent_containers/food/drinks/cans/waterbottle,

@@ -3,7 +3,7 @@ GLOBAL_LIST_INIT(surgery_tool_exceptions, list(
 	/obj/item/auto_cpr,
 	/obj/item/device/scanner/health,
 	/obj/item/shockpaddles,
-	/obj/item/reagent_containers/hypospray,
+	/obj/item/reagent_containers/injector,
 	/obj/item/modular_computer,
 	/obj/item/reagent_containers/syringe,
 	/obj/item/reagent_containers/borghypo

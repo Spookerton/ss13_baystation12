@@ -33,7 +33,7 @@
 	startswith = list(
 		/obj/item/implanter/imprinting,
 		/obj/item/implantpad,
-		/obj/item/reagent_containers/hypospray/autoinjector/mindbreaker
+		/obj/item/reagent_containers/injector/auto/mindbreaker
 		)
 
 /obj/item/storage/box/syndie_kit/shuriken
@@ -115,7 +115,7 @@
 
 /obj/item/storage/box/syndie_kit/toxin
 	startswith = list(
-		/obj/item/reagent_containers/glass/beaker/vial/random/toxin,
+		/obj/item/reagent_containers/glass/beaker/vial/random_toxin,
 		/obj/item/reagent_containers/syringe
 	)
 

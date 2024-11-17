@@ -14,7 +14,7 @@
 	name = "Combat Stimulants"
 	desc = "A single-use medical injector filled with performance enhancing drugs."
 	item_cost = 14
-	path = /obj/item/reagent_containers/hypospray/autoinjector/combatstim
+	path = /obj/item/reagent_containers/injector/auto/combatstim
 
 /datum/uplink_item/item/medical/stabilisation
 	name = "Slimline Stabilisation Kit"

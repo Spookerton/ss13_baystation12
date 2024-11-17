@@ -7,8 +7,8 @@
 	sushi_overlay = "fish"
 	var/sushi_type
 
-/obj/item/reagent_containers/food/snacks/sushi/New(newloc, obj/item/reagent_containers/food/snacks/rice, obj/item/reagent_containers/food/snacks/topping)
-	..(newloc)
+/obj/item/reagent_containers/food/snacks/sushi/Initialize(mapload, obj/item/reagent_containers/food/snacks/rice, obj/item/reagent_containers/food/snacks/topping)
+	. = ..()
 	if(istype(topping))
 		sushi_overlay = topping.sushi_overlay
 		var/image/I = image(icon, sushi_overlay)

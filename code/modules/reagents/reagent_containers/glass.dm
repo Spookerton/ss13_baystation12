@@ -40,9 +40,9 @@
 		/obj/machinery/radiocarbon_spectrometer
 	)
 
-/obj/item/reagent_containers/glass/New()
-	..()
+/obj/item/reagent_containers/glass/Initialize()
 	base_name = name
+	return ..()
 
 /obj/item/reagent_containers/glass/examine(mob/user, distance)
 	. = ..()
@@ -139,8 +139,8 @@
 	matter = list(MATERIAL_GLASS = 500)
 
 
-/obj/item/reagent_containers/glass/beaker/New()
-	..()
+/obj/item/reagent_containers/glass/beaker/Initialize()
+	. = ..()
 	desc += " It can hold up to [volume] units."
 
 
@@ -264,16 +264,12 @@
 	volume = 120
 
 
-/obj/item/reagent_containers/glass/beaker/cryoxadone/New()
-	..()
-	reagents.add_reagent(/datum/reagent/cryoxadone, 30)
-	update_icon()
+/obj/item/reagent_containers/glass/beaker/cryoxadone
+	reagents = list(/datum/reagent/cryoxadone = 30)
 
 
-/obj/item/reagent_containers/glass/beaker/sulphuric/New()
-	..()
-	reagents.add_reagent(/datum/reagent/acid, 60)
-	update_icon()
+/obj/item/reagent_containers/glass/beaker/sulphuric
+	reagents = list(/datum/reagent/acid = 30)
 
 
 /obj/item/reagent_containers/glass/bucket

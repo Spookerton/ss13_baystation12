@@ -94,11 +94,7 @@
 	icon_state = "clam_open"
 	filling_color = "#f6db93"
 	trash = /obj/item/shell/clam
-
-
-/obj/item/reagent_containers/food/snacks/shellfish/clam/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 5)
+	reagents = list(/datum/reagent/nutriment/protein = 5)
 
 
 /obj/item/reagent_containers/food/snacks/shellfish/mussel
@@ -107,11 +103,7 @@
 	icon_state = "mussel_open"
 	filling_color = "#eea82d"
 	trash = /obj/item/shell/mussel
-
-
-/obj/item/reagent_containers/food/snacks/shellfish/mussel/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 3)
+	reagents = list(/datum/reagent/nutriment/protein = 3)
 
 
 /obj/item/reagent_containers/food/snacks/shellfish/oyster
@@ -120,11 +112,7 @@
 	icon_state = "oyster_open"
 	filling_color = "#ffdec0"
 	trash = /obj/item/shell/oyster
-
-
-/obj/item/reagent_containers/food/snacks/shellfish/oyster/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 4)
+	reagents = list(/datum/reagent/nutriment/protein = 4)
 
 
 /obj/item/reagent_containers/food/snacks/shellfish/shrimp
@@ -133,11 +121,7 @@
 	icon_state = "shrimp_meat"
 	filling_color = "#ffdfc5"
 	sushi_overlay = "shrimp"
-
-
-/obj/item/reagent_containers/food/snacks/shellfish/shrimp/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 3)
+	reagents = list(/datum/reagent/nutriment/protein = 3)
 
 
 /obj/item/reagent_containers/food/snacks/shellfish/crab
@@ -147,11 +131,7 @@
 	filling_color = "#e8d9c8"
 	bitesize = 3
 	sushi_overlay = "crab"
-
-
-/obj/item/reagent_containers/food/snacks/shellfish/crab/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 6)
+	reagents = list(/datum/reagent/nutriment/protein = 6)
 
 
 /obj/item/shell

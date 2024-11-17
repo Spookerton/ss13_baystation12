@@ -39,10 +39,10 @@
 		/obj/item/reagent_containers/food/drinks/tea/decaf = 10,
 		/obj/item/reagent_containers/food/drinks/h_chocolate = 10,
 		/obj/item/reagent_containers/food/condiment/small/packet/sugar = 5,
-		/obj/item/reagent_containers/pill/pod/cream = 5,
-		/obj/item/reagent_containers/pill/pod/cream_soy = 5,
-		/obj/item/reagent_containers/pill/pod/orange = 5,
-		/obj/item/reagent_containers/pill/pod/mint = 5,
+		/obj/item/reagent_containers/pill/cream = 5,
+		/obj/item/reagent_containers/pill/cream_soy = 5,
+		/obj/item/reagent_containers/pill/orange = 5,
+		/obj/item/reagent_containers/pill/mint = 5,
 		/obj/item/reagent_containers/food/drinks/ice = 5
 	)
 	products = list(
@@ -54,19 +54,19 @@
 		/obj/item/reagent_containers/food/drinks/tea/decaf = 0,
 		/obj/item/reagent_containers/food/drinks/h_chocolate = 0,
 		/obj/item/reagent_containers/food/condiment/small/packet/sugar = 0,
-		/obj/item/reagent_containers/pill/pod/cream = 0,
-		/obj/item/reagent_containers/pill/pod/cream_soy = 0,
-		/obj/item/reagent_containers/pill/pod/orange = 0,
-		/obj/item/reagent_containers/pill/pod/mint = 0,
+		/obj/item/reagent_containers/pill/cream = 0,
+		/obj/item/reagent_containers/pill/cream_soy = 0,
+		/obj/item/reagent_containers/pill/orange = 0,
+		/obj/item/reagent_containers/pill/mint = 0,
 		/obj/item/reagent_containers/food/drinks/ice = 0
 	)
 	rare_products = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/combatstim = 70
+		/obj/item/reagent_containers/injector/auto/combatstim = 70
 	)
 	antag = list(
 		/obj/item/reagent_containers/food/snacks/donkpocket/premium = 1,
 		/obj/item/reagent_containers/syringe/steroid = 2,
-		/obj/item/reagent_containers/hypospray/autoinjector/combatstim = 0
+		/obj/item/reagent_containers/injector/auto/combatstim = 0
 	)
 
 /obj/machinery/vending/coffee/on_update_icon()

@@ -176,7 +176,7 @@
 			/obj/item/material/star,
 			/obj/item/rcd_ammo,
 			/obj/item/reagent_containers/syringe,
-			/obj/item/reagent_containers/hypospray/autoinjector,
+			/obj/item/reagent_containers/injector/auto,
 			/obj/item/syringe_cartridge,
 			/obj/item/plastique,
 			/obj/item/clothing/mask/smokable,

@@ -46,18 +46,19 @@
 
 /obj/item/reagent_containers/glass/beaker/vial/ejected_datapod
 	name = "unmarked vial"
+	desc = "A vial. The label is smudged and illegible."
 
 
 /obj/item/reagent_containers/glass/beaker/vial/ejected_datapod/Initialize()
-	. = ..()
-	desc += "Label is smudged, and there's crusted blood fingerprints on it."
-	var/reagent_type = pickweight(list(
+	reagents = list()
+	var/reagent = pickweight(list(
 		/datum/reagent/random = 50,
 		/datum/reagent/rezadone = 25,
 		/datum/reagent/drugs/three_eye = 20,
 		/datum/reagent/zombie = 5
 	))
-	reagents.add_reagent(reagent_type, 5)
+	reagents[reagent] = 5
+	return ..()
 
 
 /obj/structure/backup_server

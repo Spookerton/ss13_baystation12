@@ -34,8 +34,8 @@
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/ointment = 3,
 		/obj/item/stack/medical/splint = 2,
-		/obj/item/reagent_containers/hypospray/autoinjector/pain = 4,
-		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/allergy = 12
+		/obj/item/reagent_containers/injector/auto/pain = 4,
+		/obj/item/reagent_containers/injector/auto/allergy = 12
 	)
 	rare_products = list(
 		/obj/item/device/cosmetic_surgery_kit = 75,
@@ -46,10 +46,10 @@
 		/obj/item/reagent_containers/pill/tox = 3,
 		/obj/item/reagent_containers/pill/stox = 4,
 		/obj/item/reagent_containers/glass/bottle/toxin = 4,
-		/obj/item/reagent_containers/hypospray/autoinjector/combatpain = 2
+		/obj/item/reagent_containers/injector/auto/combatpain = 2
 	)
 	antag = list(
-		/obj/item/reagent_containers/hypospray = 1,
+		/obj/item/reagent_containers/injector = 1,
 		/obj/item/device/cosmetic_surgery_kit = 0,
 		/obj/item/defibrillator/compact/combat/loaded = 0
 	)

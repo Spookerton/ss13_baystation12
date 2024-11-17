@@ -56,7 +56,7 @@
 		/obj/item/melee/baton,
 		/obj/item/gun,
 		/obj/item/storage/firstaid,
-		/obj/item/reagent_containers/hypospray,
+		/obj/item/reagent_containers/injector,
 		/obj/item/roller_bed
 	)
 

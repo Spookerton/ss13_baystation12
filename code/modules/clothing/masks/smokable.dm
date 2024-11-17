@@ -3,6 +3,7 @@
 	desc = "You're not sure what this is. You should probably ahelp it."
 	body_parts_covered = 0
 	waterproof = FALSE
+	atom_flags = ATOM_FLAG_NO_REACT
 
 	var/lit = 0
 	var/icon_on
@@ -30,11 +31,6 @@
 		else
 			sprite_sheets = list()
 	return ..()
-
-/obj/item/clothing/mask/smokable/New()
-	..()
-	atom_flags |= ATOM_FLAG_NO_REACT // so it doesn't react until you light it
-	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
 
 /obj/item/clothing/mask/smokable/Destroy()
 	. = ..()

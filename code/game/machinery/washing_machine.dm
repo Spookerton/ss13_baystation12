@@ -86,7 +86,7 @@
 				C.ironed_state = WRINKLES_WRINKLY
 				if(detergent)
 					C.change_smell(SMELL_CLEAN)
-					addtimer(new Callback(C, /obj/item/clothing/proc/change_smell), detergent.smell_clean_time, TIMER_UNIQUE | TIMER_OVERRIDE)
+					addtimer(new Callback(C, /obj/item/clothing/proc/change_smell), 10 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
 	QDEL_NULL(detergent)
 
 	//Tanning!

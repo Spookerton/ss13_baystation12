@@ -10,7 +10,7 @@
 					/obj/item/reagent_containers/food/snacks/tofu = 4,
 					/obj/item/reagent_containers/food/snacks/meat = 4,
 					/obj/item/reagent_containers/food/condiment/enzyme = 1,
-					/obj/item/reagent_containers/glass/bottle/dye/polychromic = 1
+					/obj/item/reagent_containers/glass/bottle/polydye = 1
 					)
 	cost = 10
 	containertype = /obj/structure/closet/crate/freezer

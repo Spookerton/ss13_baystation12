@@ -39,30 +39,27 @@
 		if(user)
 			to_chat(user, SPAN_WARNING("\The [C] will not fit in \the [src]!"))
 		return
-
 	if(length(cartridges) >= DISPENSER_MAX_CARTRIDGES)
 		if(user)
 			to_chat(user, SPAN_WARNING("\The [src] does not have any slots open for \the [C] to fit into!"))
 		return
-
-	if(!C.label)
+	var/list/label = get_attached_labels(C)
+	label = label?[1]
+	if(!label)
 		if(user)
 			to_chat(user, SPAN_WARNING("\The [C] does not have a label!"))
 		return
-
-	if(cartridges[C.label])
+	if(cartridges[label])
 		if(user)
 			to_chat(user, SPAN_WARNING("\The [src] already contains a cartridge with that label!"))
 		return
-
 	if(user)
 		if(user.unEquip(C))
 			to_chat(user, SPAN_NOTICE("You add \the [C] to \the [src]."))
 		else
 			return
-
 	C.forceMove(src)
-	cartridges[C.label] = C
+	cartridges[label] = C
 	cartridges = sortAssoc(cartridges)
 	SSnano.update_uis(src)
 

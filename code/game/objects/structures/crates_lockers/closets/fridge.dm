@@ -6,7 +6,7 @@
 		/obj/item/reagent_containers/food/condiment/salt = 1,
 		/obj/item/reagent_containers/food/condiment/flour = 7,
 		/obj/item/reagent_containers/food/condiment/sugar = 2,
-		/obj/item/reagent_containers/glass/bottle/dye/polychromic = 2
+		/obj/item/reagent_containers/glass/bottle/polydye = 2
 	)
 
 /obj/structure/closet/fridge

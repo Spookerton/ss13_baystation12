@@ -20,8 +20,8 @@
 		Try toxin! Sponsored by the Captain to cure mutiny!\
 	"}
 	products = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
-		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/allergy = 4,
+		/obj/item/reagent_containers/injector/auto/inaprovaline = 5,
+		/obj/item/reagent_containers/injector/auto/allergy = 5,
 		/obj/item/stack/medical/bruise_pack = 4,
 		/obj/item/stack/medical/ointment = 4,
 		/obj/item/storage/med_pouch/trauma,
@@ -35,7 +35,7 @@
 	)
 	contraband = list(
 		/obj/item/reagent_containers/pill/tox = 3,
-		/obj/item/reagent_containers/hypospray/autoinjector/pain = 2
+		/obj/item/reagent_containers/injector/auto/pain = 2
 	)
 	antag = list(
 		/obj/item/storage/pill_bottle/assorted = 1,

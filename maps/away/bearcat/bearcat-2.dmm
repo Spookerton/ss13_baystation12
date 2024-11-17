@@ -2490,8 +2490,8 @@
 	dir = 1
 	},
 /obj/floor_decal/corner/red/diagonal,
-/obj/item/reagent_containers/ivbag/blood/human/oneg,
-/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human_oneg,
+/obj/item/reagent_containers/ivbag/blood/human_oneg,
 /turf/simulated/floor/tiled,
 /area/ship/scrap/crew/kitchen)
 "eG" = (

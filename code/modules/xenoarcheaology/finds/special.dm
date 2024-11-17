@@ -1,21 +1,27 @@
-
-
-
-//endless reagents!
 /obj/item/reagent_containers/glass/replenishing
-	var/spawning_id
+	var/datum/reagent/regen_reagent
+
 
 /obj/item/reagent_containers/glass/replenishing/Initialize()
 	. = ..()
-	spawning_id = pick(/datum/reagent/blood,/datum/reagent/water/holywater,/datum/reagent/soporific,/datum/reagent/ethanol,/datum/reagent/drink/ice,/datum/reagent/glycerol,/datum/reagent/fuel,/datum/reagent/space_cleaner)
+	regen_reagent = pick(list(
+		/datum/reagent/blood,
+		/datum/reagent/water/holywater,
+		/datum/reagent/soporific,
+		/datum/reagent/ethanol,
+		/datum/reagent/drink/ice,
+		/datum/reagent/glycerol,
+		/datum/reagent/fuel,
+		/datum/reagent/space_cleaner
+	))
 	START_PROCESSING(SSobj, src)
 
+
 /obj/item/reagent_containers/glass/replenishing/Process()
-	reagents.add_reagent(spawning_id, 0.3)
+	if (reagents.total_volume < reagents.maximum_volume)
+		reagents.add_reagent(regen_reagent, rand() * 2)
 
 
-
-//a talking gas mask!
 /obj/item/clothing/mask/gas/poltergeist
 	var/list/heard_talk = list()
 	var/last_twitch = 0

@@ -1819,7 +1819,7 @@
 /obj/item/reagent_containers/syringe,
 /obj/item/gun/launcher/syringe/rapid,
 /obj/item/storage/box/syringegun,
-/obj/item/reagent_containers/glass/beaker/vial/random/toxin,
+/obj/item/reagent_containers/glass/beaker/vial/random_toxin,
 /turf/simulated/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
 "eu" = (

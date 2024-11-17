@@ -1,114 +1,114 @@
 /obj/item/reagent_containers/chem_disp_cartridge/inaprov
-	spawn_reagent = /datum/reagent/inaprovaline
+	reagents = /datum/reagent/inaprovaline
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/ryetalyn
-	spawn_reagent = /datum/reagent/ryetalyn
+	reagents = /datum/reagent/ryetalyn
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/paracetamol
-	spawn_reagent = /datum/reagent/paracetamol
+	reagents = /datum/reagent/paracetamol
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/tramadol
-	spawn_reagent = /datum/reagent/tramadol
+	reagents = /datum/reagent/tramadol
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/oxycodone
-	spawn_reagent = /datum/reagent/tramadol/oxycodone
+	reagents = /datum/reagent/tramadol/oxycodone
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/sterilizine
-	spawn_reagent = /datum/reagent/sterilizine
+	reagents = /datum/reagent/sterilizine
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/leporazine
-	spawn_reagent = /datum/reagent/leporazine
+	reagents = /datum/reagent/leporazine
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/kelotane
-	spawn_reagent = /datum/reagent/kelotane
+	reagents = /datum/reagent/kelotane
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/dermaline
-	spawn_reagent = /datum/reagent/dermaline
+	reagents = /datum/reagent/dermaline
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/dexalin
-	spawn_reagent = /datum/reagent/dexalin
+	reagents = /datum/reagent/dexalin
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/small/dexalin
-	spawn_reagent = /datum/reagent/dexalin
+	reagents = /datum/reagent/dexalin
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/dexalin_p
-	spawn_reagent = /datum/reagent/dexalinp
+	reagents = /datum/reagent/dexalinp
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/tricord
-	spawn_reagent = /datum/reagent/tricordrazine
+	reagents = /datum/reagent/tricordrazine
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/dylovene
-	spawn_reagent = /datum/reagent/dylovene
+	reagents = /datum/reagent/dylovene
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/synaptizine
-	spawn_reagent = /datum/reagent/synaptizine
+	reagents = /datum/reagent/synaptizine
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/hyronalin
-	spawn_reagent = /datum/reagent/hyronalin
+	reagents = /datum/reagent/hyronalin
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/arithrazine
-	spawn_reagent = /datum/reagent/arithrazine
+	reagents = /datum/reagent/arithrazine
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/alkysine
-	spawn_reagent = /datum/reagent/alkysine
+	reagents = /datum/reagent/alkysine
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/imidazoline
-	spawn_reagent = /datum/reagent/imidazoline
+	reagents = /datum/reagent/imidazoline
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/peridaxon
-	spawn_reagent = /datum/reagent/peridaxon
+	reagents = /datum/reagent/peridaxon
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/bicaridine
-	spawn_reagent = /datum/reagent/bicaridine
+	reagents = /datum/reagent/bicaridine
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/hyperzine
-	spawn_reagent = /datum/reagent/hyperzine
+	reagents = /datum/reagent/hyperzine
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/rezadone
-	spawn_reagent = /datum/reagent/rezadone
+	reagents = /datum/reagent/rezadone
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/spaceacillin
-	spawn_reagent = /datum/reagent/spaceacillin
+	reagents = /datum/reagent/spaceacillin
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/ethylredox
-	spawn_reagent = /datum/reagent/ethylredoxrazine
+	reagents = /datum/reagent/ethylredoxrazine
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/sleeptox
-	spawn_reagent = /datum/reagent/soporific
+	reagents = /datum/reagent/soporific
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/chloral
-	spawn_reagent = /datum/reagent/chloralhydrate
+	reagents = /datum/reagent/chloralhydrate
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/cryoxadone
-	spawn_reagent = /datum/reagent/cryoxadone
+	reagents = /datum/reagent/cryoxadone
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/clonexadone
-	spawn_reagent = /datum/reagent/clonexadone
+	reagents = /datum/reagent/clonexadone

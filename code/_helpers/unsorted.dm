@@ -1059,23 +1059,20 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	else
 		step(user.pulling, get_dir(user.pulling.loc, A))
 
-/proc/select_subpath(given_path, within_scope = /atom)
-	var/desired_path = input("Enter full or partial typepath.","Typepath","[given_path]") as text|null
-	if(!desired_path)
-		return
 
+/proc/select_subpath(given_path, within_scope = /atom)
+	var/desired_path = input("Enter full or partial typepath.","Typepath","[given_path]") as text | null
+	if (!desired_path)
+		return
 	var/list/types = typesof(within_scope)
 	var/list/matches = list()
-
-	for(var/path in types)
+	for (var/path in types)
 		if(findtext("[path]", desired_path))
 			matches += path
-
-	if(!length(matches))
+	if (!length(matches))
 		alert("No results found. Sorry.")
 		return
-
-	if(length(matches)==1)
+	if (length(matches) == 1)
 		return matches[1]
 	else
-		return (input("Select a type", "Select Type", matches[1]) as null|anything in matches)
+		return (input("Select a type", "Select Type", matches[1]) as null | anything in matches)

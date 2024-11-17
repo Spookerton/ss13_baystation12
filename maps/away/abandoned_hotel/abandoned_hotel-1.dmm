@@ -1780,7 +1780,7 @@
 	dir = 8
 	},
 /obj/decal/cleanable/dirt,
-/obj/item/storage/box/freezer/blood/human,
+/obj/item/storage/box/freezer/iv_human,
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_hotel/lobby)
 "vn" = (

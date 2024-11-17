@@ -366,7 +366,7 @@
 		/obj/item/taperoll,
 		/obj/item/stack/medical,
 		/obj/item/reagent_containers/dropper,
-		/obj/item/reagent_containers/hypospray,
+		/obj/item/reagent_containers/injector,
 		/obj/item/reagent_containers/syringe,
 		/obj/item/device/scanner/health,
 		/obj/item/device/flashlight,

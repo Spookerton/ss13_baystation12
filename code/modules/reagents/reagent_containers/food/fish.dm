@@ -1,21 +1,16 @@
 /obj/item/reagent_containers/food/snacks/fish
 	abstract_type = /obj/item/reagent_containers/food/snacks/fish
-	name = "base fish fillet"
-	desc = "A fillet of fish."
 	icon_state = "fishfillet"
 	color = "#ff4040"
 	filling_color = "#ff4040"
 	center_of_mass = "x=17;y=13"
 	bitesize = 6
-	var/fish_type = "fish"
+	reagents = list(
+		/datum/reagent/nutriment/protein = list(6, list("fish" = 6))
+	)
 
-
-/obj/item/reagent_containers/food/snacks/fish/Initialize()
-	. = ..()
-	if (. == INITIALIZE_HINT_QDEL)
-		return
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 6)
-	name = "[fish_type] fillet"
+	/// If set, the fish name to pass to sasshimi. If not set, will be "fish".
+	var/fish_type
 
 
 /obj/item/reagent_containers/food/snacks/fish/use_tool(obj/item/item, mob/living/user, list/click_params)
@@ -31,7 +26,7 @@
 			continue
 		reagents.remove_reagent(toxin_type, toxins[toxin_type])
 	var/transfer = floor(reagents.total_volume * 0.3)
-	for(var/i = 1 to 3)
+	for (var/i = 1 to 3)
 		var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = new (turf, fish_type, color)
 		reagents.trans_to(sashimi, transfer)
 	user.visible_message(SPAN_ITALIC("\The [user] slices \the [src] into thin strips."))
@@ -44,7 +39,7 @@
 	. = ..()
 	if (_fish_type)
 		fish_type = _fish_type
-		name = "[fish_type] fillet"
+		name = "[fish_type || "fish"] fillet"
 	if (_replace_reagents)
 		reagents.clear_reagents()
 	for (var/reagent in _reagents)
@@ -52,127 +47,142 @@
 
 
 /obj/item/reagent_containers/food/snacks/fish/space_carp
+	name = "space carp fillet"
 	fish_type = "space carp"
 	color = "#e657aa"
 	filling_color = "#e657aa"
-
-
-/obj/item/reagent_containers/food/snacks/fish/space_carp/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/toxin/carpotoxin, 6)
+	reagents = list(
+		/datum/reagent/nutriment/protein = list(6, list("fish" = 6)),
+		/datum/reagent/toxin/carpotoxin = 6
+	)
 
 
 /obj/item/reagent_containers/food/snacks/fish/space_pike
+	name = "space pike fillet"
 	fish_type = "space pike"
 	color = "#f73fd6"
 	filling_color = "#f73fd6"
-
-
-/obj/item/reagent_containers/food/snacks/fish/space_pike/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/toxin/carpotoxin, 11)
+	reagents = list(
+		/datum/reagent/nutriment/protein = list(6, list("fish" = 6)),
+		/datum/reagent/toxin/carpotoxin = 12
+	)
 
 
 /obj/item/reagent_containers/food/snacks/fish/space_shark
+	name = "cosmoshark fillet"
 	fish_type = "cosmoshark"
 	color = "#8925d4"
 	filling_color = "#8925d4"
-
-
-/obj/item/reagent_containers/food/snacks/fish/space_shark/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 5)
-	reagents.add_reagent(/datum/reagent/drugs/hextro, 1)
-	reagents.add_reagent(/datum/reagent/toxin/phoron, 1)
+	reagents = list(
+		/datum/reagent/nutriment/protein = list(6, list("fish" = 4)),
+		/datum/reagent/drugs/hextro = 2,
+		/datum/reagent/toxin = 1
+	)
 
 
 /obj/item/reagent_containers/food/snacks/fish/cod
+	name = "cod fillet"
 	fish_type = "cod"
 	color = "#ecc69e"
 	filling_color = "#ecc69e"
 
 
 /obj/item/reagent_containers/food/snacks/fish/hake
+	name = "hake fillet"
 	fish_type = "hake"
 	color = "#ecc69e"
 	filling_color = "#ecc69e"
 
 
 /obj/item/reagent_containers/food/snacks/fish/bream
+	name = "bream fillet"
 	fish_type = "bream"
 	color = "#ecc69e"
 	filling_color = "#ecc69e"
 
 
 /obj/item/reagent_containers/food/snacks/fish/salmon
+	name = "salmon fillet"
 	fish_type = "salmon"
 	color = "#e69457"
 	filling_color = "#e69457"
 
 
 /obj/item/reagent_containers/food/snacks/fish/tuna
+	name = "tuna fillet"
 	fish_type = "tuna"
 
 
 /obj/item/reagent_containers/food/snacks/fish/mackerel
+	name = "mackerel fillet"
 	fish_type = "mackerel"
 	color = "#ecc69e"
 	filling_color = "#ecc69e"
 
 
 /obj/item/reagent_containers/food/snacks/fish/trout
+	name = "trout fillet"
 	fish_type = "trout"
 	color = "#e69457"
 	filling_color = "#e69457"
 
 
 /obj/item/reagent_containers/food/snacks/fish/tilapia
+	name = "tilapia fillet"
 	fish_type = "tilapia"
 	color = "#ecc69e"
 	filling_color = "#ecc69e"
 
 
 /obj/item/reagent_containers/food/snacks/fish/bass
+	name = "bass fillet"
 	fish_type = "bass"
 	color = "#ecc69e"
 	filling_color = "#ecc69e"
 
 
 /obj/item/reagent_containers/food/snacks/fish/shark
+	name = "shark fillet"
 	fish_type = "shark"
 
 
 /obj/item/reagent_containers/food/snacks/fish/squid
+	name = "squid fillet"
 	fish_type = "squid"
 	color = "#dbd6d0"
 	filling_color = "#dbd6d0"
 
 
 /obj/item/reagent_containers/food/snacks/fish/octopus
+	name = "octopus fillet"
 	fish_type = "octopus"
 	color = "#dbd6d0"
 	filling_color = "#dbd6d0"
 
 
 /obj/item/reagent_containers/food/snacks/fish/eel
+	name = "eel fillet"
 	fish_type = "eel"
 	color = "#ecc69e"
 	filling_color = "#ecc69e"
 
 
 /obj/item/reagent_containers/food/snacks/fish/carp
+	name = "carp fillet"
 	fish_type = "carp"
 	color = "#e66457"
 	filling_color = "#e66457"
 
 
 /obj/item/reagent_containers/food/snacks/fish/catfish
+	name = "catfish fillet"
 	fish_type = "catfish"
 	color = "#dbd6d0"
 	filling_color = "#dbd6d0"
 
 
 /obj/item/reagent_containers/food/snacks/fish/unknown
+	name = "suspicious fillet"
 	fish_type = "suspicious"
 	color = "#ecc69e"
 	filling_color = "#ecc69e"
@@ -180,7 +190,6 @@
 
 /obj/random/fish
 	name = "random fish fillet"
-	desc = "This is a random fish fillet."
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "fishfillet"
 	color = "#ff4040"

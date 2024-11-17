@@ -335,26 +335,6 @@
 	RemoveDrip(user)
 
 
-/obj/structure/roller_bed/nanoblood
-	iv_bag = /obj/item/reagent_containers/ivbag/nanoblood
-
-
-/obj/structure/roller_bed/human_oneg
-	iv_bag = /obj/item/reagent_containers/ivbag/blood/human/oneg
-
-
-/obj/structure/roller_bed/skrell_oneg
-	iv_bag = /obj/item/reagent_containers/ivbag/blood/skrell/oneg
-
-
-/obj/structure/roller_bed/unathi_oneg
-	iv_bag = /obj/item/reagent_containers/ivbag/blood/unathi/oneg
-
-
-/obj/structure/roller_bed/vox_oneg
-	iv_bag = /obj/item/reagent_containers/ivbag/blood/vox/oneg
-
-
 /obj/item/roller_bed
 	name = "roller bed"
 	desc = "A collapsed roller bed that can be carried around."

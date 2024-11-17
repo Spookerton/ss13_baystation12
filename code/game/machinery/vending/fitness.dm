@@ -56,7 +56,7 @@
 		/obj/item/reagent_containers/syringe/steroid = 4
 	)
 	antag = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/combatpain = 2,
+		/obj/item/reagent_containers/injector/auto/combatpain = 2,
 		/obj/item/device/augment_implanter/iatric_monitor = 0,
 		/obj/item/device/augment_implanter/internal_air_system = 0
 	)

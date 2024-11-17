@@ -31,10 +31,10 @@ var/global/list/cached_icons = list()
 		return TRUE
 
 /obj/item/reagent_containers/glass/paint/Initialize()
-	. = ..()
-	if(paint_hex && length(paint_hex) > 0)
-		reagents.add_reagent(/datum/reagent/paint, volume, paint_hex)
+	if (paint_hex)
+		reagents = list(/datum/reagent/paint = list(volume, paint_hex))
 		update_icon()
+	return ..()
 
 /obj/item/reagent_containers/glass/paint/on_update_icon()
 	ClearOverlays()
@@ -74,6 +74,6 @@ var/global/list/cached_icons = list()
 /obj/item/reagent_containers/glass/paint/random
 	name = "odd paint bucket"
 
-/obj/item/reagent_containers/glass/paint/random/New()
-	paint_hex = rgb(rand(1,255),rand(1,255),rand(1,255))
-	..()
+/obj/item/reagent_containers/glass/paint/random/Initialize()
+	paint_hex = rgb(rand(1, 255),rand(1, 255),rand(1, 255))
+	return ..()

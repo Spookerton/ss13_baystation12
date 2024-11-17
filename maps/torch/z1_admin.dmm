@@ -4687,9 +4687,9 @@
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/reagent_containers/hypospray,
-/obj/item/reagent_containers/hypospray,
-/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/injector/hypo,
+/obj/item/reagent_containers/injector/hypo,
+/obj/item/reagent_containers/injector/hypo,
 /obj/item/storage/box/syringes,
 /turf/unsimulated/floor{
 	dir = 1;
@@ -4704,9 +4704,9 @@
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/reagent_containers/hypospray,
-/obj/item/reagent_containers/hypospray,
-/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/injector/hypo,
+/obj/item/reagent_containers/injector/hypo,
+/obj/item/reagent_containers/injector/hypo,
 /obj/item/storage/box/syringes,
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/unsimulated/floor{
@@ -4955,12 +4955,12 @@
 /area/centcom/specops)
 "aCk" = (
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/ivbag/blood/human/oneg,
-/obj/item/reagent_containers/ivbag/blood/human/oneg,
-/obj/item/reagent_containers/ivbag/blood/human/oneg,
-/obj/item/reagent_containers/ivbag/blood/human/oneg,
-/obj/item/reagent_containers/ivbag/blood/human/oneg,
-/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human_oneg,
+/obj/item/reagent_containers/ivbag/blood/human_oneg,
+/obj/item/reagent_containers/ivbag/blood/human_oneg,
+/obj/item/reagent_containers/ivbag/blood/human_oneg,
+/obj/item/reagent_containers/ivbag/blood/human_oneg,
+/obj/item/reagent_containers/ivbag/blood/human_oneg,
 /obj/item/roller_bed,
 /obj/item/roller_bed,
 /obj/item/roller_bed,
@@ -6752,19 +6752,19 @@
 /area/centcom/holding)
 "aJz" = (
 /obj/structure/table/standard,
-/obj/item/reagent_containers/ivbag/blood/human/opos{
+/obj/item/reagent_containers/ivbag/blood/human_opos{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/ivbag/blood/human/opos{
+/obj/item/reagent_containers/ivbag/blood/human_opos{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/ivbag/blood/human/oneg{
+/obj/item/reagent_containers/ivbag/blood/human_oneg{
 	pixel_x = -5;
 	pixel_y = -1
 	},
-/obj/item/reagent_containers/ivbag/blood/human/oneg{
+/obj/item/reagent_containers/ivbag/blood/human_oneg{
 	pixel_x = -5;
 	pixel_y = -1
 	},

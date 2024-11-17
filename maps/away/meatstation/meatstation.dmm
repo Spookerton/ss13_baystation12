@@ -3317,7 +3317,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/meatstation/kitchen)
 "hB" = (
-/obj/item/reagent_containers/glass/beaker/vial/random/toxin,
+/obj/item/reagent_containers/glass/beaker/vial/random_toxin,
 /obj/floor_decal/corner/paleblue/border{
 	dir = 8
 	},
@@ -3970,7 +3970,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/item/reagent_containers/glass/beaker/vial/random/toxin,
+/obj/item/reagent_containers/glass/beaker/vial/random_toxin,
 /obj/random/single/meatstation/meatworm,
 /turf/simulated/floor/tiled/dark,
 /area/meatstation/medical)
@@ -7635,7 +7635,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/meatstation/medical)
 "sR" = (
-/obj/item/reagent_containers/glass/beaker/vial/random/toxin,
+/obj/item/reagent_containers/glass/beaker/vial/random_toxin,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},

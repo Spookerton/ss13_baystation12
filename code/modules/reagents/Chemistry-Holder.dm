@@ -536,11 +536,17 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 		reagents.maximum_volume = max(reagents.maximum_volume, max_vol)
 		return reagents
 	reagents = new (max_vol, src)
+	if (!initial_reagents)
+		return reagents
+	if (ispath(initial_reagents))
+		reagents.add_reagent(reagents, max_vol)
+		return reagents
 	var/list/details
 	for (var/reagent in initial_reagents)
 		details = initial_reagents[reagent]
 		if (islist(details))
-			reagents.add_reagent(reagent, details[1], details[2])
+			reagents.add_reagent(reagent, details[1], details[2], safety = TRUE)
 		else
-			reagents.add_reagent(reagent, details)
+			reagents.add_reagent(reagent, details, safety = TRUE)
+	HANDLE_REACTIONS(src)
 	return reagents

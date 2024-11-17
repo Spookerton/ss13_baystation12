@@ -11,28 +11,22 @@
 	var/datum/seed/seed
 	var/potency = -1
 
-/obj/item/reagent_containers/food/snacks/grown/New(newloc,planttype)
-	if(planttype)
-		plantname = planttype
-	..()
-	fill_reagents()
 
-/obj/item/reagent_containers/food/snacks/grown/Initialize()
+/obj/item/reagent_containers/food/snacks/grown/Initialize(mapload, planttype)
 	. = ..()
-	if(!SSplants)
+	if (!SSplants)
 		log_error(SPAN_DANGER("Plant controller does not exist and [src] requires it. Aborting."))
 		return INITIALIZE_HINT_QDEL
-
 	seed = SSplants.seeds[plantname]
-
-	if(!seed)
+	if (!seed)
 		return INITIALIZE_HINT_QDEL
-
+	if (planttype)
+		plantname = planttype
+	fill_reagents()
 	SetName("[seed.seed_name]")
 	trash = seed.get_trash_type()
-	if(!dried_type)
+	if (!dried_type)
 		dried_type = type
-
 	update_icon()
 
 
@@ -67,11 +61,8 @@
 		bitesize = 1+round(reagents.total_volume / 2, 1)
 
 /obj/item/reagent_containers/food/snacks/grown/proc/update_desc()
-
 	if(!seed)
 		return
-	if(!SSplants)
-		sleep(250) // ugly hack, should mean roundstart plants are fine.
 	if(!SSplants)
 		log_error(SPAN_DANGER("Plant controller does not exist and [src] requires it. Aborting."))
 		qdel(src)
@@ -330,26 +321,23 @@
 
 var/global/list/fruit_icon_cache = list()
 
-/obj/item/reagent_containers/food/snacks/fruit_slice/New(newloc, datum/seed/S)
-	..(newloc)
-	// Need to go through and make a general image caching controller. Todo.
-	if(!istype(S))
+/obj/item/reagent_containers/food/snacks/fruit_slice/Initialize(mapload, datum/seed/seed)
+	. = ..()
+	if(!istype(seed))
 		qdel(src)
 		return
-
-	name = "[S.seed_name] slice"
-	desc = "A slice of \a [S.seed_name]. Tasty, probably."
-
-	var/rind_colour = S.get_trait(TRAIT_PRODUCT_COLOUR)
-	var/flesh_colour = S.get_trait(TRAIT_FLESH_COLOUR)
+	name = "[seed.seed_name] slice"
+	desc = "A slice of \a [seed.seed_name]. Tasty, probably."
+	var/rind_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
+	var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
 	if(!flesh_colour) flesh_colour = rind_colour
 	if(!fruit_icon_cache["rind-[rind_colour]"])
-		var/image/I = image(icon,"fruit_rind")
-		I.color = rind_colour
-		fruit_icon_cache["rind-[rind_colour]"] = I
+		var/image/image = image(icon,"fruit_rind")
+		image.color = rind_colour
+		fruit_icon_cache["rind-[rind_colour]"] = image
 	AddOverlays(fruit_icon_cache["rind-[rind_colour]"])
 	if(!fruit_icon_cache["slice-[rind_colour]"])
-		var/image/I = image(icon,"fruit_slice")
-		I.color = flesh_colour
-		fruit_icon_cache["slice-[rind_colour]"] = I
+		var/image/image = image(icon,"fruit_slice")
+		image.color = flesh_colour
+		fruit_icon_cache["slice-[rind_colour]"] = image
 	AddOverlays(fruit_icon_cache["slice-[rind_colour]"])

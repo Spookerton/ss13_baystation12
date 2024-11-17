@@ -2256,7 +2256,7 @@
 "hz" = (
 /obj/item/reagent_containers/ivbag,
 /obj/item/reagent_containers/ivbag,
-/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human_oneg,
 /obj/structure/closet/medical_wall{
 	name = "Blood Closet"
 	},

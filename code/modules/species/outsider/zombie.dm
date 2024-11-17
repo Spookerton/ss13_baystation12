@@ -623,12 +623,8 @@ GLOBAL_LIST_INIT(zombie_species, list(\
 /obj/item/reagent_containers/syringe/zombie
 	name = "Syringe (unknown serum)"
 	desc = "Contains a strange, crimson substance."
+	reagents = list(/datum/reagent/zombie = 15)
 
-/obj/item/reagent_containers/syringe/zombie/Initialize()
-	..()
-	reagents.add_reagent(/datum/reagent/zombie, 15)
-	mode = SYRINGE_INJECT
-	update_icon()
 
 /mob/living/proc/is_zombie()
 	return FALSE

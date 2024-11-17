@@ -19,9 +19,9 @@
 	var/step_delay = 10 // lower is faster
 	volume = 250
 
-/obj/item/reagent_containers/spray/New()
-	..()
-	src.verbs -= /obj/item/reagent_containers/verb/set_amount_per_transfer_from_this
+/obj/item/reagent_containers/spray/Initialize()
+	. = ..()
+	verbs -= /obj/item/reagent_containers/verb/set_amount_per_transfer_from_this
 
 /obj/item/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
 	if(istype(A, /obj/item/storage) || istype(A, /obj/structure/table) || istype(A, /obj/structure/closet) || istype(A, /obj/item/reagent_containers) || istype(A, /obj/structure/hygiene/sink) || istype(A, /obj/structure/janitorialcart))
@@ -97,31 +97,21 @@
 		to_chat(usr, SPAN_NOTICE("You empty \the [src] onto the floor."))
 		reagents.splash(usr.loc, reagents.total_volume)
 
-//space cleaner
 /obj/item/reagent_containers/spray/cleaner
 	name = "space cleaner"
 	desc = "BLAM!-brand non-foaming space cleaner!"
 	step_delay = 6
-
-/obj/item/reagent_containers/spray/cleaner/New()
-	..()
-	reagents.add_reagent(/datum/reagent/space_cleaner, volume)
+	reagents = /datum/reagent/space_cleaner
 
 /obj/item/reagent_containers/spray/sterilizine
 	name = "sterilizine"
 	desc = "Great for hiding incriminating bloodstains and sterilizing scalpels."
-
-/obj/item/reagent_containers/spray/sterilizine/New()
-	..()
-	reagents.add_reagent(/datum/reagent/sterilizine, volume)
+	reagents = /datum/reagent/sterilizine
 
 /obj/item/reagent_containers/spray/hair_remover
 	name = "hair remover"
 	desc = "Very effective at removing hair, feathers, spines and horns."
-
-/obj/item/reagent_containers/spray/hair_remover/New()
-	..()
-	reagents.add_reagent(/datum/reagent/toxin/hair_remover, volume)
+	reagents = /datum/reagent/toxin/hair_remover
 
 /obj/item/reagent_containers/spray/pepper
 	name = "pepperspray"
@@ -131,12 +121,9 @@
 	item_state = "pepperspray"
 	possible_transfer_amounts = null
 	volume = 60
-	var/safety = 1
+	reagents = /datum/reagent/capsaicin/condensed
 	step_delay = 1
-
-/obj/item/reagent_containers/spray/pepper/New()
-	..()
-	reagents.add_reagent(/datum/reagent/capsaicin/condensed, 60)
+	var/safety = TRUE
 
 /obj/item/reagent_containers/spray/pepper/examine(mob/user, distance)
 	. = ..()
@@ -162,10 +149,8 @@
 	amount_per_transfer_from_this = 1
 	possible_transfer_amounts = null
 	volume = 10
+	reagents = /datum/reagent/water
 
-/obj/item/reagent_containers/spray/waterflower/New()
-	..()
-	reagents.add_reagent(/datum/reagent/water, 10)
 
 /obj/item/reagent_containers/spray/chemsprayer
 	name = "industrial chemical sprayer"
@@ -219,10 +204,7 @@
 	icon_state = "plantbgone"
 	item_state = "plantbgone"
 	volume = 100
-
-/obj/item/reagent_containers/spray/plantbgone/New()
-	..()
-	reagents.add_reagent(/datum/reagent/toxin/plantbgone, 100)
+	reagents = /datum/reagent/toxin/plantbgone
 
 /obj/item/reagent_containers/spray/plantbgone/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
 	if(!proximity) return

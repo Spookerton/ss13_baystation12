@@ -1135,8 +1135,8 @@
 /obj/machinery/light/skrell{
 	dir = 8
 	},
-/obj/item/reagent_containers/hypospray,
-/obj/item/reagent_containers/hypospray{
+/obj/item/reagent_containers/injector/hypo,
+/obj/item/reagent_containers/injector/hypo{
 	pixel_x = 4
 	},
 /turf/simulated/floor/tiled/skrell/white,
@@ -5330,10 +5330,10 @@
 /obj/structure/table/glass,
 /obj/item/reagent_containers/ivbag/nanoblood,
 /obj/item/reagent_containers/ivbag/nanoblood,
-/obj/item/reagent_containers/ivbag/blood/skrell/oneg,
-/obj/item/reagent_containers/ivbag/blood/skrell/oneg,
-/obj/item/reagent_containers/ivbag/blood/skrell/oneg,
-/obj/item/reagent_containers/ivbag/blood/skrell/oneg,
+/obj/item/reagent_containers/ivbag/blood/skrell,
+/obj/item/reagent_containers/ivbag/blood/skrell,
+/obj/item/reagent_containers/ivbag/blood/skrell,
+/obj/item/reagent_containers/ivbag/blood/skrell,
 /obj/item/storage/firstaid/combat{
 	pixel_x = 1;
 	pixel_y = 8

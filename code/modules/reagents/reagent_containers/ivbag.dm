@@ -7,6 +7,7 @@
 	volume = 120
 	matter = list(MATERIAL_PLASTIC = 4000)
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	possible_transfer_amounts = null
 
 	/// The set of options for the amount of reagents the bag will try to transfer per process.
 	var/static/list/allowed_transfer_amounts = list(2, 1, 0.5, 0)
@@ -262,147 +263,96 @@
 	UpdateTransferAmount(user, src)
 
 
+/obj/item/reagent_containers/ivbag/glucose
+	reagents = list(/datum/reagent/nutriment/glucose)
+	w_class = ITEM_SIZE_SMALL
+
+
 /obj/item/reagent_containers/ivbag/nanoblood
+	reagents = /datum/reagent/nanoblood
+	w_class = ITEM_SIZE_SMALL
 	transfer_amount = 1
-
-
-/obj/item/reagent_containers/ivbag/nanoblood/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/nanoblood, volume)
-	AddLabel("Nanoblood")
-	UpdateItemSize()
 
 
 /obj/item/reagent_containers/ivbag/blood
 	abstract_type = /obj/item/reagent_containers/ivbag/blood
+	w_class = ITEM_SIZE_SMALL
 
 
-/obj/item/reagent_containers/ivbag/blood/Initialize(mapload, blood_type, blood_species)
-	. = ..()
-	if (!(blood_type in GLOB.blood_types))
-		crash_with({"Invalid blood_type supplied to [src]- "[blood_type]""})
-		return INITIALIZE_HINT_QDEL
-	var/datum/species/species = all_species[blood_species]
-	if (!species)
-		crash_with({"Invalid blood_species supplied to [src]- "[blood_species]""})
-		return INITIALIZE_HINT_QDEL
-	reagents.add_reagent(/datum/reagent/blood, volume, list(
+/obj/item/reagent_containers/ivbag/blood/Initialize()
+	var/name = reagents[1]
+	var/type = reagents[2]
+	AddLabel("[name] [type]")
+	var/datum/species/species = all_species[name]
+	reagents = list(/datum/reagent/blood = list(120, list(
+		"blood_species" = name,
+		"blood_type" = type,
+		"blood_colour" = species.blood_color,
 		"donor" = null,
 		"blood_DNA" = null,
-		"blood_type" = blood_type,
-		"trace_chem" = null,
-		"blood_species" = blood_species,
-		"blood_colour" = species.blood_color
-	))
-	AddLabel("[blood_species] [blood_type]")
-	UpdateItemSize()
+		"trace_chem" = null
+	)))
+	return ..()
 
 
-/obj/item/reagent_containers/ivbag/blood/human
-	abstract_type = /obj/item/reagent_containers/ivbag/blood/human
+/obj/item/reagent_containers/ivbag/blood/human_apos
+	reagents = list(SPECIES_HUMAN, "A+")
 
 
-/obj/item/reagent_containers/ivbag/blood/human/Initialize(mapload, blood_type)
-	return ..(mapload, blood_type, SPECIES_HUMAN)
+/obj/item/reagent_containers/ivbag/blood/human_aneg
+	reagents = list(SPECIES_HUMAN, "A-")
 
 
-/obj/item/reagent_containers/ivbag/blood/human/apos/Initialize(mapload)
-	return ..(mapload, "A+")
+/obj/item/reagent_containers/ivbag/blood/human_bpos
+	reagents = list(SPECIES_HUMAN, "B+")
 
 
-/obj/item/reagent_containers/ivbag/blood/human/aneg/Initialize(mapload)
-	return ..(mapload, "A-")
+/obj/item/reagent_containers/ivbag/blood/human_bneg
+	reagents = list(SPECIES_HUMAN, "B-")
 
 
-/obj/item/reagent_containers/ivbag/blood/human/bpos/Initialize(mapload)
-	return ..(mapload, "B+")
+/obj/item/reagent_containers/ivbag/blood/human_abpos
+	reagents = list(SPECIES_HUMAN, "AB+")
 
 
-/obj/item/reagent_containers/ivbag/blood/human/bneg/Initialize(mapload)
-	return ..(mapload, "B-")
+/obj/item/reagent_containers/ivbag/blood/human_abneg
+	reagents = list(SPECIES_HUMAN, "AB-")
 
 
-/obj/item/reagent_containers/ivbag/blood/human/abpos/Initialize(mapload)
-	return ..(mapload, "AB+")
+/obj/item/reagent_containers/ivbag/blood/human_opos
+	reagents = list(SPECIES_HUMAN, "O+")
 
 
-/obj/item/reagent_containers/ivbag/blood/human/abneg/Initialize(mapload)
-	return ..(mapload, "AB-")
-
-
-/obj/item/reagent_containers/ivbag/blood/human/opos/Initialize(mapload)
-	return ..(mapload, "O+")
-
-
-/obj/item/reagent_containers/ivbag/blood/human/oneg/Initialize(mapload)
-	return ..(mapload, "O-")
+/obj/item/reagent_containers/ivbag/blood/human_oneg
+	reagents = list(SPECIES_HUMAN, "O-")
 
 
 /obj/item/reagent_containers/ivbag/blood/serpentid
-	abstract_type = /obj/item/reagent_containers/ivbag/blood/serpentid
-
-
-/obj/item/reagent_containers/ivbag/blood/serpentid/Initialize(mapload, blood_type)
-	return ..(mapload, blood_type, SPECIES_NABBER)
-
-
-/obj/item/reagent_containers/ivbag/blood/serpentid/oneg/Initialize(mapload)
-	return ..(mapload, "O-")
+	reagents = list(SPECIES_NABBER, "O-")
 
 
 /obj/item/reagent_containers/ivbag/blood/skrell
-	abstract_type = /obj/item/reagent_containers/ivbag/blood/skrell
-
-
-/obj/item/reagent_containers/ivbag/blood/skrell/Initialize(mapload, blood_type)
-	return ..(mapload, blood_type, SPECIES_SKRELL)
-
-
-/obj/item/reagent_containers/ivbag/blood/skrell/oneg/Initialize(mapload)
-	return ..(mapload, "O-")
+	reagents = list(SPECIES_SKRELL, "O-")
 
 
 /obj/item/reagent_containers/ivbag/blood/unathi
-	abstract_type = /obj/item/reagent_containers/ivbag/blood/unathi
-
-
-/obj/item/reagent_containers/ivbag/blood/unathi/Initialize(mapload, blood_type)
-	return ..(mapload, blood_type, SPECIES_UNATHI)
-
-
-/obj/item/reagent_containers/ivbag/blood/unathi/oneg/Initialize(mapload)
-	return ..(mapload, "O-")
+	reagents = list(SPECIES_UNATHI, "O-")
 
 
 /obj/item/reagent_containers/ivbag/blood/vox
-	abstract_type = /obj/item/reagent_containers/ivbag/blood/vox
+	reagents = list(SPECIES_VOX, "O-")
 
 
-/obj/item/reagent_containers/ivbag/blood/vox/Initialize(mapload, blood_type)
-	return ..(mapload, blood_type, SPECIES_VOX)
-
-
-/obj/item/reagent_containers/ivbag/blood/vox/oneg/Initialize(mapload)
-	return ..(mapload, "O-")
-
-
-/obj/item/reagent_containers/ivbag/glucose/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/nutriment/glucose, volume)
-	AddLabel("Glucose")
-	UpdateItemSize()
-
-
-/obj/item/storage/box/bloodpacks
-	name = "blood packs box"
-	desc = "This box contains empty blood packs."
+/obj/item/storage/box/iv_empty
+	name = "\improper IV bags box"
+	desc = "This box contains empty IV bags."
 	icon_state = "sterile"
 	startswith = list(
 		/obj/item/reagent_containers/ivbag = 7
 	)
 
 
-/obj/item/storage/box/glucose
+/obj/item/storage/box/iv_glucose
 	name = "glucose box"
 	desc = "This box contains glucose IV bags."
 	icon_state = "sterile"
@@ -411,40 +361,36 @@
 	)
 
 
-/obj/item/storage/box/freezer/blood
-	abstract_type = /obj/item/storage/box/freezer/blood
-
-
-/obj/item/storage/box/freezer/blood/human
+/obj/item/storage/box/freezer/iv_human
 	name = "portable freezer (human blood)"
 	startswith = list(
-		/obj/item/reagent_containers/ivbag/blood/human/oneg = 4
+		/obj/item/reagent_containers/ivbag/blood/human_oneg = 4
 	)
 
 
-/obj/item/storage/box/freezer/blood/serpentid
+/obj/item/storage/box/freezer/iv_serpentid
 	name = "portable freezer (serpentid blood)"
 	startswith = list(
-		/obj/item/reagent_containers/ivbag/blood/serpentid/oneg = 4
+		/obj/item/reagent_containers/ivbag/blood/serpentid = 4
 	)
 
 
-/obj/item/storage/box/freezer/blood/skrell
+/obj/item/storage/box/freezer/iv_skrell
 	name = "portable freezer (skrellian blood)"
 	startswith = list(
-		/obj/item/reagent_containers/ivbag/blood/skrell/oneg = 4
+		/obj/item/reagent_containers/ivbag/blood/skrell = 4
 	)
 
 
-/obj/item/storage/box/freezer/blood/unathi
+/obj/item/storage/box/freezer/iv_unathi
 	name = "portable freezer (unathi blood)"
 	startswith = list(
-		/obj/item/reagent_containers/ivbag/blood/unathi/oneg = 4
+		/obj/item/reagent_containers/ivbag/blood/unathi = 4
 	)
 
 
-/obj/item/storage/box/freezer/blood/vox
+/obj/item/storage/box/freezer/iv_vox
 	name = "portable freezer (vox blood)"
 	startswith = list(
-		/obj/item/reagent_containers/ivbag/blood/vox/oneg = 4
+		/obj/item/reagent_containers/ivbag/blood/vox = 4
 	)

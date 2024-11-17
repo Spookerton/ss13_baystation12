@@ -14,7 +14,7 @@
 	var/track_blood = 0
 
 /obj/item/reagent_containers/glass/rag
-	name = "rag"
+	name = "dry rag"
 	desc = "For cleaning up messes, you suppose."
 	w_class = ITEM_SIZE_TINY
 	icon = 'icons/obj/toy.dmi'
@@ -30,13 +30,6 @@
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
 
-/obj/item/reagent_containers/glass/rag/New()
-	..()
-	update_name()
-
-/obj/item/reagent_containers/glass/rag/Destroy()
-	STOP_PROCESSING(SSobj, src) //so we don't continue turning to ash while gc'd
-	. = ..()
 
 /obj/item/reagent_containers/glass/rag/attack_self(mob/user as mob)
 	if(on_fire && user.unEquip(src))

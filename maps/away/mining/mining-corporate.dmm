@@ -1916,7 +1916,7 @@
 	operating = 1;
 	pixel_y = -24
 	},
-/obj/item/storage/box/freezer/blood/human,
+/obj/item/storage/box/freezer/iv_human,
 /obj/floor_decal/corner/paleblue{
 	dir = 10;
 	icon_state = "corner_white"

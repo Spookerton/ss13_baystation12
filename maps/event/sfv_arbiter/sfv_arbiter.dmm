@@ -2091,10 +2091,10 @@
 /obj/item/reagent_containers/ivbag/nanoblood,
 /obj/item/reagent_containers/ivbag,
 /obj/floor_decal/corner/white/mono,
-/obj/item/reagent_containers/ivbag/blood/human/opos,
-/obj/item/reagent_containers/ivbag/blood/human/opos,
-/obj/item/reagent_containers/ivbag/blood/human/opos,
-/obj/item/reagent_containers/ivbag/blood/human/opos,
+/obj/item/reagent_containers/ivbag/blood/human_opos,
+/obj/item/reagent_containers/ivbag/blood/human_opos,
+/obj/item/reagent_containers/ivbag/blood/human_opos,
+/obj/item/reagent_containers/ivbag/blood/human_opos,
 /turf/simulated/floor/tiled/white/monotile,
 /area/map_template/sfv_arbiter)
 "UF" = (

@@ -309,6 +309,6 @@
 
 /datum/gear/allergy_pen
 	display_name = "Allergy Autoinjector"
-	path = /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/allergy
+	path = /obj/item/reagent_containers/injector/auto/allergy
 	cost = 1
 	allowed_traits = list(/singleton/trait/malus/allergy)

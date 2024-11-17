@@ -46,8 +46,8 @@
 "hK" = (
 /obj/floor_decal/corner/blue/diagonal,
 /obj/structure/iv_stand,
-/obj/item/reagent_containers/ivbag/blood/human/oneg,
-/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human_oneg,
+/obj/item/reagent_containers/ivbag/blood/human_oneg,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "hO" = (

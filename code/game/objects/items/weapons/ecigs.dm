@@ -215,6 +215,7 @@
 	else
 		..()
 
+
 /obj/item/reagent_containers/ecig_cartridge
 	name = "tobacco flavour cartridge"
 	desc = "A small metal cartridge, used with electronic cigarettes, which contains an atomizing coil and a solution to be atomized."
@@ -225,92 +226,105 @@
 	volume = 20
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_OPEN_CONTAINER
 
-/obj/item/reagent_containers/ecig_cartridge/examine(mob/user)//to see how much left
-	. = ..()
-	to_chat(user, "The cartridge has [reagents.total_volume] units of liquid remaining.")
 
-//flavours
+/obj/item/reagent_containers/ecig_cartridge/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if (is_adjacent || isobserver(user))
+		to_chat(user, "The cartridge has [reagents.total_volume] units of liquid remaining.")
+
+
 /obj/item/reagent_containers/ecig_cartridge/blank
 	name = "ecigarette cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil."
 
+
 /obj/item/reagent_containers/ecig_cartridge/blanknico
 	name = "flavorless nicotine cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says you can add whatever flavoring agents you want."
-/obj/item/reagent_containers/ecig_cartridge/blanknico/New()
-	..()
-	reagents.add_reagent(/datum/reagent/tobacco/liquid, 5)
-	reagents.add_reagent(/datum/reagent/water, 10)
+	reagents = list(
+		/datum/reagent/water = 10,
+		/datum/reagent/tobacco/liquid = 5
+	)
+
 
 /obj/item/reagent_containers/ecig_cartridge/med_nicotine
 	name = "tobacco flavour cartridge"
 	desc =  "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its tobacco flavored."
-/obj/item/reagent_containers/ecig_cartridge/med_nicotine/New()
-	..()
-	reagents.add_reagent(/datum/reagent/tobacco, 5)
-	reagents.add_reagent(/datum/reagent/water, 15)
+	reagents = list(
+		/datum/reagent/water = 15,
+		/datum/reagent/tobacco/liquid = 5
+	)
+
 
 /obj/item/reagent_containers/ecig_cartridge/high_nicotine
 	name = "high nicotine tobacco flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its tobacco flavored, with extra nicotine."
-/obj/item/reagent_containers/ecig_cartridge/high_nicotine/New()
-	..()
-	reagents.add_reagent(/datum/reagent/tobacco, 10)
-	reagents.add_reagent(/datum/reagent/water, 10)
+	reagents = list(
+		/datum/reagent/water = 10,
+		/datum/reagent/tobacco/liquid = 10
+	)
+
 
 /obj/item/reagent_containers/ecig_cartridge/orange
 	name = "orange flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its orange flavored."
-/obj/item/reagent_containers/ecig_cartridge/orange/New()
-	..()
-	reagents.add_reagent(/datum/reagent/tobacco/liquid, 5)
-	reagents.add_reagent(/datum/reagent/water, 10)
-	reagents.add_reagent(/datum/reagent/drink/juice/orange, 5)
+	reagents = list(
+		/datum/reagent/water = 10,
+		/datum/reagent/tobacco/liquid = 5,
+		/datum/reagent/drink/juice/orange = 5
+	)
+
 
 /obj/item/reagent_containers/ecig_cartridge/mint
 	name = "mint flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its mint flavored."
-/obj/item/reagent_containers/ecig_cartridge/mint/New()
-	..()
-	reagents.add_reagent(/datum/reagent/tobacco/liquid, 5)
-	reagents.add_reagent(/datum/reagent/water, 10)
-	reagents.add_reagent(/datum/reagent/menthol, 5)
+	reagents = list(
+		/datum/reagent/water = 10,
+		/datum/reagent/tobacco/liquid = 5,
+		/datum/reagent/menthol = 5
+	)
+
 
 /obj/item/reagent_containers/ecig_cartridge/watermelon
 	name = "watermelon flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its watermelon flavored."
-/obj/item/reagent_containers/ecig_cartridge/watermelon/New()
-	..()
-	reagents.add_reagent(/datum/reagent/tobacco/liquid, 5)
-	reagents.add_reagent(/datum/reagent/water, 10)
-	reagents.add_reagent(/datum/reagent/drink/juice/watermelon, 5)
+	reagents = list(
+		/datum/reagent/water = 10,
+		/datum/reagent/tobacco/liquid = 5,
+		/datum/reagent/drink/juice/watermelon = 5
+	)
+
 
 /obj/item/reagent_containers/ecig_cartridge/grape
 	name = "grape flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its grape flavored."
-/obj/item/reagent_containers/ecig_cartridge/grape/New()
-	..()
-	reagents.add_reagent(/datum/reagent/tobacco/liquid, 5)
-	reagents.add_reagent(/datum/reagent/water, 10)
-	reagents.add_reagent(/datum/reagent/drink/juice/grape, 5)
+	reagents = list(
+		/datum/reagent/water = 10,
+		/datum/reagent/tobacco/liquid = 5,
+		/datum/reagent/drink/juice/grape = 5
+	)
+
 
 /obj/item/reagent_containers/ecig_cartridge/lemonlime
 	name = "lemon-lime flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its lemon-lime flavored."
-/obj/item/reagent_containers/ecig_cartridge/lemonlime/New()
-	..()
-	reagents.add_reagent(/datum/reagent/tobacco/liquid, 5)
-	reagents.add_reagent(/datum/reagent/water, 10)
-	reagents.add_reagent(/datum/reagent/drink/lemon_lime, 5)
+	reagents = list(
+		/datum/reagent/water = 10,
+		/datum/reagent/tobacco/liquid = 5,
+		/datum/reagent/drink/lemon_lime = 5
+	)
+
 
 /obj/item/reagent_containers/ecig_cartridge/coffee
 	name = "coffee flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its coffee flavored."
-/obj/item/reagent_containers/ecig_cartridge/coffee/New()
-	..()
-	reagents.add_reagent(/datum/reagent/tobacco/liquid, 5)
-	reagents.add_reagent(/datum/reagent/water, 10)
-	reagents.add_reagent(/datum/reagent/drink/coffee, 5)
+	reagents = list(
+		/datum/reagent/water = 10,
+		/datum/reagent/tobacco/liquid = 5,
+		/datum/reagent/drink/coffee = 5
+	)
 
-/obj/item/clothing/mask/smokable/ecig/smoke(amount)
+
+obj/item/clothing/mask/smokable/ecig/smoke(amount)
 	..(amount * 0.1)
+

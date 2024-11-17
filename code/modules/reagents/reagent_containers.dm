@@ -4,6 +4,12 @@
 	icon = 'icons/obj/chemical_storage.dmi'
 	icon_state = null
 	w_class = ITEM_SIZE_SMALL
+
+	var/const/REAGENT_CONTAINER_INIT_UPDATE_ICON = FLAG(1)
+	var/const/REAGENT_CONTAINER_USE_REAGENTS_COLOR = FLAG(2)
+
+	var/reagent_container_flags = EMPTY_BITFIELD
+
 	var/amount_per_transfer_from_this = 5
 	var/possible_transfer_amounts = "5;10;15;25;30"
 	var/volume = 30
@@ -17,6 +23,13 @@
 	create_reagents(volume, initial_reagents)
 	if (!possible_transfer_amounts)
 		verbs -= /obj/item/reagent_containers/verb/set_amount_per_transfer_from_this
+	if (reagent_container_flags & REAGENT_CONTAINER_INIT_UPDATE_ICON)
+		update_icon()
+
+
+/obj/item/reagent_containers/on_update_icon()
+	if (reagent_container_flags & REAGENT_CONTAINER_USE_REAGENTS_COLOR)
+		color = reagents.get_color()
 
 
 /obj/item/reagent_containers/proc/cannot_interact(mob/user)
@@ -206,7 +219,7 @@
 		return TRUE
 	return ..()
 
-/obj/item/reagent_containers/examine(mob/user)
+/obj/item/reagent_containers/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	if(!reagents)
 		return

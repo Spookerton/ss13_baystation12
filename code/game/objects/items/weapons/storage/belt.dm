@@ -192,7 +192,7 @@
 		/obj/item/clothing/mask/surgical,
 		/obj/item/clothing/head/surgery,
 		/obj/item/clothing/gloves/latex,
-		/obj/item/reagent_containers/hypospray,
+		/obj/item/reagent_containers/injector,
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/crowbar,
 		/obj/item/device/flashlight,

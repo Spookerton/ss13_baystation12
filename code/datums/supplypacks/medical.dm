@@ -78,7 +78,7 @@
 
 /singleton/hierarchy/supply_pack/medical/bloodpack
 	name = "Refills - Blood packs"
-	contains = list(/obj/item/storage/box/bloodpacks = 3)
+	contains = list(/obj/item/storage/box/iv_empty = 3)
 	cost = 10
 	containername = "blood pack crate"
 
@@ -91,7 +91,7 @@
 /singleton/hierarchy/supply_pack/medical/human_oneg
 	name = "Refills - Human O- Blood"
 	contains = list(
-		/obj/item/storage/box/freezer/blood/human = 1
+		/obj/item/storage/box/freezer/iv_human = 1
 	)
 	cost = 15
 	containername = "human O- blood crate"
@@ -99,7 +99,7 @@
 /singleton/hierarchy/supply_pack/medical/serpentid_oneg
 	name = "Refills - Serpentid O- Blood"
 	contains = list(
-		/obj/item/storage/box/freezer/blood/serpentid = 1
+		/obj/item/storage/box/freezer/iv_serpentid = 1
 	)
 	cost = 25
 	containername = "unathi blood crate"
@@ -107,7 +107,7 @@
 /singleton/hierarchy/supply_pack/medical/skrell_oneg
 	name = "Refills - Skrell O- Blood"
 	contains = list(
-		/obj/item/storage/box/freezer/blood/skrell = 1
+		/obj/item/storage/box/freezer/iv_skrell = 1
 	)
 	cost = 25
 	containername = "skrell blood crate"
@@ -115,7 +115,7 @@
 /singleton/hierarchy/supply_pack/medical/unathi_oneg
 	name = "Refills - Unathi O- Blood"
 	contains = list(
-		/obj/item/storage/box/freezer/blood/unathi = 1
+		/obj/item/storage/box/freezer/iv_unathi = 1
 	)
 	cost = 25
 	containername = "unathi blood crate"
@@ -124,7 +124,7 @@
 /singleton/hierarchy/supply_pack/medical/glucose
 	name = "Refills - Glucose"
 	contains = list(
-		/obj/item/storage/box/glucose = 2
+		/obj/item/storage/box/iv_glucose = 2
 	)
 	cost = 15
 	containername = "glucose crate"
@@ -169,7 +169,7 @@
 	contains = list(/obj/item/storage/belt/medical,
 					/obj/item/device/radio/headset/heads/cmo,
 					/obj/item/clothing/under/rank/chief_medical_officer,
-					/obj/item/reagent_containers/hypospray/vial,
+					/obj/item/reagent_containers/injector/hypo,
 					/obj/item/clothing/accessory/stethoscope,
 					/obj/item/clothing/glasses/hud/health,
 					/obj/item/clothing/suit/storage/toggle/labcoat/cmo,

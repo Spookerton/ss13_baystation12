@@ -5,12 +5,10 @@
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "carpplushie"
 	filling_color = "#522666"
+	reagents = list(/datum/reagent/nutriment/protein = 10)
 
 	var/spawned_mob = /mob/living/simple_animal/hostile/carp
 
-/obj/item/reagent_containers/food/snacks/dehydrated_carp/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 10)
 
 /obj/item/reagent_containers/food/snacks/dehydrated_carp/attack_self(mob/user)
 	if (user.a_intent == I_HELP)

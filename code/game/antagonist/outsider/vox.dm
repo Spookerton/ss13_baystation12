@@ -278,7 +278,7 @@ GLOBAL_LIST_EMPTY(vox_artifact_spawners)
 
 	var/rewards = list(
 		"Stasis Bag - 2" = list(2, /obj/item/bodybag/cryobag),
-		"Coagulant Autoinjector - 1" = list(1, /obj/item/reagent_containers/hypospray/autoinjector/coagulant),
+		"Coagulant Autoinjector - 1" = list(1, /obj/item/reagent_containers/injector/auto/coagulant),
 		"Iatric monitor - 1" = list(1, /obj/item/organ/internal/augment/active/iatric_monitor),
 		"Internal Air System - 1" = list(1, /obj/item/organ/internal/augment/active/internal_air_system),
 		"Adaptive Binoculars - 1" = list(1, /obj/item/organ/internal/augment/active/item/adaptive_binoculars),

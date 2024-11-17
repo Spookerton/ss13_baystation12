@@ -109,11 +109,11 @@
 		/obj/item/reagent_containers/food/drinks/bottle/brandy = 5
 	)
 	rare_products = list(
-		/obj/item/reagent_containers/glass/bottle/dye/polychromic/strong = 50,
+		/obj/item/reagent_containers/glass/bottle/polydye/strong = 50,
 		/obj/item/storage/pill_bottle/tramadol = 50
 	)
 	antag = list(
 		/obj/item/storage/secure/briefcase/money = 1,
-		/obj/item/reagent_containers/glass/bottle/dye/polychromic/strong = 0,
+		/obj/item/reagent_containers/glass/bottle/polydye/strong = 0,
 		/obj/item/storage/pill_bottle/tramadol = 0
 	)

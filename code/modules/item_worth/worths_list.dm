@@ -6,7 +6,7 @@ var/global/list/worths = list(
 //ROBOT ASSEMBLIES,
 					/obj/item/device/bot_kit = 300,
 //REAGENT CONTAINERS,
-					/obj/item/reagent_containers/hypospray = -90,
+					/obj/item/reagent_containers/injector = -90,
 					/obj/item/reagent_containers/spray = -23,
 					/obj/item/reagent_containers/food/snacks/monkeycube = -25,
 					/obj/item/reagent_containers/food/snacks/humanburger = -300,

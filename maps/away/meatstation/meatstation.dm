@@ -180,19 +180,22 @@
 	icon_state = "meat"
 	filling_color = "#f41d7e"
 	slice_path = /obj/item/reagent_containers/food/snacks/rawcutlet/meatstation
-
-/obj/item/reagent_containers/food/snacks/meat/meatstationmeat/New()
-	..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 6)
-	reagents.add_reagent(/datum/reagent/lexorin, 6)
-	reagents.add_reagent(/datum/reagent/toxin/bromide, 3)
-	bitesize = 3
+	reagents = list(
+		/datum/reagent/nutriment/protein = 6,
+		/datum/reagent/lexorin = 6,
+		/datum/reagent/toxin/bromide = 3
+	)
 
 /obj/item/reagent_containers/food/snacks/rawcutlet/meatstation
 	name = "tainted meat chunk"
 	desc = "A disgusting chunk of meat."
 	icon = 'maps/away/meatstation/meatstation_sprites.dmi'
 	icon_state = "meatchunk"
+	reagents = list(
+		/datum/reagent/nutriment/protein = 1,
+		/datum/reagent/lexorin = 1,
+		/datum/reagent/toxin/bromide = 0.5
+	)
 
 /obj/item/cell/infinite/meatstation
 	name = "biological power cell"

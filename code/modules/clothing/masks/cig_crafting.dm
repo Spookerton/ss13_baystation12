@@ -41,14 +41,13 @@
 
 //tobacco sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco
+	name = "dried tobacco"
 	plantname = "tobacco"
 	w_class = ITEM_SIZE_TINY
-
-/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/Initialize()
-	. = ..()
-	dry = TRUE
-	SetName("dried [name]")
 	color = "#a38463"
+	dry = TRUE
+
+
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco/bad
 	plantname = "badtobacco"
 

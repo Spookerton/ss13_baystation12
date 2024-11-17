@@ -57,12 +57,12 @@
 	build_path = /obj/item/stack/nanopaste
 	sort_string = "MADAA"
 
-/datum/design/item/medical/hypospray
+/datum/design/item/medical/injector
 	desc = "A sterile, air-needle autoinjector for rapid administration of drugs."
 	id = "hypospray"
 	req_tech = list(TECH_MATERIAL = 4, TECH_BIO = 5)
 	materials = list(MATERIAL_STEEL = 8000, MATERIAL_GLASS = 8000, MATERIAL_SILVER = 2000)
-	build_path = /obj/item/reagent_containers/hypospray/vial
+	build_path = /obj/item/reagent_containers/injector/hypo
 	sort_string = "MAEAA"
 
 /datum/design/item/weapon/storage/box/freezer

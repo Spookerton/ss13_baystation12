@@ -645,9 +645,9 @@
 
 
 /obj/item/reagent_containers/food/snacks/roburger/Initialize()
-	. = ..()
 	if (prob(5))
-		reagents.add_reagent(/datum/reagent/nanites, 2)
+		reagents[/datum/reagent/nanites] = 2
+	return ..()
 
 
 /obj/item/reagent_containers/food/snacks/roburgerbig
@@ -891,11 +891,10 @@
 
 
 /obj/item/reagent_containers/food/snacks/plump_pie/Initialize()
-	. = ..()
 	if (prob(10))
 		name = "exceptional plump pie"
-		desc = "Microwave is taken by a fey mood! It has cooked an exceptional plump pie!"
-		reagents.add_reagent(/datum/reagent/tricordrazine, 5)
+		reagents[/datum/reagent/tricordrazine] = 5
+	return ..()
 
 
 /obj/item/reagent_containers/food/snacks/xemeatpie
@@ -1258,66 +1257,27 @@
 	bitesize = 5
 	eat_sound = 'sound/items/drink.ogg'
 	reagents = list(
-		/datum/reagent/nutriment = list(1, list("backwash" = 1))
+		/datum/reagent/nutriment = list(1, list("backwash" = 1)),
 	)
 
 
 /obj/item/reagent_containers/food/snacks/mysterysoup/Initialize()
-	switch (rand(1, 10))
-		if (1)
-			reagents += list(
-				/datum/reagent/nutriment = 6,
-				/datum/reagent/capsaicin = 3,
-				/datum/reagent/drink/juice/tomato = 2
-			)
-		if (2)
-			reagents += list(
-				/datum/reagent/nutriment = 6,
-				/datum/reagent/frostoil = 3,
-				/datum/reagent/drink/juice/tomato = 2
-			)
-		if (3)
-			reagents += list(
-				/datum/reagent/nutriment = 5,
-				/datum/reagent/water = 5,
-				/datum/reagent/tricordrazine = 5
-			)
-		if (4)
-			reagents += list(
-				/datum/reagent/nutriment = 5,
-				/datum/reagent/water = 10
-			)
-		if (5)
-			reagents += list(
-				/datum/reagent/nutriment = 2,
-				/datum/reagent/drink/juice/banana = 10
-			)
-		if (6)
-			reagents += list(
-				/datum/reagent/nutriment = 6,
-				/datum/reagent/blood = 10
-			)
-		if (7)
-			reagents += list(
-				/datum/reagent/slimejelly = 10,
-				/datum/reagent/water = 10
-			)
-		if (8)
-			reagents += list(
-				/datum/reagent/carbon = 10,
-				/datum/reagent/toxin = 10
-			)
-		if (9)
-			reagents += list(
-				/datum/reagent/nutriment = 5,
-				/datum/reagent/drink/juice/tomato = 10
-			)
-		if (10)
-			reagents += list(
-				/datum/reagent/nutriment = 6,
-				/datum/reagent/drink/juice/tomato = 5,
-				/datum/reagent/imidazoline = 5
-			)
+	var/list/datum/reagent/options = list(
+		/datum/reagent/nutriment,
+		/datum/reagent/carbon,
+		/datum/reagent/capsaicin,
+		/datum/reagent/frostoil,
+		/datum/reagent/drink/juice/tomato,
+		/datum/reagent/drink/juice/banana,
+		/datum/reagent/tricordrazine,
+		/datum/reagent/blood,
+		/datum/reagent/imidazoline,
+		/datum/reagent/toxin,
+		/datum/reagent/slimejelly
+	)
+	for (var/i = 1 to rand(1, 4))
+		var/reagent = pick_n_take(options)
+		reagents[reagent] = rand(1, 4)
 	return ..()
 
 
@@ -1980,11 +1940,7 @@
 /obj/item/reagent_containers/food/snacks/plumphelmetbiscuit/Initialize()
 	if (prob(10))
 		name = "exceptional plump helmet biscuit"
-		desc = "Microwave is taken by a fey mood! It has cooked an exceptional plump helmet biscuit!"
-		reagents = list(
-			/datum/reagent/nutriment = 3,
-			/datum/reagent/tricordrazine = 5
-		)
+		reagents[/datum/reagent/tricordrazine] = 5
 	return ..()
 
 

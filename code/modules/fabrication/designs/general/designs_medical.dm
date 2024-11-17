@@ -41,5 +41,5 @@
 /datum/fabricator_recipe/medical/pill_bottle
 	path = /obj/item/storage/pill_bottle
 
-/datum/fabricator_recipe/medical/hypospray/autoinjector
-	path = /obj/item/reagent_containers/hypospray/autoinjector
+/datum/fabricator_recipe/medical/injector/auto
+	path = /obj/item/reagent_containers/injector/auto

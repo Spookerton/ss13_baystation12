@@ -91,7 +91,7 @@
 	icon_state = "survival"
 	startswith = list(/obj/item/clothing/mask/breath/scba = 1,
 					/obj/item/tank/oxygen_emergency = 1,
-					/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 1,
+					/obj/item/reagent_containers/injector/auto/pouch_inaprovaline = 1,
 					/obj/item/stack/medical/bruise_pack = 1,
 					/obj/item/device/flashlight/flare/glowstick = 1,
 					/obj/item/reagent_containers/food/snacks/proteinbar = 1,
@@ -104,7 +104,7 @@
 	icon_state = "survivalvox"
 	startswith = list(/obj/item/clothing/mask/breath = 1,
 					/obj/item/tank/nitrogen_emergency = 1,
-					/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 1,
+					/obj/item/reagent_containers/injector/auto/pouch_inaprovaline = 1,
 					/obj/item/stack/medical/bruise_pack = 1,
 					/obj/item/device/flashlight/flare/glowstick = 1,
 					/obj/item/reagent_containers/food/snacks/proteinbar = 1)
@@ -116,8 +116,8 @@
 	icon_state = "survivaleng"
 	startswith = list(/obj/item/clothing/mask/breath/scba = 1,
 					/obj/item/tank/oxygen_emergency_extended = 1,
-					/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline = 1,
-					/obj/item/reagent_containers/hypospray/autoinjector/antirad = 1,
+					/obj/item/reagent_containers/injector/auto/pouch_inaprovaline = 1,
+					/obj/item/reagent_containers/injector/auto/antirad = 1,
 					/obj/item/stack/medical/bruise_pack = 1,
 					/obj/item/device/flashlight/flare/glowstick = 1,
 					/obj/item/reagent_containers/food/snacks/proteinbar = 1,
@@ -457,7 +457,7 @@
 	desc = "Contains autoinjectors."
 	icon_state = "syringe"
 
-	startswith = list(/obj/item/reagent_containers/hypospray/autoinjector = 7)
+	startswith = list(/obj/item/reagent_containers/injector/auto = 7)
 
 /obj/item/storage/box/lights
 	name = "box of replacement bulbs"
