@@ -12,7 +12,7 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 	icon_state = null
 	base_icon = "square" // Base icon name
 	filling_states = "20;40;60;80;100"
-	volume = 30
+	reagents_volume = 30
 	matter = list(MATERIAL_GLASS = 65)
 
 	var/list/extras = list() // List of extras. Two extras maximum
@@ -80,7 +80,7 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 			for(var/datum/reagent/re in reagents.reagent_list)
 				if("vapor" in re.glass_special)
 					totalvape += re.volume
-			if(totalvape >= volume * 0.6) // 60% vapor by container volume
+			if(totalvape >= reagents_volume * 0.6) // 60% vapor by container volume
 				return 1
 	return 0
 

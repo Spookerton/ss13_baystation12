@@ -6,7 +6,7 @@
 	item_state = "autoinjector"
 	reagent_container_flags = REAGENT_CONTAINER_INIT_UPDATE_ICON
 	amount_per_transfer_from_this = 5
-	volume = 5
+	reagents_volume = 5
 	origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 2)
 	slot_flags = SLOT_BELT | SLOT_EARS
 	w_class = ITEM_SIZE_TINY
@@ -93,7 +93,7 @@
 
 /obj/item/reagent_containers/injector/auto/combatstim
 	name ="autoinjector (combat Stimulants)"
-	volume = 15
+	reagents_volume = 15
 	amount_per_transfer_from_this = 15
 	reagents = list(
 		/datum/reagent/inaprovaline = 10,

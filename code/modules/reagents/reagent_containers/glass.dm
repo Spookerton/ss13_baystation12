@@ -11,7 +11,7 @@
 	item_state = "null"
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = "5;10;15;25;30;60"
-	volume = 60
+	reagents_volume = 60
 	w_class = ITEM_SIZE_SMALL
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	unacidable = TRUE
@@ -141,7 +141,7 @@
 
 /obj/item/reagent_containers/glass/beaker/Initialize()
 	. = ..()
-	desc += " It can hold up to [volume] units."
+	desc += " It can hold up to [reagents_volume] units."
 
 
 /obj/item/reagent_containers/glass/beaker/on_reagent_change()
@@ -166,7 +166,7 @@
 	ClearOverlays()
 	if (reagents.total_volume)
 		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]10")
-		var/percent = round((reagents.total_volume / volume) * 100)
+		var/percent = round((reagents.total_volume / reagents_volume) * 100)
 		switch(percent)
 			if (0 to 9)
 				filling.icon_state = "[icon_state]-10"
@@ -195,7 +195,7 @@
 	icon_state = "beakerlarge"
 	center_of_mass = "x=16;y=10"
 	matter = list(MATERIAL_GLASS = 5000)
-	volume = 120
+	reagents_volume = 120
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = "5;10;15;25;30;60;120"
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
@@ -207,7 +207,7 @@
 	icon_state = "mixingbowl"
 	center_of_mass = "x=16;y=10"
 	matter = list(MATERIAL_STEEL = 300)
-	volume = 180
+	reagents_volume = 180
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = "5;10;15;25;30;60;180"
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
@@ -219,7 +219,7 @@
 	icon_state = "beakernoreact"
 	center_of_mass = "x=16;y=8"
 	matter = list(MATERIAL_GLASS = 500)
-	volume = 60
+	reagents_volume = 60
 	amount_per_transfer_from_this = 10
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_NO_REACT
 
@@ -229,7 +229,7 @@
 	icon_state = "beakerbluespace"
 	center_of_mass = "x=16;y=10"
 	matter = list(MATERIAL_GLASS = 5000)
-	volume = 300
+	reagents_volume = 300
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = "5;10;15;25;30;60;120;150;200;250;300"
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
@@ -240,7 +240,7 @@
 	icon_state = "vial"
 	center_of_mass = "x=15;y=8"
 	matter = list(MATERIAL_GLASS = 250)
-	volume = 30
+	reagents_volume = 30
 	w_class = ITEM_SIZE_TINY //half the volume of a bottle, half the size
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = "5;10;15;30"
@@ -261,7 +261,7 @@
 	icon_state = "insulatedlarge"
 	center_of_mass = "x=16;y=10"
 	matter = list(MATERIAL_GLASS = 5000, MATERIAL_PLASTIC = 2500)
-	volume = 120
+	reagents_volume = 120
 
 
 /obj/item/reagent_containers/glass/beaker/cryoxadone
@@ -283,7 +283,7 @@
 	w_class = ITEM_SIZE_NORMAL
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = "10;20;30;60;120;150;180"
-	volume = 180
+	reagents_volume = 180
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	unacidable = FALSE
 
@@ -293,7 +293,7 @@
 	icon_state = "wbucket"
 	item_state = "wbucket"
 	matter = list(MATERIAL_WOOD = 280)
-	volume = 200
+	reagents_volume = 200
 
 /obj/item/reagent_containers/glass/bucket/use_tool(obj/item/D, mob/living/user, list/click_params)
 	if(istype(D, /obj/item/mop))
@@ -312,39 +312,7 @@
 	if (!is_open_container())
 		var/image/lid = image(icon, src, "lid_[initial(icon_state)]")
 		AddOverlays(lid)
-	else if(reagents.total_volume && round((reagents.total_volume / volume) * 100) > 80)
+	else if(reagents.total_volume && round((reagents.total_volume / reagents_volume) * 100) > 80)
 		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "bucket")
 		filling.color = reagents.get_color()
 		AddOverlays(filling)
-
-/*
-/obj/item/reagent_containers/glass/blender_jug
-	name = "Blender Jug"
-	desc = "A blender jug, part of a blender."
-	icon = 'icons/obj/machines/kitchen.dmi'
-	icon_state = "blender_jug_e"
-	volume = 100
-
-	on_reagent_change()
-		switch(src.reagents.total_volume)
-			if(0)
-				icon_state = "blender_jug_e"
-			if(1 to 75)
-				icon_state = "blender_jug_h"
-			if(76 to 100)
-				icon_state = "blender_jug_f"
-
-/obj/item/reagent_containers/glass/canister		//not used apparantly
-	desc = "It's a canister. Mainly used for transporting fuel."
-	name = "canister"
-	icon = 'icons/obj/tank.dmi'
-	icon_state = "canister"
-	item_state = "canister"
-	m_amt = 300
-	g_amt = 0
-	w_class = ITEM_SIZE_HUGE
-
-	amount_per_transfer_from_this = 20
-	possible_transfer_amounts = "10;20;30;60"
-	volume = 120
-*/

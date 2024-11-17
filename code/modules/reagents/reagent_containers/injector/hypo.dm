@@ -5,7 +5,7 @@
 	desc = "The DeForest Medical Corporation, a subsidiary of Zeng-Hu Pharmaceuticals, hypospray is a sterile, air-needle autoinjector for rapid administration of drugs to patients. Uses a replacable 30u vial."
 	possible_transfer_amounts = "1;2;5;10;15;20;30"
 	amount_per_transfer_from_this = 5
-	volume = 0
+	reagents_volume = 0
 	time = 7
 	single_use = FALSE
 	slot_flags = SLOT_BELT | SLOT_HOLSTER
@@ -14,16 +14,16 @@
 
 
 /obj/item/reagent_containers/injector/hypo/Initialize()
+	. = ..()
 	loaded_vial = new (src)
-	volume = loaded_vial.volume
+	reagents_volume = loaded_vial.reagents_volume
 	reagents.maximum_volume = loaded_vial.reagents.maximum_volume
-	return ..()
 
 
 /obj/item/reagent_containers/injector/hypo/proc/remove_vial(mob/user, swap_mode)
 	if (!loaded_vial)
 		return
-	reagents.trans_to_holder(loaded_vial.reagents,volume)
+	reagents.trans_to_holder(loaded_vial.reagents, reagents_volume)
 	reagents.maximum_volume = 0
 	loaded_vial.update_icon()
 	user.put_in_hands(loaded_vial)
@@ -61,7 +61,7 @@
 			item.update_icon()
 		loaded_vial = item
 		reagents.maximum_volume = loaded_vial.reagents.maximum_volume
-		loaded_vial.reagents.trans_to_holder(reagents,volume)
+		loaded_vial.reagents.trans_to_holder(reagents, reagents_volume)
 		user.visible_message(SPAN_NOTICE("[user] has loaded [item] into \the [src]."),SPAN_NOTICE("[usermessage]"))
 		update_icon()
 		playsound(src, 'sound/weapons/empty.ogg', 50, TRUE)

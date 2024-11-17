@@ -49,7 +49,7 @@
 	var/image/filling_overlay = image(icon, icon_state = "filling0")
 	if (density)
 		filling_overlay.pixel_y += 6
-	var/percent_full = Round(Percent(iv_bag.reagents.total_volume, iv_bag.volume, 0))
+	var/percent_full = Round(Percent(iv_bag.reagents.total_volume, iv_bag.reagents_volume, 0))
 	switch (percent_full)
 		if (15 to 35)
 			filling_overlay.icon_state = "filling25"

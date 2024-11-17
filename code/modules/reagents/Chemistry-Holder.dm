@@ -539,7 +539,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	if (!initial_reagents)
 		return reagents
 	if (ispath(initial_reagents))
-		reagents.add_reagent(reagents, max_vol)
+		reagents.add_reagent(initial_reagents, max_vol)
 		return reagents
 	var/list/details
 	for (var/reagent in initial_reagents)

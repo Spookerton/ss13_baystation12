@@ -6,7 +6,6 @@
 	type_butt = /obj/item/trash/cigbutt
 	chem_volume = 50
 	brand = "handrolled"
-	filling = list()
 	var/filter = 0
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/examine(mob/user)

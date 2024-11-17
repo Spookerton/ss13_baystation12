@@ -21,7 +21,7 @@
 	icon_state = "rag"
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = "5"
-	volume = 10
+	reagents_volume = 10
 	can_be_placed_into = null
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER

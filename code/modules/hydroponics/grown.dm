@@ -39,7 +39,7 @@
 
 	potency = seed.get_trait(TRAIT_POTENCY)
 	if(!reagents)
-		create_reagents(volume)
+		create_reagents(reagents_volume)
 	reagents.clear_reagents()
 	// Fill the object up with the appropriate reagents.
 	for(var/rid in seed.chems)

@@ -13,6 +13,6 @@
 			cartridge = new /obj/item/reagent_containers/chem_disp_cartridge/medium (usr.loc)
 		if ("large")
 			cartridge = new /obj/item/reagent_containers/chem_disp_cartridge (usr.loc)
-	cartridge.reagents.add_reagent(reagent, cartridge.volume)
+	cartridge.reagents.add_reagent(reagent, cartridge.reagents_volume)
 	cartridge.AddLabel(initial(reagent.name))
 	log_and_message_admins("spawned a [size] reagent container containing [reagent]")

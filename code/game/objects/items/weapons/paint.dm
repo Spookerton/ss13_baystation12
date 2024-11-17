@@ -13,7 +13,7 @@ var/global/list/cached_icons = list()
 	w_class = ITEM_SIZE_NORMAL
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = "10;20;30;60"
-	volume = 60
+	reagents_volume = 60
 	unacidable = FALSE
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/paint_hex = "#fe191a"
@@ -32,7 +32,7 @@ var/global/list/cached_icons = list()
 
 /obj/item/reagent_containers/glass/paint/Initialize()
 	if (paint_hex)
-		reagents = list(/datum/reagent/paint = list(volume, paint_hex))
+		reagents = list(/datum/reagent/paint = list(reagents_volume, paint_hex))
 		update_icon()
 	return ..()
 

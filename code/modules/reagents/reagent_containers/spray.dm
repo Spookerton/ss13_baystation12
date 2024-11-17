@@ -17,7 +17,7 @@
 	var/spray_size = 3
 	var/list/spray_sizes = list(1,3)
 	var/step_delay = 10 // lower is faster
-	volume = 250
+	reagents_volume = 250
 
 /obj/item/reagent_containers/spray/Initialize()
 	. = ..()
@@ -120,7 +120,7 @@
 	icon_state = "pepperspray"
 	item_state = "pepperspray"
 	possible_transfer_amounts = null
-	volume = 60
+	reagents_volume = 60
 	reagents = /datum/reagent/capsaicin/condensed
 	step_delay = 1
 	var/safety = TRUE
@@ -148,7 +148,7 @@
 	item_state = "sunflower"
 	amount_per_transfer_from_this = 1
 	possible_transfer_amounts = null
-	volume = 10
+	reagents_volume = 10
 	reagents = /datum/reagent/water
 
 
@@ -165,7 +165,7 @@
 	throwforce = 3
 	w_class = ITEM_SIZE_LARGE
 	possible_transfer_amounts = null
-	volume = 600
+	reagents_volume = 600
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
 	step_delay = 8
 
@@ -203,7 +203,7 @@
 	icon = 'icons/obj/machines/hydroponics_machines.dmi'
 	icon_state = "plantbgone"
 	item_state = "plantbgone"
-	volume = 100
+	reagents_volume = 100
 	reagents = /datum/reagent/toxin/plantbgone
 
 /obj/item/reagent_containers/spray/plantbgone/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
@@ -218,7 +218,7 @@
 	name = "deodorant"
 	desc = "A can of Gold Standard spray deodorant - for when you're too lazy to shower."
 	gender = PLURAL
-	volume = 35
+	reagents_volume = 35
 	icon = 'icons/obj/lavatory.dmi'
 	icon_state = "deodorant"
 	item_state = "deodorant"

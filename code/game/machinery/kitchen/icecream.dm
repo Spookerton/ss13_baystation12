@@ -193,7 +193,7 @@
 	icon_state = "icecream_cone_waffle"
 	layer = ABOVE_OBJ_LAYER
 	bitesize = 2
-	volume = 20
+	reagents_volume = 20
 	reagents = list(
 		/datum/reagent/nutriment/protein = list(4, list("icecream" = 4))
 	)

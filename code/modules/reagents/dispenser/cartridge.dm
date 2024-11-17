@@ -3,18 +3,18 @@
 	desc = "This goes in a chemical dispenser."
 	icon_state = "cartridge"
 	w_class = ITEM_SIZE_NORMAL
-	volume = CARTRIDGE_VOLUME_LARGE
+	reagents_volume = CARTRIDGE_VOLUME_LARGE
 	amount_per_transfer_from_this = 50
 	possible_transfer_amounts = "50;100"
 	unacidable = TRUE
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/small
-	volume = CARTRIDGE_VOLUME_SMALL
+	reagents_volume = CARTRIDGE_VOLUME_SMALL
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/medium
-	volume = CARTRIDGE_VOLUME_MEDIUM
+	reagents_volume = CARTRIDGE_VOLUME_MEDIUM
 
 
 /obj/item/reagent_containers/chem_disp_cartridge/Initialize()
@@ -25,7 +25,7 @@
 
 /obj/item/reagent_containers/chem_disp_cartridge/examine(mob/user)
 	. = ..()
-	to_chat(user, "It has a capacity of [volume] units.")
+	to_chat(user, "It has a capacity of [reagents_volume] units.")
 	if (reagents.total_volume <= 0)
 		to_chat(user, "It is empty.")
 	else

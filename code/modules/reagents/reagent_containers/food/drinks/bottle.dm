@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/food/drinks/bottle
 	icon = 'icons/obj/food/drinks/bottles.dmi'
 	amount_per_transfer_from_this = 10
-	volume = 100
+	reagents_volume = 100
 	item_state = "broken_beer"
 	force = 5
 	drink_offset_y = 15
@@ -616,7 +616,7 @@
 
 
 /obj/item/reagent_containers/food/drinks/bottle/small
-	volume = 50
+	reagents_volume = 50
 	smash_duration = 1
 	atom_flags = 0
 	rag_underlay = "rag_small"

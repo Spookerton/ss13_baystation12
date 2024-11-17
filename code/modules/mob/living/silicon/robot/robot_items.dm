@@ -403,10 +403,13 @@
 		)
 		playsound(loc, 'sound/items/zip.ogg', 75, 1)
 		return TRUE
+
+
 /obj/item/reagent_containers/spray/cleaner/drone
 	name = "space cleaner"
 	desc = "BLAM!-brand non-foaming space cleaner!"
-	volume = 150
+	reagents_volume = 150
+
 
 /obj/item/robot_rack
 	name = "a generic robot rack"

@@ -200,7 +200,7 @@
 	if(w_class != ITEM_SIZE_TINY)
 		to_chat(user, SPAN_NOTICE("\The [src] is too big to properly dip in \the [glass]."))
 		return TRUE
-	var/transfered = glass.reagents.trans_to_obj(src, volume)
+	var/transfered = glass.reagents.trans_to_obj(src, reagents_volume)
 	if(transfered)
 		to_chat(user, SPAN_NOTICE("You dip \the [src] into \the [glass]."))
 	else
@@ -245,7 +245,7 @@
 	desc = "An egg!"
 	icon_state = "egg"
 	filling_color = "#fdffd1"
-	volume = 10
+	reagents_volume = 10
 	center_of_mass = "x=16;y=13"
 	reagents = list(
 		/datum/reagent/nutriment/protein/egg = 3
@@ -655,7 +655,7 @@
 	desc = "This massive patty looks like poison. Beep."
 	icon_state = "roburger"
 	filling_color = COLOR_GRAY80
-	volume = 100
+	reagents_volume = 100
 	center_of_mass = "x=16;y=11"
 	bitesize = 0.1
 	reagents = list(
@@ -2533,7 +2533,7 @@
 	filling_color = "#f5deb8"
 	center_of_mass = "x=17;y=6"
 	w_class = ITEM_SIZE_TINY
-	volume = 6
+	reagents_volume = 6
 	reagents = list(
 		/datum/reagent/nutriment = list(1, list("salt" = 1, "cracker" = 2))
 	)
@@ -3407,7 +3407,7 @@
 	bitesize = 4
 	center_of_mass = "x=16;y=4"
 	w_class = ITEM_SIZE_TINY
-	volume = 7
+	reagents_volume = 7
 	reagents = list(
 		/datum/reagent/nutriment = list(8 / 4, list("cookie" = 5 / 4, "almonds" = 3 / 4))
 	)
@@ -3420,7 +3420,7 @@
 	center_of_mass = "x=17;y=18"
 	w_class = ITEM_SIZE_TINY
 	bitesize = 3
-	volume = 9
+	reagents_volume = 9
 	reagents = list(
 		/datum/reagent/nutriment = list(4, list("sweetness" = 2, "crumbly cookie" = 2, "almonds" = 1))
 	)

@@ -13,7 +13,7 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	possible_transfer_amounts = "1;5;10"
 	center_of_mass = "x=16;y=6"
-	volume = 50
+	reagents_volume = 50
 	var/list/starting_reagents
 	var/fixed_state = FALSE
 
@@ -90,11 +90,11 @@
 		return
 	if(!reagents || reagents.total_volume == 0)
 		to_chat(user, SPAN_NOTICE("\The [src] is empty!"))
-	else if (reagents.total_volume <= volume * 0.25)
+	else if (reagents.total_volume <= reagents_volume * 0.25)
 		to_chat(user, SPAN_NOTICE("\The [src] is almost empty!"))
-	else if (reagents.total_volume <= volume * 0.66)
+	else if (reagents.total_volume <= reagents_volume * 0.66)
 		to_chat(user, SPAN_NOTICE("\The [src] is half full!"))
-	else if (reagents.total_volume <= volume * 0.90)
+	else if (reagents.total_volume <= reagents_volume * 0.90)
 		to_chat(user, SPAN_NOTICE("\The [src] is almost full!"))
 	else
 		to_chat(user, SPAN_NOTICE("\The [src] is full!"))
@@ -149,7 +149,7 @@
 /obj/item/reagent_containers/food/condiment/small
 	possible_transfer_amounts = "1;20"
 	amount_per_transfer_from_this = 1
-	volume = 20
+	reagents_volume = 20
 	fixed_state = TRUE
 
 /obj/item/reagent_containers/food/condiment/small/saltshaker
@@ -180,7 +180,7 @@
 	icon_state = "salt"
 	item_state = "flour"
 	randpixel = 10
-	volume = 500
+	reagents_volume = 500
 	w_class = ITEM_SIZE_LARGE
 	starting_reagents = list(/datum/reagent/sodiumchloride = 500)
 	fixed_state = TRUE
@@ -193,7 +193,7 @@
 	w_class = ITEM_SIZE_TINY
 	possible_transfer_amounts = "1;5;10"
 	amount_per_transfer_from_this = 1
-	volume = 10
+	reagents_volume = 10
 
 /obj/item/reagent_containers/food/condiment/small/packet/salt
 	name = "salt packet"

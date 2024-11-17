@@ -100,6 +100,8 @@
 
 	var/attack_ignore_harm_check = FALSE
 
+	var/reagents_volume
+
 
 /obj/item/Initialize()
 	. = ..()
@@ -113,6 +115,10 @@
 				break
 	if (item_flags & ITEM_FLAG_IS_CHAMELEON_ITEM)
 		SetupChameleonExtension(CHAMELEON_FLEXIBLE_OPTIONS_EXTENSION, FALSE, TRUE)
+	if (reagents_volume)
+		var/initial_reagents = reagents
+		reagents = null
+		create_reagents(reagents_volume, initial_reagents)
 
 /obj/item/Destroy()
 	QDEL_NULL(hidden_uplink)

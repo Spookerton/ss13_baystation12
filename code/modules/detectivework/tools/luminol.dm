@@ -6,7 +6,4 @@
 	item_state = "cleaner"
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = "5;10"
-	volume = 250
-	reagents = list(
-		/datum/reagent/luminol = 250
-	)
+	reagents = /datum/reagent/luminol

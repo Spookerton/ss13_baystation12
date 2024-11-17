@@ -103,7 +103,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/use_tool(obj/item/O, mob/living/user, list/click_params)
 	var/obj/item/reagent_containers/RG = O
 	if (reagent_type && istype(RG) && RG.is_open_container() && RG.reagents)
-		RG.reagents.add_reagent(reagent_type, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
+		RG.reagents.add_reagent(reagent_type, min(RG.reagents_volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
 		user.visible_message(SPAN_NOTICE("[user] fills \the [RG] from \the [src]."),SPAN_NOTICE("You fill \the [RG] from \the [src]."))
 		return TRUE
 	else

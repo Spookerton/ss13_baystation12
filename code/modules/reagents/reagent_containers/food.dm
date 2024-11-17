@@ -5,7 +5,7 @@
 	randpixel = 6
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	possible_transfer_amounts = null
-	volume = 50 //Sets the default container amount for all food items.
+	reagents_volume = 50
 	var/filling_color = "#ffffff" //Used by sandwiches.
 	var/datum/extension/scent/scent_extension
 

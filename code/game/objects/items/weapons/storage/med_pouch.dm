@@ -160,28 +160,28 @@
 /obj/item/reagent_containers/pill/pouch_inaprovaline
 	name = "emergency inaprovaline pill (15u)"
 	icon_state = "pill2"
-	volume = 15
+	reagents_volume = 15
 	reagents = /datum/reagent/inaprovaline
 
 
 /obj/item/reagent_containers/pill/pouch_dylovene
 	name = "emergency dylovene pill (15u)"
 	icon_state = "pill2"
-	volume = 15
+	reagents_volume = 15
 	reagents = /datum/reagent/dylovene
 
 
 /obj/item/reagent_containers/pill/pouch_dexalin
 	name = "emergency dexalin pill (15u)"
 	icon_state = "pill2"
-	volume = 15
+	reagents_volume = 15
 	reagents = /datum/reagent/dexalin
 
 
 /obj/item/reagent_containers/pill/pouch_paracetamol
 	name = "emergency paracetamol pill (15u)"
 	icon_state = "pill2"
-	volume = 15
+	reagents_volume = 15
 	reagents = /datum/reagent/paracetamol
 
 

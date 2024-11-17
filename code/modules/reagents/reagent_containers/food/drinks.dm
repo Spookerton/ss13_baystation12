@@ -5,7 +5,7 @@
 	icon_state = null
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	amount_per_transfer_from_this = 5
-	volume = 50
+	reagents_volume = 50
 	var/filling_states   // List of percentages full that have icons
 	var/base_name = null // Name to put in front of drinks, i.e. "[base_name] of [contents]"
 	var/base_icon = null // Base icon name for fill states
@@ -132,18 +132,18 @@
 	var/total_volume = reagents?.total_volume
 	if (!total_volume)
 		to_chat(user, SPAN_NOTICE("\The [src] is empty!"))
-	else if (total_volume <= volume * 0.25)
+	else if (total_volume <= reagents_volume * 0.25)
 		to_chat(user, SPAN_NOTICE("\The [src] is almost empty!"))
-	else if (total_volume <= volume * 0.66)
+	else if (total_volume <= reagents_volume * 0.66)
 		to_chat(user, SPAN_NOTICE("\The [src] is half full!"))
-	else if (total_volume <= volume * 0.90)
+	else if (total_volume <= reagents_volume * 0.90)
 		to_chat(user, SPAN_NOTICE("\The [src] is almost full!"))
 	else
 		to_chat(user, SPAN_NOTICE("\The [src] is full!"))
 
 
 /obj/item/reagent_containers/food/drinks/proc/get_filling_state()
-	var/percent = round((reagents.total_volume / volume) * 100)
+	var/percent = round((reagents.total_volume / reagents_volume) * 100)
 	for (var/k in cached_number_list_decode(filling_states))
 		if (percent <= k)
 			return k
@@ -174,7 +174,7 @@
 	throwforce = 10
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = null
-	volume = 150
+	reagents_volume = 150
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 
@@ -214,7 +214,7 @@
 	icon_state = "mini-milk"
 	item_state = "carton"
 	center_of_mass = "x=16;y=9"
-	volume = 30
+	reagents_volume = 30
 	reagents = list(/datum/reagent/drink/milk = 30)
 
 
@@ -224,7 +224,7 @@
 	icon_state = "mini-milk_choco"
 	item_state = "carton"
 	center_of_mass = "x=16;y=9"
-	volume = 30
+	reagents_volume = 30
 	reagents = list(/datum/reagent/drink/milk/chocolate = 30)
 
 
@@ -293,7 +293,7 @@
 	desc = "A paper water cup."
 	icon_state = "water_cup"
 	possible_transfer_amounts = null
-	volume = 10
+	reagents_volume = 10
 	center_of_mass = "x=16;y=12"
 	filling_states = "100"
 	base_icon = "water_cup"
@@ -305,7 +305,7 @@
 	icon_state = "teapot"
 	item_state = "teapot"
 	amount_per_transfer_from_this = 10
-	volume = 120
+	reagents_volume = 120
 	center_of_mass = "x=17;y=7"
 
 
@@ -313,7 +313,7 @@
 	name = "insulated pitcher"
 	desc = "A stainless steel insulated pitcher. Everyone's best friend in the morning."
 	icon_state = "pitcher"
-	volume = 120
+	reagents_volume = 120
 	amount_per_transfer_from_this = 10
 	center_of_mass = "x=16;y=9"
 	filling_states = "15;30;50;70;85;100"
@@ -325,7 +325,7 @@
 	desc = "A metal flask belonging to the captain."
 	icon = 'icons/obj/food/drinks/flasks.dmi'
 	icon_state = "flask"
-	volume = 60
+	reagents_volume = 60
 	center_of_mass = "x=17;y=7"
 
 
@@ -339,7 +339,7 @@
 	name = "\improper Detective's flask"
 	desc = "A metal flask with a leather band and golden badge belonging to the detective."
 	icon_state = "detflask"
-	volume = 60
+	reagents_volume = 60
 	center_of_mass = "x=17;y=8"
 
 
@@ -347,7 +347,7 @@
 	name = "flask"
 	desc = "For those who can't be bothered to hang out at the bar to drink."
 	icon_state = "barflask"
-	volume = 60
+	reagents_volume = 60
 	center_of_mass = "x=17;y=7"
 
 
@@ -355,7 +355,7 @@
 	name = "vacuum flask"
 	desc = "Keeping your drinks at the perfect temperature since 1892."
 	icon_state = "vacuumflask"
-	volume = 60
+	reagents_volume = 60
 	center_of_mass = "x=15;y=4"
 	var/obj/item/reagent_containers/food/drinks/flask/flask_cup/cup
 
@@ -380,7 +380,7 @@
 		if (cup)
 			to_chat(user, SPAN_WARNING("\The [src] already has a cap."))
 			return TRUE
-		if (attacking_item.reagents.total_volume + reagents.total_volume > volume)
+		if (attacking_item.reagents.total_volume + reagents.total_volume > reagents_volume)
 			to_chat(user, SPAN_WARNING("There's too much fluid in both the cap and \the [src]!"))
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You put the cap onto \the [src]."))
@@ -401,7 +401,7 @@
 	name = "vacuum flask cup"
 	desc = "The cup that appears in your hands after you unscrew the cap of the flask and turn it over. Magic!"
 	icon_state = "vacuumflask-brim"
-	volume = 10
+	reagents_volume = 10
 	center_of_mass = "x=16;y=6"
 
 

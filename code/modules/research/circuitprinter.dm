@@ -62,7 +62,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	var/obj/item/stock_parts/building_material/mat = get_component_of_type(/obj/item/stock_parts/building_material)
 	if(mat)
 		for(var/obj/item/reagent_containers/glass/G in mat.materials)
-			T += G.volume
+			T += G.reagents_volume
 		if(!reagents)
 			create_reagents(T)
 		else

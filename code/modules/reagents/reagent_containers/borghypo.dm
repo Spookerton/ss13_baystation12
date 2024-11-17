@@ -5,7 +5,7 @@
 	item_state = "hypo"
 	icon_state = "borghypo"
 	amount_per_transfer_from_this = 5
-	volume = 30
+	reagents_volume = 30
 	possible_transfer_amounts = null
 	canremove = FALSE
 
@@ -30,7 +30,7 @@
 	. = ..()
 
 	for(var/T in reagent_ids)
-		reagent_volumes[T] = volume
+		reagent_volumes[T] = reagents_volume
 		var/datum/reagent/R = T
 		reagent_names += initial(R.name)
 
@@ -51,9 +51,9 @@
 		var/mob/living/silicon/robot/R = loc
 		if(R && R.cell)
 			for(var/T in reagent_ids)
-				if(reagent_volumes[T] < volume)
+				if(reagent_volumes[T] < reagents_volume)
 					R.cell.use(charge_cost)
-					reagent_volumes[T] = min(reagent_volumes[T] + 5, volume)
+					reagent_volumes[T] = min(reagent_volumes[T] + 5, reagents_volume)
 	return 1
 
 /obj/item/reagent_containers/borghypo/use_before(mob/living/M, mob/user)
@@ -117,7 +117,7 @@
 
 	if (mode)
 		var/datum/reagent/R = reagent_ids[mode]
-		to_chat(user, SPAN_NOTICE("It is currently producing [initial(R.name)] and has [reagent_volumes[R]] out of [volume] units left."))
+		to_chat(user, SPAN_NOTICE("It is currently producing [initial(R.name)] and has [reagent_volumes[R]] out of [reagents_volume] units left."))
 	else
 		var/obj/item/reagent_containers/container = dispense.resolve()
 		if (istype(container))
@@ -211,7 +211,7 @@
 	icon_state = "shaker"
 	charge_cost = 5
 	recharge_time = 3
-	volume = 60
+	reagents_volume = 60
 	possible_transfer_amounts = "5;10;20;30"
 	reagent_ids = list(
 		/datum/reagent/ethanol/beer,

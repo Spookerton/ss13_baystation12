@@ -4,7 +4,7 @@
 	icon = 'icons/obj/tools/bloodpack.dmi'
 	icon_state = "empty"
 	w_class = ITEM_SIZE_TINY
-	volume = 120
+	reagents_volume = 120
 	matter = list(MATERIAL_PLASTIC = 4000)
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	possible_transfer_amounts = null
@@ -46,7 +46,7 @@
 	if (distance > 2 && isliving(user))
 		return
 	var/message
-	switch (Percent(reagents.total_volume, volume, 0))
+	switch (Percent(reagents.total_volume, reagents_volume, 0))
 		if (0)
 			message = "empty"
 		if (1 to 15)
@@ -70,7 +70,7 @@
 /obj/item/reagent_containers/ivbag/on_update_icon()
 	ClearOverlays()
 	if (reagents.total_volume)
-		var/state = clamp(Roundm(Percent(reagents.total_volume, volume, 0), 25), 0, 100)
+		var/state = clamp(Roundm(Percent(reagents.total_volume, reagents_volume, 0), 25), 0, 100)
 		var/image/filling = image(icon, icon_state = "[state]")
 		filling.color = reagents.get_color()
 		AddOverlays(filling)
@@ -215,7 +215,7 @@
 
 
 /obj/item/reagent_containers/ivbag/proc/UpdateItemSize()
-	if (reagents.total_volume > volume * 0.5)
+	if (reagents.total_volume > reagents_volume * 0.5)
 		w_class = ITEM_SIZE_SMALL
 	else
 		w_class = ITEM_SIZE_TINY

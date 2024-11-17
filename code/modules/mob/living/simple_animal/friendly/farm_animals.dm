@@ -95,7 +95,7 @@
 		if (!glass.is_open_container())
 			USE_FEEDBACK_FAILURE("\The [glass] needs to be open before you can milk \the [src] with it.")
 			return TRUE
-		if (glass.reagents.total_volume >= glass.volume)
+		if (glass.reagents.total_volume >= glass.reagents_volume)
 			USE_FEEDBACK_FAILURE("\The [glass] is full.")
 			return TRUE
 		var/transfered = udder.trans_type_to(glass, /datum/reagent/drink/milk, rand(10, 15))
@@ -161,7 +161,7 @@
 		if (!glass.is_open_container())
 			USE_FEEDBACK_FAILURE("\The [glass] needs to be open before you can milk \the [src] with it.")
 			return TRUE
-		if (glass.reagents.total_volume >= glass.volume)
+		if (glass.reagents.total_volume >= glass.reagents_volume)
 			USE_FEEDBACK_FAILURE("\The [glass] is full.")
 			return TRUE
 		var/transfered = udder.trans_type_to(glass, /datum/reagent/drink/milk, rand(10, 15))
@@ -443,7 +443,7 @@ var/global/chicken_count = 0
 		if (!glass.is_open_container())
 			USE_FEEDBACK_FAILURE("\The [glass] needs to be open before you can milk \the [src] with it.")
 			return TRUE
-		if (glass.reagents.total_volume >= glass.volume)
+		if (glass.reagents.total_volume >= glass.reagents_volume)
 			USE_FEEDBACK_FAILURE("\The [glass] is full.")
 			return TRUE
 		var/transfered = udder.trans_type_to(glass, /datum/reagent/toxin/fertilizer/eznutrient, rand(10, 15))

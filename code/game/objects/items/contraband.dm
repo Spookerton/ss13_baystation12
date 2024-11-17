@@ -48,7 +48,7 @@
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = 5
 	w_class = ITEM_SIZE_TINY
-	volume = 50
+	reagents_volume = 50
 
 /obj/item/reagent_containers/powder/examine(mob/user)
 	. = ..()

@@ -7,7 +7,7 @@
 	base_icon = "fitness-cup"
 	icon = 'icons/obj/food/drink_glasses/fitness.dmi'
 	reagent_container_flags = REAGENT_CONTAINER_INIT_UPDATE_ICON
-	volume = 100
+	reagents_volume = 100
 	matter = list(MATERIAL_PLASTIC = 2000)
 	filling_states = "10;20;30;40;50;60;70;80;90;100"
 	possible_transfer_amounts = "5;10;15;25"

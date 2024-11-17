@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/food/drinks/cans
 	icon = 'icons/obj/food/drinks/cans.dmi'
-	volume = 40
+	reagents_volume = 40
 	amount_per_transfer_from_this = 5
 	atom_flags = EMPTY_BITFIELD
 	matter = list(MATERIAL_ALUMINIUM = 30)

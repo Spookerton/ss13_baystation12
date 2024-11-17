@@ -14,7 +14,7 @@
 	matter = list(MATERIAL_GLASS = 150)
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = "1;2;5"
-	volume = 15
+	reagents_volume = 15
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
 	sharp = TRUE
@@ -81,7 +81,7 @@
 		icon_state = "broken"
 		return
 
-	var/rounded_vol = clamp(round((reagents.total_volume / volume * 15),5), 5, 15)
+	var/rounded_vol = clamp(round((reagents.total_volume / reagents_volume * 15),5), 5, 15)
 	if (reagents.total_volume == 0)
 		rounded_vol = 0
 	if(ismob(loc))
@@ -331,7 +331,7 @@
 	name = "Lethal Injection Syringe"
 	desc = "A syringe used for lethal injections."
 	amount_per_transfer_from_this = 60
-	volume = 60
+	reagents_volume = 60
 	visible_name = "a giant syringe"
 	time = 300
 
@@ -398,13 +398,13 @@
 	name = "bluespace syringe"
 	desc = "An advanced syringe that can hold 60 units of chemicals."
 	amount_per_transfer_from_this = 20
-	volume = 60
+	reagents_volume = 60
 	icon_state = "bs"
 
 
 /obj/item/reagent_containers/syringe/noreact
 	name = "cryostasis syringe"
 	desc = "An advanced syringe that stops reagents inside from reacting. It can hold up to 20 units."
-	volume = 20
+	reagents_volume = 20
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_REACT
 	icon_state = "cs"

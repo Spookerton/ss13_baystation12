@@ -48,7 +48,7 @@
 	var/image/light_overlay = image(icon, icon_state = "light_low")
 	light_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	light_overlay.layer = ABOVE_LIGHTING_LAYER
-	switch (Percent(iv_bag.reagents.total_volume, iv_bag.volume, 0))
+	switch (Percent(iv_bag.reagents.total_volume, iv_bag.reagents_volume, 0))
 		if (-INFINITY to 9)
 			reagents_overlay.icon_state = "reagent0"
 			light_overlay.icon_state = "light_low"
@@ -150,7 +150,7 @@
 		update_icon()
 		return
 	if (drip_mode == MODE_EXTRACT)
-		var/difference = clamp(iv_bag.volume - iv_bag.reagents.total_volume, 0, iv_bag.transfer_amount)
+		var/difference = clamp(iv_bag.reagents_volume - iv_bag.reagents.total_volume, 0, iv_bag.transfer_amount)
 		if (!difference)
 			if (prob(15))
 				playsound(src, 'sound/effects/3beep.ogg', 50, TRUE)

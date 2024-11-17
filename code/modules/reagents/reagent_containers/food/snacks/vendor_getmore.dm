@@ -68,7 +68,7 @@
 	filling_color = "#dbc94f"
 	center_of_mass = "x=17;y=18"
 	w_class = ITEM_SIZE_TINY
-	volume = 10
+	reagents_volume = 10
 	bitesize = 2
 	reagents = list(
 		/datum/reagent/nutriment = list(5, list("sweetness" = 3, "cookie" = 2))

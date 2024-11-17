@@ -5,7 +5,7 @@
 	icon = 'icons/obj/food/drink_glasses/square.dmi'
 	desc = "Your standard drinking glass."
 	filling_states = "20;40;60;80;100"
-	volume = 30
+	reagents_volume = 30
 	possible_transfer_amounts = "5;10;15;30"
 	rim_pos = "y=23;x_left=13;x_right=20"
 
@@ -16,7 +16,7 @@
 	base_icon = "rocks"
 	icon = 'icons/obj/food/drink_glasses/rocks.dmi'
 	filling_states = "25;50;75;100"
-	volume = 20
+	reagents_volume = 20
 	possible_transfer_amounts = "5;10;20"
 	rim_pos = "y=21;x_left=10;x_right=23"
 
@@ -27,7 +27,7 @@
 	base_icon = "shake"
 	icon = 'icons/obj/food/drink_glasses/shake.dmi'
 	filling_states = "25;50;75;100"
-	volume = 30
+	reagents_volume = 30
 	possible_transfer_amounts = "5;10;15;30"
 	rim_pos = "y=25;x_left=13;x_right=21"
 
@@ -38,7 +38,7 @@
 	base_icon = "cocktail"
 	icon = 'icons/obj/food/drink_glasses/cocktail.dmi'
 	filling_states = "33;66;100"
-	volume = 15
+	reagents_volume = 15
 	possible_transfer_amounts = "5;10;15"
 	rim_pos = "y=22;x_left=13;x_right=21"
 
@@ -49,7 +49,7 @@
 	base_icon = "shot"
 	icon = 'icons/obj/food/drink_glasses/shot.dmi'
 	filling_states = "33;66;100"
-	volume = 5
+	reagents_volume = 5
 	matter = list(MATERIAL_GLASS = 15)
 	possible_transfer_amounts = "1;2;5"
 	rim_pos = "y=17;x_left=13;x_right=21"
@@ -60,7 +60,7 @@
 	base_icon = "pint"
 	icon = 'icons/obj/food/drink_glasses/pint.dmi'
 	filling_states = "16;33;50;66;83;100"
-	volume = 60
+	reagents_volume = 60
 	matter = list(MATERIAL_GLASS = 125)
 	possible_transfer_amounts = "5;10;15;30;60"
 	rim_pos = "y=25;x_left=12;x_right=21"
@@ -72,7 +72,7 @@
 	base_icon = "mug"
 	icon = 'icons/obj/food/drink_glasses/mug.dmi'
 	filling_states = "25;50;75;100"
-	volume = 40
+	reagents_volume = 40
 	possible_transfer_amounts = "5;10;20;40"
 	rim_pos = "y=22;x_left=12;x_right=20"
 
@@ -83,7 +83,7 @@
 	base_icon = "wine"
 	icon = 'icons/obj/food/drink_glasses/wine.dmi'
 	filling_states = "20;40;60;80;100"
-	volume = 25
+	reagents_volume = 25
 	possible_transfer_amounts = "5;10;15;25"
 	rim_pos = "y=25;x_left=12;x_right=21"
 
@@ -94,7 +94,7 @@
 	base_icon = "flute"
 	icon = 'icons/obj/food/drink_glasses/flute.dmi'
 	filling_states = "20;40;60;80;100"
-	volume = 25
+	reagents_volume = 25
 	possible_transfer_amounts = "5;10;15;25"
 	rim_pos = "y=24;x_left=13;x_right=19"
 
@@ -105,7 +105,7 @@
 	base_icon = "carafe"
 	icon = 'icons/obj/food/drink_glasses/carafe.dmi'
 	filling_states = "10;20;30;40;50;60;70;80;90;100"
-	volume = 120
+	reagents_volume = 120
 	matter = list(MATERIAL_GLASS = 250)
 	possible_transfer_amounts = "5;10;15;30;60;120"
 	rim_pos = "y=26;x_left=12;x_right=21"
@@ -117,7 +117,7 @@
 	icon = 'icons/obj/food/drink_glasses/coffecup.dmi'
 	icon_state = "coffeecup"
 	item_state = "coffee"
-	volume = 30
+	reagents_volume = 30
 	center_of_mass = "x=15;y=13"
 	filling_states = "40;80;100"
 	base_name = "cup"
@@ -232,7 +232,7 @@
 	icon = 'icons/obj/food/drink_glasses/teacup.dmi'
 	icon_state = "teacup"
 	item_state = "coffee"
-	volume = 20
+	reagents_volume = 20
 	center_of_mass = "x=15;y=13"
 	filling_states = "100"
 	base_name = "teacup"
@@ -245,7 +245,7 @@
 	item_state = "coffee"
 	icon = 'icons/obj/food/drink_glasses/mug.dmi'
 	filling_states = "100"
-	volume = 40
+	reagents_volume = 40
 	center_of_mass = "x=17;y=13"
 	base_name = "beaglemug"
 	base_icon = "beaglemug"
@@ -264,7 +264,7 @@
 	base_icon = "pineapple"
 	icon = 'icons/obj/food/drink_glasses/pineapple.dmi'
 	filling_states = "25;50;75;100"
-	volume = 40
+	reagents_volume = 40
 	possible_transfer_amounts = "5;10;20;40"
 	rim_pos = "y=22;x_left=12;x_right=20"
 
@@ -275,7 +275,7 @@
 	icon = 'icons/obj/food/drink_glasses/coconut.dmi'
 	desc = "A cup made from a hollowed coconut."
 	filling_states = "20;40;60;80;100"
-	volume = 30
+	reagents_volume = 30
 	possible_transfer_amounts = "5;10;15;30"
 	rim_pos = "y=23;x_left=13;x_right=20"
 
@@ -286,7 +286,7 @@
 	base_icon = "cognac"
 	icon = 'icons/obj/food/drink_glasses/cognac.dmi'
 	filling_states = "25;50;75;100"
-	volume = 20
+	reagents_volume = 20
 	possible_transfer_amounts = "5;10;20"
 	rim_pos = "y=22;x_left=14;x_right=22"
 
@@ -297,7 +297,7 @@
 	base_icon = "goblet"
 	icon = 'icons/obj/food/drink_glasses/goblet.dmi'
 	filling_states = "20;40;60;80;100"
-	volume = 25
+	reagents_volume = 25
 	possible_transfer_amounts = "5;10;15;25"
 	rim_pos = "y=24;x_left=14;x_right=20"
 
@@ -314,7 +314,7 @@
 	desc = "An unreasonably tall coffee cup, for when you really need to wake up in the morning."
 	icon = 'icons/obj/food/drink_glasses/coffecup_tall.dmi'
 	icon_state = "coffeecup_tall"
-	volume = 60
+	reagents_volume = 60
 	center_of_mass = "x=15;y=19"
 	filling_states = "50;70;90;100"
 	base_name = "tall cup"

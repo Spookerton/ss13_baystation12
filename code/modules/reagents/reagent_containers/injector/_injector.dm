@@ -7,7 +7,7 @@
 	matter = list(MATERIAL_STEEL = 8000, MATERIAL_GLASS = 8000, MATERIAL_SILVER = 2000)
 	amount_per_transfer_from_this = 5
 	unacidable = TRUE
-	volume = 30
+	reagents_volume = 30
 	possible_transfer_amounts = null
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT

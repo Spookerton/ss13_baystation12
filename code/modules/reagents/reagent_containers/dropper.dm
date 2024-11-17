@@ -8,7 +8,7 @@
 	reagent_container_flags = REAGENT_CONTAINER_INIT_UPDATE_ICON
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
-	volume = 5
+	reagents_volume = 5
 
 
 /obj/item/reagent_containers/dropper/use_after(obj/target, mob/living/user, click_parameters)
@@ -84,7 +84,7 @@
 	desc = "A larger dropper. Transfers 10 units."
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = "1;2;3;4;5;6;7;8;9;10"
-	volume = 10
+	reagents_volume = 10
 
 
 /obj/item/reagent_containers/dropper/peridaxon

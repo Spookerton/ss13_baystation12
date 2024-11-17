@@ -11,7 +11,7 @@
 	w_class = ITEM_SIZE_SMALL
 	reagent_container_flags = REAGENT_CONTAINER_INIT_UPDATE_ICON
 	obj_flags = EMPTY_BITFIELD
-	volume = 60
+	reagents_volume = 60
 
 
 /obj/item/reagent_containers/glass/bottle/on_update_icon()
@@ -20,7 +20,7 @@
 	ClearOverlays()
 	if (reagents.total_volume && (icon_state == "bottle-1" || icon_state == "bottle-2" || icon_state == "bottle-3" || icon_state == "bottle-4"))
 		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]10")
-		var/percent = round((reagents.total_volume / volume) * 100)
+		var/percent = round((reagents.total_volume / reagents_volume) * 100)
 		switch (percent)
 			if (0 to 9)
 				filling.icon_state = "[icon_state]--10"

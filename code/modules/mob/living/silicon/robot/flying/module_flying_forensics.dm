@@ -49,7 +49,7 @@
 	if(!luminol)
 		luminol = new(src)
 		equipment += luminol
-	if(luminol.reagents.total_volume < luminol.volume)
-		var/adding = min(luminol.volume-luminol.reagents.total_volume, 2*amount)
+	if(luminol.reagents.total_volume < luminol.reagents_volume)
+		var/adding = min(luminol.reagents_volume-luminol.reagents.total_volume, 2*amount)
 		if(adding > 0)
 			luminol.reagents.add_reagent(/datum/reagent/luminol, adding)

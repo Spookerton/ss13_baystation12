@@ -11,7 +11,7 @@
 	possible_transfer_amounts = null
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
-	volume = 30
+	reagents_volume = 30
 	reagent_container_flags = REAGENT_CONTAINER_INIT_UPDATE_ICON | REAGENT_CONTAINER_USE_REAGENTS_COLOR
 
 
@@ -102,7 +102,7 @@
 	name = "toxins pill"
 	desc = "Highly toxic."
 	icon_state = "pill4"
-	volume = 50
+	reagents_volume = 50
 	reagents = list(/datum/reagent/toxin = 50)
 
 
@@ -111,7 +111,7 @@
 	desc = "It's marked 'KCN'. Smells vaguely of almonds."
 	icon_state = "pillC"
 	reagent_container_flags = EMPTY_BITFIELD
-	volume = 50
+	reagents_volume = 50
 	reagents = list(/datum/reagent/toxin/cyanide = 50)
 
 
