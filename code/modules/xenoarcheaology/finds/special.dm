@@ -18,7 +18,7 @@
 
 
 /obj/item/reagent_containers/glass/replenishing/Process()
-	if (reagents.total_volume < reagents.maximum_volume)
+	if (reagents.has_free_volume())
 		reagents.add_reagent(regen_reagent, rand() * 2)
 
 

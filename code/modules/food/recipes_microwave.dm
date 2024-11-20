@@ -608,7 +608,7 @@
 
 /datum/microwave_recipe/amanitajelly/CreateResult(obj/machinery/microwave/microwave, ...)
 		var/obj/item/reagent_containers/food/snacks/amanitajelly/jelly = ..()
-		jelly.reagents.del_reagent(/datum/reagent/toxin/amatoxin)
+		jelly.reagents.remove_reagent(/datum/reagent/toxin/amatoxin)
 		return jelly
 
 
@@ -1352,7 +1352,7 @@
 
 /datum/microwave_recipe/validsalad/CreateResult(obj/machinery/microwave/microwave, ...)
 	var/obj/item/reagent_containers/food/snacks/validsalad/salad = ..()
-	salad.reagents.del_reagent(/datum/reagent/toxin)
+	salad.reagents.remove_reagent(/datum/reagent/toxin)
 	return salad
 
 

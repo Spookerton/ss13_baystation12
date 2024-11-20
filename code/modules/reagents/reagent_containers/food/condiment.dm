@@ -49,7 +49,7 @@
 		if(!reagents || !reagents.total_volume)
 			to_chat(user, SPAN_NOTICE("There is no condiment left in \the [src]."))
 			return TRUE
-		if(!target.reagents.get_free_space())
+		if(!target.reagents.free_volume())
 			to_chat(user, SPAN_NOTICE("You can't add more condiment to \the [target]."))
 			return TRUE
 

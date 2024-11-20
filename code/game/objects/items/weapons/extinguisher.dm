@@ -85,7 +85,7 @@
 	if (!(istype(target, /obj/structure/hygiene/sink) || istype(target, /obj/structure/reagent_dispensers)))
 		return FALSE
 
-	var/amount = reagents.get_free_space()
+	var/amount = reagents.free_volume()
 	if (istype(target, /obj/structure/hygiene))
 		if (amount <= 0)
 			return FALSE //Will proceed with washing the extinguisher
@@ -116,7 +116,7 @@
 		if (container.reagents.total_volume <= 0)
 			to_chat(user, SPAN_WARNING("\The [item] is empty."))
 			return TRUE
-		if (reagents.get_free_space() <= 0)
+		if (reagents.free_volume() <= 0)
 			to_chat(user, SPAN_WARNING("\The [src] is already full"))
 			return TRUE
 		var/trans_amount = container.amount_per_transfer_from_this

@@ -85,7 +85,7 @@
 		if(A.reagents && A.reagents.has_reagent(/datum/reagent/water))
 			to_chat(user, SPAN_NOTICE("You bless \the [A]."))
 			var/water2holy = A.reagents.get_reagent_amount(/datum/reagent/water)
-			A.reagents.del_reagent(/datum/reagent/water)
+			A.reagents.remove_reagent(/datum/reagent/water)
 			A.reagents.add_reagent(/datum/reagent/water/holywater,water2holy)
 			return TRUE
 

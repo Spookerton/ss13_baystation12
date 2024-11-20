@@ -181,7 +181,7 @@
 	else if(href_list["disposeI"])
 		var/datum/reagent/R = locate(href_list["disposeI"]) in reagents.reagent_list
 		if(R)
-			reagents.del_reagent(R.type)
+			reagents.remove_reagent(R.type)
 		. = TOPIC_REFRESH
 
 	if(href_list["refresh"])

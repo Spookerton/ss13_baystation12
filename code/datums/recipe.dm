@@ -39,8 +39,7 @@
 	for (var/obj/item/item as anything in microwave.ingredients)
 		var/datum/reagents/reagents = item.reagents
 		if (reagents)
-			reagents.del_reagent(/datum/reagent/nutriment)
-			reagents.update_total()
+			reagents.remove_reagent(/datum/reagent/nutriment)
 			if (ismob(result))
 				reagents.trans_to_mob(result, reagents.total_volume)
 			else

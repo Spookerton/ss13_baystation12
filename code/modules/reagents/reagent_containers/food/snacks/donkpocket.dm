@@ -78,7 +78,7 @@
 	SetName(initial(name))
 	visible_message(SPAN_ITALIC("\The [src] cools down."), range = 1)
 	for (var/reagent in hot_reagents)
-		reagents.del_reagent(reagent)
+		reagents.remove_reagent(reagent)
 
 
 /obj/item/reagent_containers/food/snacks/donkpocket/protein

@@ -58,7 +58,7 @@
 		for(var/datum/reagent/R in H.reagents.reagent_list)
 			var/list/reagent  = list()
 			reagent["name"]= R.name
-			reagent["quantity"] = round(H.reagents.get_reagent_amount(R.type),1)
+			reagent["quantity"] = round(H.reagents.get_reagent_amount(R.type), 1)
 			reagent["scannable"] = R.scannable
 			scan["reagents"] += list(reagent)
 

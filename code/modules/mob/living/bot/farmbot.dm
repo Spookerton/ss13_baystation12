@@ -43,7 +43,7 @@
 	. = ..()
 	. += "<br>Water tank: "
 	if(tank)
-		. += "[tank.reagents.total_volume]/[tank.reagents.maximum_volume]"
+		. += "[tank.reagents.occupied_volume_scale(0.05) * 100]%"
 	else
 		. += "error: not found"
 

@@ -258,7 +258,7 @@
 	if(!target.is_open_container())
 		to_chat(user, SPAN_WARNING("\The [target] is capped."))
 		return TRUE
-	if(!target.reagents.get_free_space())
+	if(!target.reagents.free_volume())
 		to_chat(user, SPAN_WARNING("\The [target] is full."))
 		return TRUE
 

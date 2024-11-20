@@ -12,7 +12,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 
 /datum/reagents/Destroy()
 	del_info = "[my_atom]([length(reagent_list)||"_"]):[my_atom?.x||"_"],[my_atom?.y||"_"],[my_atom?.z||"_"]"
-	SSchemistry.active_reagents -= src // While marking for reactions should be avoided just before deleting if possible, the async nature means it might be impossible.
+	SSchemistry.active_reagents -= src
 	QDEL_NULL_LIST(reagent_list)
 	if (my_atom)
 		my_atom.reagents = null
@@ -25,7 +25,10 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 		CRASH("Invalid reagents holder: [log_info_line(my_atom)]")
 	src.my_atom = my_atom
 	src.maximum_volume = maximum_volume
-	src.metabolism_class = metabolism_class
+	if (metabolism_class)
+		if (!iscarbon(my_atom))
+			CRASH("Invalid metabolism reagents atom [my_atom]")
+		src.metabolism_class = metabolism_class
 
 
 /// Destroys all reagents in the container and zeroes its total_volume
@@ -35,9 +38,31 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	total_volume = 0
 
 
+/// Returns the container's maximum volume
+/datum/reagents/proc/maximum_volume()
+	return max(0, maximum_volume)
+
+
+/// Returns the container's occupied volume
+/datum/reagents/proc/occupied_volume()
+	return clamp(total_volume, 0, maximum_volume)
+
+
+/// Returns the container's occupied volume as a 0..1 scalar
+/datum/reagents/proc/occupied_volume_scale(to_precision)
+	if (to_precision)
+		return round(clamp(total_volume / maximum_volume, 0, 1), to_precision)
+	return clamp(total_volume / maximum_volume, 0, 1)
+
+
 /// Returns the difference between the container's maximum and occupied volume
-/datum/reagents/proc/get_free_space()
+/datum/reagents/proc/free_volume()
 	return clamp(maximum_volume - total_volume, 0, maximum_volume)
+
+
+/// Returns whether the container has free volume left
+/datum/reagents/proc/has_free_volume()
+	return total_volume < maximum_volume
 
 
 /// Returns the held reagent with the largest volume, if any
@@ -77,60 +102,40 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 
 
 /**
-* Delete the type from the reagent list, updating the container's total_volume and
-* culling reagents below MINIMUM_CHEMICAL_VOLUME
-* **Parameters**:
-* - `type` - The /datum/reagent/X to delete
-*/
-/datum/reagents/proc/del_reagent(datum/reagent/type)
-	if (!ispath(type, /datum/reagent))
-		warning("[log_info_line(my_atom)] del_reagent invalid type '[type]' ([usr])")
-		return
-	total_volume = 0
-	var/list/datum/reagent/new_reagent_list = list()
-	for (var/datum/reagent/entry as anything in reagent_list)
-		if (entry.type == type)
-			if (metabolism_class)
-				entry.on_leaving_metabolism(my_atom, metabolism_class)
-			qdel(entry)
-			continue
-		if (entry.volume < MINIMUM_CHEMICAL_VOLUME)
-			if (metabolism_class)
-				entry.on_leaving_metabolism(my_atom, metabolism_class)
-			qdel(entry)
-			continue
-		total_volume += entry.volume
-		new_reagent_list += entry
-	reagent_list = new_reagent_list
-	if (my_atom)
-		my_atom.on_reagent_change()
-
-
-/**
 * Remove amount of type from the reagent list, updating the container's total_volume and
-* culling reagents below MINIMUM_CHEMICAL_VOLUME
+* culling reagents below MINIMUM_CHEMICAL_VOLUME. If amount is not specified, removes all
+* of the reagent.
 * **Parameters**:
 * - `type` - The /datum/reagent/X to remove
-* - `amount` - A >0 scalar amount to try to remove
-* - `skip_reacting` - When falsy, the container will be queued to handle reactions if the
-* remove was meaningful. If truthy, it is expected that the caller will control queueing.
-* Meaningful means that the amount (or as much as was present) was removed - it does not
-* include culling.
+* - `amount` - null to remove all, or a >0 volume to try to remove
+* - `skip_reacting` - When falsy (ie, the default), the container will be queued to handle
+* reactions if the remove was meaningful. If truthy, it is expected that the caller will
+* control queueing.
 */
 /datum/reagents/proc/remove_reagent(datum/reagent/type, amount, skip_reacting)
 	if (!ispath(type, /datum/reagent))
 		warning("[log_info_line(my_atom)] remove_reagent invalid type '[type]' ([usr])")
 		return
-	if (!isnum(amount) || amount < 0)
+	if (isnum(amount))
+		if (amount <= 0)
+			warning("[log_info_line(my_atom)] remove_reagent invalid amount '[amount]' ([usr])")
+			return
+	else if (!isnull(amount))
+		warning("[log_info_line(my_atom)] remove_reagent invalid amount '[amount]' ([usr])")
 		return
 	var/discovered
 	total_volume = 0
 	var/list/datum/reagent/new_reagent_list = list()
 	for (var/datum/reagent/entry as anything in reagent_list)
 		if (entry.type == type)
-			entry.volume -= amount
 			discovered = TRUE
+			if (amount)
+				entry.volume -= amount
+			else
+				entry.volume = 0
 		if (entry.volume < MINIMUM_CHEMICAL_VOLUME)
+			if (metabolism_class)
+				entry.on_leaving_metabolism(my_atom, metabolism_class)
 			qdel(entry)
 			continue
 		total_volume += entry.volume
@@ -152,14 +157,13 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 * - `data` - Arbitrary data to pass to the new reagent, or mix with the existing instance
 * - `skip_reacting` - When falsy, the container will be queued to handle reactions if the
 * add was meaningful. If truthy, it is expected that the caller will control queueing.
-* Meaningful means that the amount (or as much as was possible) was added - it does not
-* include culling.
 */
 /datum/reagents/proc/add_reagent(datum/reagent/type, amount, data, skip_reacting)
 	if (!ispath(type, /datum/reagent))
 		warning("[log_info_line(my_atom)] add_reagent invalid type '[type]' ([usr])")
 		return
 	if (!isnum(amount) || amount < MINIMUM_CHEMICAL_VOLUME)
+		warning("[log_info_line(my_atom)] add_reagent invalid amount '[amount]' ([usr])")
 		return
 	total_volume = 0
 	var/datum/reagent/reagent
@@ -273,9 +277,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	if (!ispath(type, /datum/reagent))
 		warning("[log_info_line(my_atom)] get_reagent invalid type '[type]' ([usr])")
 		return
-	for (var/datum/reagent/entry as anything in reagent_list)
-		if (entry.type == type)
-			return entry
+	return locate(type) in reagent_list
 
 
 /**
@@ -295,10 +297,8 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 			if (istype(entry, type))
 				volume += entry.volume
 		return volume
-	for (var/datum/reagent/entry as anything in reagent_list)
-		if (entry.type == type)
-			return entry.volume
-	return 0
+	var/datum/reagent/instance = locate(type) in reagent_list
+	return instance?.volume || 0
 
 
 /**
@@ -326,9 +326,8 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	if (!ispath(type, /datum/reagent))
 		warning("[log_info_line(my_atom)] get_data invalid type '[type]' ([usr])")
 		return
-	for (var/datum/reagent/entry as anything in reagent_list)
-		if (entry.type == type)
-			return entry.get_data()
+	var/datum/reagent/instance = locate(type) in reagent_list
+	return instance?.get_data()
 
 
 /**
@@ -429,7 +428,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 
 
 /datum/reagents/proc/metabolize()
-	if (metabolism_class && ismob(my_atom))
+	if (metabolism_class && length(reagent_list))
 		for (var/datum/reagent/entry as anything in reagent_list)
 			entry.on_mob_life(my_atom, metabolism_class)
 		update_total()
@@ -447,7 +446,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	if (!isnum(amount) || num <= 0)
 		warning("[src] trans_to_holder '[target]' invalid amount [amount]")
 		return 0
-	amount = clamp(amount, 0, target.get_free_space())
+	amount = clamp(amount, 0, target.free_volume())
 	if (amount <= 0)
 		return 0
 	var/transfer_multiplier = amount / total_volume
@@ -477,7 +476,6 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 * **Parameters**:
 */
 /datum/reagents/proc/touch(atom/target)
-	SHOULD_NOT_OVERRIDE(TRUE)
 	if (!target.simulated)
 		return
 	else if (ismob(target))

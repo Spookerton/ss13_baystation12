@@ -182,7 +182,7 @@
 
 /obj/item/reagent_containers/glass/rag/use_after(atom/A, mob/living/user, click_parameters)
 	if(istype(A, /obj/structure/reagent_dispensers))
-		if(!reagents.get_free_space())
+		if(!reagents.free_volume())
 			to_chat(user, SPAN_WARNING("\The [src] is already soaked."))
 			return TRUE
 

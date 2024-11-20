@@ -15,7 +15,7 @@
 	if(!target.reagents)
 		return FALSE
 	if(reagents.total_volume)
-		if(!target.reagents.get_free_space())
+		if(!target.reagents.free_volume())
 			to_chat(user, SPAN_NOTICE("[target] is full."))
 			return TRUE
 		if(!target.is_open_container() && !ismob(target) && !istype(target, /obj/item/reagent_containers/food) && !istype(target, /obj/item/clothing/mask/smokable/cigarette)) //You can inject humans and food but you can't remove the shit.

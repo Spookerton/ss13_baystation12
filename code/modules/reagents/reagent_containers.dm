@@ -82,7 +82,7 @@
 		to_chat(user, SPAN_NOTICE("[target] is empty."))
 		return 1
 
-	if(reagents && !reagents.get_free_space())
+	if(reagents && !reagents.free_volume())
 		to_chat(user, SPAN_NOTICE("[src] is full."))
 		return 1
 
@@ -102,7 +102,7 @@
 		to_chat(user, SPAN_NOTICE("[src] is empty."))
 		return 1
 
-	if(target.reagents && !target.reagents.get_free_space())
+	if(target.reagents && !target.reagents.free_volume())
 		to_chat(user, SPAN_NOTICE("[target] is full."))
 		return 1
 
@@ -197,7 +197,7 @@
 		to_chat(user, SPAN_NOTICE("[src] is empty."))
 		return 1
 
-	if(!target.reagents.get_free_space())
+	if(!target.reagents.free_volume())
 		to_chat(user, SPAN_NOTICE("[target] is full."))
 		return 1
 

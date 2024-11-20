@@ -112,7 +112,7 @@
 			injectReagents(target, user)
 
 /obj/item/reagent_containers/syringe/proc/drawReagents(atom/target, mob/user)
-	if(!reagents.get_free_space())
+	if(!reagents.free_volume())
 		to_chat(user, SPAN_WARNING("The syringe is full."))
 		mode = SYRINGE_INJECT
 		return
@@ -125,7 +125,7 @@
 			if(istype(target, /mob/living/carbon/slime))
 				to_chat(user, SPAN_WARNING("You are unable to locate any blood."))
 				return
-			var/amount = min(reagents.get_free_space(), amount_per_transfer_from_this)
+			var/amount = min(reagents.free_volume(), amount_per_transfer_from_this)
 			var/mob/living/carbon/T = target
 			if(!T.dna)
 				to_chat(user, SPAN_WARNING("You are unable to locate any blood."))
@@ -191,7 +191,7 @@
 		to_chat(user, SPAN_NOTICE("You fill the syringe with [trans] units of the solution."))
 		update_icon()
 
-	if(!reagents.get_free_space())
+	if(!reagents.free_volume())
 		mode = SYRINGE_INJECT
 		update_icon()
 
@@ -209,7 +209,7 @@
 	if(!target.is_open_container() && !ismob(target) && !istype(target, /obj/item/reagent_containers/food) && !istype(target, /obj/item/slime_extract) && !istype(target, /obj/item/clothing/mask/smokable/cigarette) && !istype(target, /obj/item/storage/fancy/smokable))
 		to_chat(user, SPAN_NOTICE("You cannot directly fill this object."))
 		return
-	if(!target.reagents.get_free_space())
+	if(!target.reagents.free_volume())
 		to_chat(user, SPAN_NOTICE("[target] is full."))
 		return
 

@@ -214,7 +214,7 @@
 	else
 		reagent = valid_reagents[metadata]
 	if(reagent)
-		return I.reagents.add_reagent(reagent, I.reagents.get_free_space())
+		return I.reagents.add_reagent(reagent, I.reagents.free_volume())
 
 /*
 * Custom Setup

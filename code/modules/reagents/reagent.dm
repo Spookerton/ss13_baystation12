@@ -155,8 +155,6 @@
 /datum/reagent/proc/on_mob_life(mob/living/carbon/subject, location)
 	if (QDELETED(src))
 		return
-	if (!istype(subject))
-		return
 	if (subject.stat == DEAD && ~reagent_flags & AFFECTS_DEAD)
 		return
 	if (overdose && location != CHEM_TOUCH)
@@ -164,9 +162,9 @@
 		if (volume > overdose_threshold)
 			overdose(subject)
 	var/removed = metabolism
-	if (ingest_met && (location == CHEM_INGEST))
+	if (ingest_met && location == CHEM_INGEST)
 		removed = ingest_met
-	if (touch_met && (location == CHEM_TOUCH))
+	if (touch_met && location == CHEM_TOUCH)
 		removed = touch_met
 	removed = subject.get_adjusted_metabolism(removed)
 	removed = min(removed, volume)

@@ -342,7 +342,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		CHECK_IMPRINTER
 		var/datum/reagent/R = locate(href_list["disposeI"]) in linked_imprinter.reagents.reagent_list
 		if(R)
-			linked_imprinter.reagents.del_reagent(href_list["dispose"])
+			linked_imprinter.reagents.remove_reagent(href_list["dispose"])
 
 	else if(href_list["disposeallI"]) //Causes the circuit imprinter to dispose of all it's reagents.
 		. = TOPIC_REFRESH
@@ -359,7 +359,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		CHECK_LATHE
 		var/datum/reagent/R = locate(href_list["disposeP"]) in linked_lathe.reagents.reagent_list
 		if(R)
-			linked_lathe.reagents.del_reagent(R.type)
+			linked_lathe.reagents.remove_reagent(R.type)
 
 	else if(href_list["disposeallP"]) //Causes the protolathe to dispose of all it's reagents.
 		. = TOPIC_REFRESH
