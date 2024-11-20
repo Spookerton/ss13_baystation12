@@ -1,6 +1,6 @@
 /mob/living/carbon/Initialize(mapload)
-	touching = new/datum/reagents/metabolism(1000, src, CHEM_TOUCH)
-	reagents = new/datum/reagents/metabolism(120, src, CHEM_BLOOD)
+	touching = new (1000, src, CHEM_TOUCH)
+	reagents = new (120, src, CHEM_BLOOD)
 
 	if (!default_language && species_language)
 		default_language = all_languages[species_language]

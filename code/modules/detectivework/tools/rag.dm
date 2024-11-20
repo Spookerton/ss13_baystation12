@@ -169,7 +169,7 @@
 			//it's inhaled, so... maybe CHEM_BLOOD doesn't make a whole lot of sense but it's the best we can do for now
 			var/trans_amt = reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BLOOD)
 			if (reagents.should_admin_log())
-				var/contained_reagents = reagents.get_reagents()
+				var/contained_reagents = reagents.get_reagent_display_list()
 				admin_inject_log(user, M, src, contained_reagents, trans_amt)
 			update_name()
 			return TRUE

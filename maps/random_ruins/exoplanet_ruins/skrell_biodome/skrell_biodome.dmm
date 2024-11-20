@@ -254,7 +254,7 @@
 /turf/simulated/floor/tiled/skrell/orange,
 /area/map_template/biodome/engineering)
 "hn" = (
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagent_grinder,
 /obj/structure/window/reinforced{
 	dir = 4
 	},

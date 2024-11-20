@@ -8,7 +8,7 @@
 	organ_tag = BP_STOMACH
 	parent_organ = BP_GROIN
 	var/stomach_capacity
-	var/datum/reagents/metabolism/ingested
+	var/datum/reagents/ingested
 	var/next_cramp = 0
 
 /obj/item/organ/internal/stomach/Destroy()
@@ -18,7 +18,7 @@
 /obj/item/organ/internal/stomach/New()
 	..()
 	var/ingested_atom = owner ? owner : src
-	ingested = new/datum/reagents/metabolism(240, ingested_atom, CHEM_INGEST)
+	ingested = new (240, ingested_atom, CHEM_INGEST)
 	if(species.gluttonous)
 		action_button_name = PUKE_ACTION_NAME
 

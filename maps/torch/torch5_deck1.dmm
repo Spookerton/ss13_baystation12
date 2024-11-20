@@ -588,7 +588,7 @@
 	pixel_y = 32
 	},
 /obj/floor_decal/corner/beige/mono,
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagent_grinder,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/chemistry)
 "abo" = (
@@ -13486,7 +13486,7 @@
 /turf/simulated/wall/r_wall/hull,
 /area/rnd/xenobiology)
 "aUI" = (
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagent_grinder,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/item/stack/material/phoron{
 	amount = 5
@@ -20686,7 +20686,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/firstdeck/center)
 "kpb" = (
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagent_grinder,
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/misc_lab)
@@ -25583,7 +25583,7 @@
 /area/rnd/research)
 "qGb" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagent_grinder,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,

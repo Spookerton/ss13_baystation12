@@ -261,7 +261,7 @@
 	if(target != user && target != trackTarget && target.loc != trackTarget)
 		return
 	if (reagents.should_admin_log())
-		admin_inject_log(user, target, src, reagents.get_reagents(), amount_per_transfer_from_this)
+		admin_inject_log(user, target, src, reagents.get_reagent_display_list(), amount_per_transfer_from_this)
 	var/trans = reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BLOOD)
 
 	if(target != user)
@@ -314,7 +314,7 @@
 	var/trans = reagents.trans_to_mob(target, syringestab_amount_transferred, CHEM_BLOOD)
 	if(isnull(trans)) trans = 0
 	if (should_admin_log)
-		var/contained_reagents = reagents.get_reagents()
+		var/contained_reagents = reagents.get_reagent_display_list()
 		admin_inject_log(user, target, src, contained_reagents, trans, violent=1)
 	break_syringe(target, user)
 

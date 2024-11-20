@@ -73,11 +73,11 @@
 
 /obj/item/toy/water_balloon/throw_impact(atom/hit_atom)
 	if(reagents && reagents.total_volume >= 1)
-		src.visible_message(SPAN_WARNING("\The [src] bursts!"),"You hear a pop and a splash.")
-		src.reagents.touch_turf(get_turf(hit_atom))
+		visible_message(SPAN_WARNING("\The [src] bursts!"),"You hear a pop and a splash.")
+		reagents.touch(get_turf(hit_atom))
 		for(var/atom/A in get_turf(hit_atom))
-			src.reagents.touch(A)
-		src.icon_state = "burst"
+			reagents.touch(A)
+		icon_state = "burst"
 		spawn(5)
 			if(src)
 				qdel(src)

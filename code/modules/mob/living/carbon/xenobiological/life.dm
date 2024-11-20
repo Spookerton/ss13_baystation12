@@ -67,12 +67,11 @@
 
 	if(touching)
 		touching.metabolize()
-	var/datum/reagents/metabolism/ingested = get_ingested_reagents()
+	var/datum/reagents/ingested = get_ingested_reagents()
 	if(istype(ingested))
 		ingested.metabolize()
 	if(reagents)
-		var/datum/reagents/metabolism/bloodstream = reagents
-		bloodstream.metabolize()
+		reagents.metabolize()
 
 	src.updatehealth()
 

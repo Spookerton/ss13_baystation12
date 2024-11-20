@@ -544,13 +544,12 @@
 	if(isSynthetic())
 		return
 
-	var/datum/reagents/metabolism/ingested = get_ingested_reagents()
+	var/datum/reagents/ingested = get_ingested_reagents()
 
-	if(reagents)
-		if(touching)
+	if (reagents)
+		if (touching)
 			touching.metabolize()
-		var/datum/reagents/metabolism/bloodstream = reagents
-		bloodstream.metabolize()
+		reagents.metabolize()
 		if(ingested)
 			metabolize_ingested_reagents()
 

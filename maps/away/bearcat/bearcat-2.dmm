@@ -1784,7 +1784,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
 "dE" = (
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagent_grinder,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/floor_decal/corner/red/diagonal,
 /obj/structure/sign/monkey_painting{

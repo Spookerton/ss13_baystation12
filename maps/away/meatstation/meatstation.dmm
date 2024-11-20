@@ -3218,7 +3218,7 @@
 /turf/simulated/floor,
 /area/meatstation/engineering)
 "hl" = (
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagent_grinder,
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/tiled/white,
 /area/meatstation/lab)

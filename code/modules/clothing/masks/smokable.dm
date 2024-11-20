@@ -122,7 +122,7 @@
 			qdel(src)
 			return
 		atom_flags &= ~ATOM_FLAG_NO_REACT // allowing reagents to react after being lit
-		HANDLE_REACTIONS(reagents)
+		QUEUE_REAGENT_REACTION(reagents)
 		update_icon()
 		if(flavor_text)
 			var/turf/T = get_turf(src)

@@ -2381,7 +2381,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/colony/engineering)
 "eS" = (
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagent_grinder,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/item/stack/material/phoron/ten,
 /obj/floor_decal/corner/paleblue{
@@ -5556,7 +5556,7 @@
 	dir = 8
 	},
 /obj/structure/table/steel_reinforced,
-/obj/machinery/reagentgrinder/juicer,
+/obj/machinery/reagent_grinder/juicer,
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/colony/hydroponics)

@@ -21,7 +21,7 @@
 		/obj/machinery/chem_master,
 		/obj/machinery/chem_master/condimaster,
 		/obj/machinery/chemical_dispenser,
-		/obj/machinery/reagentgrinder,
+		/obj/machinery/reagent_grinder,
 		/obj/structure/table,
 		/obj/structure/closet,
 		/obj/structure/hygiene/sink,

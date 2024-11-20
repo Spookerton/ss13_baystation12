@@ -32,9 +32,9 @@
 	build_path = /obj/machinery/portable_atmospherics/reagent_sublimator/sauna
 
 
-/obj/item/stock_parts/circuitboard/reagentgrinder
+/obj/item/stock_parts/circuitboard/reagent_grinder
 	name = "circuit board (reagent grinder)"
-	build_path = /obj/machinery/reagentgrinder
+	build_path = /obj/machinery/reagent_grinder
 	board_type = "machine"
 	origin_tech = list(TECH_BIO = 1, TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
 	req_components = list(
@@ -48,7 +48,7 @@
 
 /obj/item/stock_parts/circuitboard/juicer
 	name = "circuit board (blender)"
-	build_path = /obj/machinery/reagentgrinder/juicer
+	build_path = /obj/machinery/reagent_grinder/juicer
 	board_type = "machine"
 	origin_tech = list(TECH_BIO = 1, TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	req_components = list(

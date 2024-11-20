@@ -108,7 +108,7 @@
 	density = max(1, length(targetTurfs) / 4) //clamp the cloud density minimum to 1 so it cant multiply the reagents
 
 	//Admin messaging
-	var/contained = carry.get_reagents()
+	var/contained = carry.get_reagent_display_list()
 	var/area/A = get_area(location)
 
 	if(show_log)
@@ -132,14 +132,14 @@
 
 	if(length(chemholder.reagents.reagent_list)) //reagent application - only run if there are extra reagents in the smoke
 		for(var/turf/T in wallList)
-			chemholder.reagents.touch_turf(T)
+			chemholder.reagents.touch(T)
 		for(var/turf/T in targetTurfs)
-			chemholder.reagents.touch_turf(T)
+			chemholder.reagents.touch(T)
 			for(var/atom/A in T.contents)
 				if(ismob(A) || istype(A, /obj/effect/smoke/chem))
 					continue
 				else if(isobj(A) && !A.simulated)
-					chemholder.reagents.touch_obj(A)
+					chemholder.reagents.touch(A)
 
 	var/color = chemholder.reagents.get_color() //build smoke icon
 	var/icon/I

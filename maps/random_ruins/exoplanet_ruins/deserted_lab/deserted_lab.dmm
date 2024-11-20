@@ -173,7 +173,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagent_grinder,
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/carpet/blue2,
 /area/template_noop)

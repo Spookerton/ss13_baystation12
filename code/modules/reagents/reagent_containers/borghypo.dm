@@ -100,7 +100,7 @@
 			else
 				var/datum/reagents/R = container.reagents
 				var/should_admin_log = R.should_admin_log()
-				var/contained = R.get_reagents()
+				var/contained = R.get_reagent_display_list()
 				var/transferred = R.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BLOOD)
 				if (should_admin_log)
 					admin_inject_log(user, M, src, contained, transferred)

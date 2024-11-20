@@ -21,7 +21,7 @@
 	UpdateReagents()
 	if (reagents)
 		for (var/datum/reagent/reagent as anything in initial_reagents)
-			reagents.add_reagent(reagent, initial_reagents[reagent], safety = TRUE)
+			reagents.add_reagent(reagent, initial_reagents[reagent], skip_reacting = TRUE)
 	initial_reagents = null
 
 

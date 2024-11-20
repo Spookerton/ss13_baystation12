@@ -215,7 +215,7 @@
 	},
 /obj/structure/table/marble,
 /obj/item/trash/snack_bowl,
-/obj/machinery/reagentgrinder/juicer,
+/obj/machinery/reagent_grinder/juicer,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/decal/cleanable/dirt,
 /obj/item/paper{

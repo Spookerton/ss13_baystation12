@@ -1490,7 +1490,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/machinery/reagentgrinder/juicer,
+/obj/machinery/reagent_grinder/juicer,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/structure/table/glass/boron,
 /turf/simulated/floor/fixed/alium,

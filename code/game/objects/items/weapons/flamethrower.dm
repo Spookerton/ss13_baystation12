@@ -188,7 +188,7 @@
 	var/power = 0
 	var/datum/reagents/beaker_reagents = beaker.reagents
 	var/datum/reagents/my_fraction = new(beaker_reagents.maximum_volume, src)
-	beaker_reagents.trans_to_holder(my_fraction, FLAMETHROWER_RELEASE_AMOUNT * length(turflist), safety = TRUE)
+	beaker_reagents.trans_to_holder(my_fraction, FLAMETHROWER_RELEASE_AMOUNT * length(turflist), skip_reacting = TRUE)
 	var/fire_colour = null
 	var/highest_amount = 0
 	for(var/datum/reagent/R in beaker_reagents.reagent_list)
@@ -223,7 +223,7 @@
 	operating = FALSE
 	if(beaker) //In the event we earlied out that means some fuel goes back into tank
 		if(my_fraction.total_volume > 0)
-			my_fraction.trans_to_holder(beaker_reagents, my_fraction.total_volume, safety = TRUE)
+			my_fraction.trans_to_holder(beaker_reagents, my_fraction.total_volume, skip_reacting = TRUE)
 	QDEL_NULL(my_fraction)
 
 #undef REQUIRED_POWER_TO_FIRE_FLAMETHROWER

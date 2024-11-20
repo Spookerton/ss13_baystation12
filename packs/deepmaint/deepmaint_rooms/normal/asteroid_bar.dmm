@@ -105,7 +105,7 @@
 /area/map_template/deepmaint)
 "r" = (
 /obj/structure/table/marble,
-/obj/machinery/reagentgrinder/juicer,
+/obj/machinery/reagent_grinder/juicer,
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/lino,
 /area/map_template/deepmaint)

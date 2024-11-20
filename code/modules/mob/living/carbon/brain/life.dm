@@ -71,14 +71,13 @@
 /mob/living/carbon/brain/handle_chemicals_in_body()
 	chem_effects.Cut()
 
-	if(touching)
+	if (touching)
 		touching.metabolize()
-	var/datum/reagents/metabolism/ingested = get_ingested_reagents()
-	if(istype(ingested))
+	var/datum/reagents/ingested = get_ingested_reagents()
+	if (istype(ingested))
 		ingested.metabolize()
-	if(reagents)
-		var/datum/reagents/metabolism/bloodstream = reagents
-		bloodstream.metabolize()
+	if (reagents)
+		reagents.metabolize()
 
 	handle_confused()
 	// decrement dizziness counter, clamped to 0

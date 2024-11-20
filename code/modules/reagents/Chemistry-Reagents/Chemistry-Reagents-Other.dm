@@ -102,7 +102,7 @@
 	taste_description = "100% abuse"
 	reagent_state = LIQUID
 	color = "#c8a5dc"
-	flags = AFFECTS_DEAD //This can even heal dead people.
+	reagent_flags = AFFECTS_DEAD //This can even heal dead people.
 
 	glass_name = "liquid gold"
 	glass_desc = "It's magic. We don't have to explain it."

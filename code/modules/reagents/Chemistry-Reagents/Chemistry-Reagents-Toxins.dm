@@ -537,7 +537,7 @@
 	if (M.species.breath_type != GAS_OXYGEN || IS_METABOLICALLY_INERT(M))
 		return
 
-	var/permeability = GET_TRAIT_LEVEL(carbon, /singleton/trait/general/permeable_skin)
+	var/permeability = GET_TRAIT_LEVEL(M, /singleton/trait/general/permeable_skin)
 	M.take_organ_damage((10 - (2 * permeability)) * removed, 0, ORGAN_DAMAGE_FLESH_ONLY)
 	if (prob(10))
 		M.visible_message(
@@ -560,7 +560,7 @@
 		SPAN_DANGER("You feel a painful fizzling and your skin begins to flake!.")
 	)
 
-	var/permeability = GET_TRAIT_LEVEL(carbon, /singleton/trait/general/permeable_skin)
+	var/permeability = GET_TRAIT_LEVEL(M, /singleton/trait/general/permeable_skin)
 	M.reagents.add_reagent(/datum/reagent/lexorin, (0.5 + (2.5 * permeability)) * removed)
 
 /datum/reagent/mutagen

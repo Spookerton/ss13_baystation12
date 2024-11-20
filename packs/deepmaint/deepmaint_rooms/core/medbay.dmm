@@ -303,7 +303,7 @@
 /area/map_template/deepmaint)
 "CC" = (
 /obj/structure/table/reinforced,
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagent_grinder,
 /obj/item/material/shard,
 /obj/item/circuitboard/chemical_dispenser,
 /turf/simulated/floor/tiled/white,

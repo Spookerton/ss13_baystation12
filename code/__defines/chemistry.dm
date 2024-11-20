@@ -47,5 +47,4 @@
 #define IGNORE_MOB_SIZE    FLAG(0)
 #define AFFECTS_DEAD       FLAG(1)
 
-#define HANDLE_REACTIONS(_reagents)  SSchemistry.active_reagents[_reagents] = TRUE
-#define UNQUEUE_REACTIONS(_reagents) SSchemistry.active_reagents -= _reagents
+#define QUEUE_REAGENT_REACTION(_reagents) SSchemistry.active_reagents[_reagents] = TRUE

@@ -4220,7 +4220,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/map_template/oldlab2/recandlockers)
 "wl" = (
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagent_grinder,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4

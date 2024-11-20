@@ -1015,7 +1015,7 @@
 /turf/simulated/floor/tiled/skrell/blue,
 /area/ship/skrellscoutship/crew/quarters)
 "dD" = (
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagent_grinder,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/item/stack/material/phoron/fifty,
 /obj/item/stack/material/phoron/fifty,
@@ -5210,7 +5210,7 @@
 /area/ship/skrellscoutship/wings/starboard)
 "Mm" = (
 /obj/structure/table/standard,
-/obj/machinery/reagentgrinder/juicer,
+/obj/machinery/reagent_grinder/juicer,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/item/material/hatchet,
 /obj/item/material/minihoe,

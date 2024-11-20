@@ -781,11 +781,11 @@
 	build_path = /obj/item/stock_parts/circuitboard/vending
 	sort_string = "WAABA"
 
-/datum/design/circuit/reagentgrinder
+/datum/design/circuit/reagent_grinder
 	name = "reagent grinder"
 	id = "reagent_grinder"
 	req_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
-	build_path = /obj/item/stock_parts/circuitboard/reagentgrinder
+	build_path = /obj/item/stock_parts/circuitboard/reagent_grinder
 	sort_string = "WAABB"
 
 /datum/design/circuit/juicer

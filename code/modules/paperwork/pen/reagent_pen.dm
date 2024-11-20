@@ -35,7 +35,7 @@
 
 	if (M.reagents)
 		var/should_admin_log = reagents.should_admin_log()
-		var/contained_reagents = reagents.get_reagents()
+		var/contained_reagents = reagents.get_reagent_display_list()
 		var/trans = reagents.trans_to_mob(M, 30, CHEM_BLOOD)
 		if (should_admin_log)
 			admin_inject_log(user, M, src, contained_reagents, trans)

@@ -5047,7 +5047,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/reagentgrinder/juicer,
+/obj/machinery/reagent_grinder/juicer,
 /turf/simulated/floor/wood/yew,
 /area/scavver/hab)
 "Sx" = (

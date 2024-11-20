@@ -1,4 +1,4 @@
-/obj/machinery/reagentgrinder
+/obj/machinery/reagent_grinder
 	name = "reagent grinder"
 	desc = "An industrial reagent grinder with heavy carbide cutting blades."
 	icon = 'icons/obj/machines/kitchen.dmi'
@@ -36,7 +36,7 @@
 	var/grinding
 
 
-/obj/machinery/reagentgrinder/proc/detach(mob/user)
+/obj/machinery/reagent_grinder/proc/detach(mob/user)
 	if (!container)
 		return
 	if (user)
@@ -47,20 +47,20 @@
 	update_icon()
 
 
-/obj/machinery/reagentgrinder/proc/eject()
+/obj/machinery/reagent_grinder/proc/eject()
 	for (var/obj/item/I in items)
 		I.dropInto(get_turf(src))
 	items.Cut()
 
 
-/obj/machinery/reagentgrinder/proc/reset_machine(mob/user)
+/obj/machinery/reagent_grinder/proc/reset_machine(mob/user)
 	grinding = FALSE
 	update_icon()
 	if (user)
 		interact(user)
 
 
-/obj/machinery/reagentgrinder/proc/grind(mob/user)
+/obj/machinery/reagent_grinder/proc/grind(mob/user)
 	if (grinding)
 		return
 	power_change()
@@ -101,7 +101,7 @@
 		qdel(I)
 
 
-/obj/machinery/reagentgrinder/proc/grindable(obj/item/I)
+/obj/machinery/reagent_grinder/proc/grindable(obj/item/I)
 	if (I.reagents?.total_volume)
 		return TRUE
 	var/material/M = I.get_material()
@@ -110,7 +110,7 @@
 	return FALSE
 
 
-/obj/machinery/reagentgrinder/on_update_icon()
+/obj/machinery/reagent_grinder/on_update_icon()
 	if (grinding)
 		icon_state = "[initial(icon_state)]_grinding"
 	else if (container)
@@ -119,7 +119,7 @@
 		icon_state = "[initial(icon_state)]"
 
 
-/obj/machinery/reagentgrinder/use_tool(obj/item/I, mob/living/user, list/click_params)
+/obj/machinery/reagent_grinder/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if((. = ..()))
 		detach()
 		eject()
@@ -181,12 +181,12 @@
 		updateUsrDialog()
 		return TRUE
 
-/obj/machinery/reagentgrinder/interface_interact(mob/user)
+/obj/machinery/reagent_grinder/interface_interact(mob/user)
 	interact(user)
 	return TRUE
 
 
-/obj/machinery/reagentgrinder/interact(mob/user)
+/obj/machinery/reagent_grinder/interact(mob/user)
 	if (inoperable())
 		return
 	user.set_machine(src)
@@ -220,7 +220,7 @@
 	onclose(user, "reagentgrinder")
 
 
-/obj/machinery/reagentgrinder/OnTopic(user, href_list)
+/obj/machinery/reagent_grinder/OnTopic(user, href_list)
 	if (user && href_list && href_list["action"])
 		switch (href_list["action"])
 			if ("grind")
@@ -233,32 +233,32 @@
 		return TOPIC_REFRESH
 
 
-/obj/machinery/reagentgrinder/AltClick(mob/user)
+/obj/machinery/reagent_grinder/AltClick(mob/user)
 	if(CanDefaultInteract(user))
 		detach(user)
 		return TRUE
 	return ..()
 
 
-/obj/machinery/reagentgrinder/CtrlClick(mob/user)
+/obj/machinery/reagent_grinder/CtrlClick(mob/user)
 	if(anchored && CanDefaultInteract(user))
 		grind(user)
 		return TRUE
 	return ..()
 
 
-/obj/machinery/reagentgrinder/CtrlAltClick(mob/user)
+/obj/machinery/reagent_grinder/CtrlAltClick(mob/user)
 	if(CanDefaultInteract(user))
 		eject(user)
 		return TRUE
 	return ..()
 
 
-/obj/machinery/reagentgrinder/RefreshParts()
+/obj/machinery/reagent_grinder/RefreshParts()
 	..()
 
 
-/obj/machinery/reagentgrinder/juicer
+/obj/machinery/reagent_grinder/juicer
 	name = "blender"
 	desc = "A high-speed combination blender/juicer."
 	icon_state = "juicer"

@@ -239,7 +239,7 @@
 /area/map_template/deepmaint)
 "Ax" = (
 /obj/structure/table/marble,
-/obj/machinery/reagentgrinder/juicer,
+/obj/machinery/reagent_grinder/juicer,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/floor_decal/corner/grey/diagonal{

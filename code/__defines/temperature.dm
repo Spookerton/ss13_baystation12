@@ -5,7 +5,7 @@
 #define ADJUST_ATOM_TEMPERATURE(_atom, _temp) \
 	_atom.temperature = _temp; \
 	if(_atom.reagents) { \
-		HANDLE_REACTIONS(_atom.reagents); \
+		QUEUE_REAGENT_REACTION(_atom.reagents); \
 	} \
 	QUEUE_TEMPERATURE_ATOMS(_atom);
 

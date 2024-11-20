@@ -176,6 +176,6 @@
 
 	var/obj/effect/water/W = new /obj/effect/water(get_turf(src))
 	W.create_reagents(available_spray)
-	reagents.trans_to_holder(W.reagents, available_spray, safety = 1)
+	reagents.trans_to_holder(W.reagents, available_spray, skip_reacting = 1)
 	W.set_color()
 	W.set_up(T)

@@ -33,7 +33,7 @@
 #undef PREPARE_INPUT
 
 /proc/is_atom_predicate(value, feedback_receiver)
-	. = isatom(value)
+	. = istom(value)
 	if(!. && feedback_receiver)
 		to_chat(feedback_receiver, SPAN_WARNING("Value must be an atom."))
 

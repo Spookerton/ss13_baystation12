@@ -60,7 +60,7 @@
 	var/colour = "grey"
 
 	var/core_removal_stage = 0 //For removing cores.
-	var/datum/reagents/metabolism/ingested
+	var/datum/reagents/ingested
 
 	traits = list(/singleton/trait/malus/water = TRAIT_LEVEL_MODERATE)
 

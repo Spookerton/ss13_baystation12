@@ -23,6 +23,8 @@ SUBSYSTEM_DEF(chemistry)
 	/// If the queue was not finished, the index to read from on the next run
 	var/static/saved_index
 
+	var/static/chemical_reaction_logs = list()
+
 
 /datum/controller/subsystem/chemistry/UpdateStat(time)
 	if (PreventUpdateStat(time))
@@ -92,3 +94,25 @@ SUBSYSTEM_DEF(chemistry)
 			continue
 		if (get_prototype(type, temperature))
 			return type
+
+
+/proc/log_chemical_reaction(atom/A, singleton/reaction/R, multiplier)
+	if(!A || !R)
+		return
+	var/turf/T = get_turf(A)
+	var/logstr = "[usr ? key_name(usr) : "EVENT"] mixed [R.name] ([R.result]) (x[multiplier]) in \the [A] at [T ? "[T.x],[T.y],[T.z]" : "*null*"]"
+	SSchemistry.chemical_reaction_logs += "\[[time_stamp()]\] [logstr]"
+	if(R.log_is_important)
+		message_admins(logstr)
+	log_admin(logstr)
+
+
+/client/proc/view_chemical_reaction_logs()
+	set name = "Show Chemical Reactions"
+	set category = "Admin"
+	if(!check_rights(R_ADMIN))
+		return
+	var/html = ""
+	for(var/entry in SSchemistry.chemical_reaction_logs)
+		html += "[entry]<br>"
+	show_browser(usr, html, "window=chemlogs")

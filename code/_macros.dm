@@ -36,7 +36,7 @@
 
 #define isairlock(A) istype(A, /obj/machinery/door/airlock)
 
-#define isatom(A) (isloc(A) && !isarea(A))
+#define istom(A) (isloc(A) && !isarea(A))
 
 #define isprojectile(A) istype(A, /obj/item/projectile)
 
@@ -71,8 +71,6 @@
 #define ismouse(A) istype(A, /mob/living/simple_animal/passive/mouse)
 
 #define isnewplayer(A) istype(A, /mob/new_player)
-
-#define isobj(A) istype(A, /obj)
 
 #define isghost(A) istype(A, /mob/observer/ghost)
 

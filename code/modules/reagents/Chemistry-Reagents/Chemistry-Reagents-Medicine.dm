@@ -9,7 +9,7 @@
 	overdose = REAGENTS_OVERDOSE * 2
 	metabolism = REM * 0.5
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 3.5
 
 /datum/reagent/inaprovaline/affect_blood(mob/living/carbon/M, removed)
@@ -33,7 +33,7 @@
 	color = "#bf0000"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 4.9
 
 /datum/reagent/bicaridine/affect_blood(mob/living/carbon/M, removed)
@@ -58,7 +58,7 @@
 	color = "#ffa800"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 2.9
 
 /datum/reagent/kelotane/affect_blood(mob/living/carbon/M, removed)
@@ -74,7 +74,7 @@
 	color = "#ff8000"
 	overdose = REAGENTS_OVERDOSE * 0.5
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 3.9
 
 /datum/reagent/dermaline/affect_blood(mob/living/carbon/M, removed)
@@ -88,7 +88,7 @@
 	reagent_state = LIQUID
 	color = "#00a000"
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 2.1
 	var/remove_generic = 1
 	var/list/remove_toxins = list(
@@ -123,7 +123,7 @@
 	color = "#0080ff"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 2.4
 
 /datum/reagent/dexalin/affect_blood(mob/living/carbon/M, removed)
@@ -141,7 +141,7 @@
 	color = "#0040ff"
 	overdose = REAGENTS_OVERDOSE * 0.5
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 3.7
 
 /datum/reagent/dexalinp/affect_blood(mob/living/carbon/M, removed)
@@ -158,7 +158,7 @@
 	reagent_state = LIQUID
 	color = "#8040ff"
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 6
 
 /datum/reagent/tricordrazine/affect_blood(mob/living/carbon/M, removed)
@@ -173,7 +173,7 @@
 	color = "#8080ff"
 	metabolism = REM * 0.5
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 3.9
 
 /datum/reagent/cryoxadone/affect_blood(mob/living/carbon/M, removed)
@@ -198,7 +198,7 @@
 	color = "#80bfff"
 	metabolism = REM * 0.5
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	heating_products = list(/datum/reagent/cryoxadone, /datum/reagent/sodium)
 	heating_point = 50 CELSIUS
 	heating_message = "turns back to sludge."
@@ -224,7 +224,7 @@
 	reagent_state = LIQUID
 	color = "#c2c2d6"
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 
 /datum/reagent/nanitefluid/affect_blood(mob/living/carbon/M, removed)
 	M.add_chemical_effect(CE_CRYO, 1)
@@ -248,7 +248,7 @@
 	reagent_state = LIQUID
 	scannable = 1
 	metabolism = 0.02
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 3.3
 
 /datum/reagent/paracetamol/affect_blood(mob/living/carbon/M, removed)
@@ -269,7 +269,7 @@
 	scannable = 1
 	metabolism = 0.05
 	ingest_met = 0.02
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 3.1
 	var/pain_power = 80 //magnitide of painkilling effect
 	var/effective_dose = 0.5 //how many units it need to process to reach max power
@@ -357,7 +357,7 @@
 	overdose = 15
 	scannable = 1
 	metabolism = 0.02
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 
 /datum/reagent/deletrathol/affect_blood(mob/living/carbon/human/H, removed)
 	H.add_chemical_effect(CE_PAINKILLER, 80)
@@ -422,7 +422,7 @@
 	metabolism = REM * 0.25
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 5.9
 
 /datum/reagent/alkysine/affect_blood(mob/living/carbon/M, removed)
@@ -443,7 +443,7 @@
 	color = "#c8a5dc"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 4.2
 
 /datum/reagent/imidazoline/affect_blood(mob/living/carbon/M, removed)
@@ -465,7 +465,7 @@
 	metabolism = REM * 0.5
 	overdose = 10
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 6
 
 /datum/reagent/peridaxon/affect_blood(mob/living/carbon/M, removed)
@@ -553,7 +553,7 @@
 	metabolism = REM * 0.25
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 2.3
 
 /datum/reagent/hyronalin/affect_blood(mob/living/carbon/M, removed)
@@ -567,7 +567,7 @@
 	metabolism = REM * 0.25
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 2.7
 
 /datum/reagent/arithrazine/affect_blood(mob/living/carbon/M, removed)
@@ -855,7 +855,7 @@
 	color = "#669900"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 	value = 5
 
 /datum/reagent/rezadone/affect_blood(mob/living/carbon/M, removed)
@@ -879,7 +879,7 @@
 	color = "#bc018a"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 
 /datum/reagent/noexcutite/affect_blood(mob/living/carbon/M, removed)
 	if (IS_METABOLICALLY_INERT(M))
@@ -896,7 +896,7 @@
 	overdose = 60
 	scannable = 1
 	metabolism = REM * 0.05
-	flags = IGNORE_MOB_SIZE
+	reagent_flags = IGNORE_MOB_SIZE
 
 /datum/reagent/antidexafen/affect_blood(mob/living/carbon/M, removed)
 	if (IS_METABOLICALLY_INERT(M))

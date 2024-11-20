@@ -32,7 +32,7 @@
 /obj/item/reagent_containers/food/drinks/shaker/proc/mix()
 	if(reagents && reagents.total_volume)
 		atom_flags &= ~ATOM_FLAG_NO_REACT
-		HANDLE_REACTIONS(reagents)
+		QUEUE_REAGENT_REACTION(reagents)
 		addtimer(new Callback(src, .proc/stop_react), SSchemistry.wait)
 
 /obj/item/reagent_containers/food/drinks/shaker/proc/stop_react()

@@ -1767,10 +1767,10 @@
 		heart.handle_pulse()
 		return TRUE
 
-/mob/living/carbon/human/proc/make_reagent(amount, reagent_type)
+/mob/living/carbon/human/proc/make_reagent(amount, datum/reagent/type)
 	if(stat == CONSCIOUS)
-		var/limit = max(0, reagents.get_overdose(reagent_type) - reagents.get_reagent_amount(reagent_type))
-		reagents.add_reagent(reagent_type, min(amount, limit))
+		var/limit = max(0, initial(type.overdose) - reagents.get_reagent_amount(type))
+		reagents.add_reagent(type, min(amount, limit))
 
 //Get fluffy numbers
 /mob/living/carbon/human/proc/get_blood_pressure()

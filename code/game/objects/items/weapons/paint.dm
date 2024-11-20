@@ -27,7 +27,7 @@ var/global/list/cached_icons = list()
 			else
 				admin_attacker_log(user, "Used \the [name] containing [contained] to splash \the [target]")
 		user.visible_message(SPAN_WARNING("\The [target] has been splashed with something by [user]!"))
-		reagents.trans_to_turf(target, 5)
+		reagents.trans_to(target, 5)
 		return TRUE
 
 /obj/item/reagent_containers/glass/paint/Initialize()
