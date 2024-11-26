@@ -130,8 +130,8 @@
 		to_chat(user, SPAN_WARNING("\The [src] isn't open!"))
 		return TRUE
 	// Eating with forks
-	if(istype(W,/obj/item/material/utensil))
-		var/obj/item/material/utensil/U = W
+	if(istype(item,/obj/item/material/utensil))
+		var/obj/item/material/utensil/U = item
 		if(U.scoop_food)
 			if(!U.reagents)
 				U.create_reagents(5)

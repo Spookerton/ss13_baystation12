@@ -177,7 +177,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 		total_volume += entry.volume
 		new_reagent_list += entry
 	reagent_list = new_reagent_list
-	amount = min(amount, get_free_space())
+	amount = min(amount, free_volume())
 	if (amount < MINIMUM_CHEMICAL_VOLUME)
 		return
 	total_volume += amount
@@ -452,7 +452,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	var/transfer_multiplier = amount / total_volume
 	var/list/datum/reagent/new_reagent_list = list()
 	for (var/datum/reagent/entry as anything in reagent_list)
-		var/transfer_amount = entry.volume *= transfer_multiplier
+		var/transfer_amount = entry.volume * transfer_multiplier
 		target.add_reagent(entry.type, transfer_amount, entry.get_data(), TRUE)
 		if (clone)
 			continue
