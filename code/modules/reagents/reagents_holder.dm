@@ -443,7 +443,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	if (!istype(target))
 		warning("[src] trans_to_holder '[target]' target not a reagents holder")
 		return 0
-	if (!isnum(amount) || num <= 0)
+	if (!isnum(amount) || amount <= 0)
 		warning("[src] trans_to_holder '[target]' invalid amount [amount]")
 		return 0
 	amount = clamp(amount, 0, target.free_volume())
@@ -535,12 +535,13 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 *
 */
 /datum/reagents/proc/trans_to(atom/target, amount, clone)
-	SHOULD_NOT_OVERRIDE(TRUE)
 	if (!istom(target))
 		warning("trans_to '[target]' fail; invalid target")
 		return
-	if (!isnum(amount) || num <= 0)
+	if (!isnum(amount) || amount <= 0)
 		warning("trans_to '[target]' fail; invalid amount [amount]")
+		return
+	if (total_volume <= 0)
 		return
 	if (!target.simulated)
 		return
@@ -560,14 +561,20 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 * **Parameters**:
 *
 */
-/datum/reagents/proc/splash(atom/target, amount, clone, min_spill = 0, max_spill = 60)
-	var/spill = 0
-	if(!isturf(target) && target.loc)
-		spill = amount*(rand(min_spill, max_spill)/100)
+/datum/reagents/proc/splash(atom/target, amount, clone, min_spill = 0, max_spill = 0.6)
+	if (!istom(target))
+		warning("trans_to '[target]' fail; invalid target")
+		return
+	if (!isnum(amount) || amount <= 0)
+		warning("trans_to '[target]' fail; invalid amount [amount]")
+		return
+	if (!isturf(target) && target.loc)
+		var/spill = amount * rand(min_spill, max_spill)
+		if (spill)
+			splash(target.loc, spill, clone, min_spill, max_spill)
 		amount -= spill
-	if(spill)
-		splash(target.loc, spill, multiplier, copy, min_spill, max_spill)
-	trans_to(target, amount, multiplier, copy)
+	if (amount)
+		trans_to(target, amount, clone)
 
 
 /**
@@ -610,7 +617,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 * **Parameters**:
 *
 */
-/datum/reagents/proc/trans_to_mob(mob/target, amount = 1, type = CHEM_BLOOD, multiplier = 1, copy = 0)
+/datum/reagents/proc/trans_to_mob(mob/target, amount, clone, type = CHEM_BLOOD)
 	PRIVATE_PROC(TRUE)
 	if(!target || !istype(target) || !target.simulated)
 		return

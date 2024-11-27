@@ -34,7 +34,7 @@
 					others += L
 				others -= hit_atom
 				for (var/other in others)
-					reagents.splash(other, reagents.total_volume * 0.2, copy = TRUE)
+					reagents.splash(other, reagents.total_volume * 0.2, TRUE)
 				reagents.splash(hit_atom, reagents.total_volume)
 				hit_atom.visible_message(
 					SPAN_WARNING("The contents of \the [src] splash all over \the [hit_atom]!\

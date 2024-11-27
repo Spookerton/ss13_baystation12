@@ -25,12 +25,10 @@
 /obj/item/organ/internal/stomach/removed()
 	. = ..()
 	ingested.my_atom = src
-	ingested.parent = null
 
 /obj/item/organ/internal/stomach/replaced()
 	. = ..()
 	ingested.my_atom = owner
-	ingested.parent = owner
 
 /obj/item/organ/internal/stomach/robotize()
 	. = ..()

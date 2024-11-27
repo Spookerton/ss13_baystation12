@@ -33,18 +33,18 @@
 		for(var/turf/T in view(1, src) - oldlocs)
 			for(var/atom/movable/AM in T)
 				if(!istype(AM, /obj/effect/smoke/chem))
-					reagents.splash(AM, splash_amount, copy = 1)
+					reagents.splash(AM, splash_amount, TRUE)
 
 /obj/effect/smoke/chem/Crossed(atom/movable/AM)
 	..()
 	if(!istype(AM, /obj/effect/smoke/chem))
-		reagents.splash(AM, splash_amount, copy = 1)
+		reagents.splash(AM, splash_amount, TRUE)
 
 /obj/effect/smoke/chem/proc/initial_splash()
 	for(var/turf/T in view(1, src))
 		for(var/atom/movable/AM in T)
 			if(!istype(AM, /obj/effect/smoke/chem))
-				reagents.splash(AM, splash_amount, copy = 1)
+				reagents.splash(AM, splash_amount, TRUE)
 
 /////////////////////////////////////////////
 // Chem Smoke Effect System

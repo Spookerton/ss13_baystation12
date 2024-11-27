@@ -40,10 +40,7 @@
 		var/datum/reagents/reagents = item.reagents
 		if (reagents)
 			reagents.remove_reagent(/datum/reagent/nutriment)
-			if (ismob(result))
-				reagents.trans_to_mob(result, reagents.total_volume)
-			else
-				reagents.trans_to_obj(result, reagents.total_volume)
+			reagents.trans_to(result, reagents.total_volume)
 		if (istype(item, /obj/item/holder))
 			var/obj/item/holder/holder = item
 			holder.destroy_all()

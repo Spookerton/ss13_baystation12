@@ -40,20 +40,20 @@
 					if (victim.glasses.body_parts_covered & EYES)
 						safe_thing = victim.glasses
 				if(safe_thing)
-					trans = reagents.splash(safe_thing, amount_per_transfer_from_this, max_spill=30)
+					trans = reagents.splash(safe_thing, amount_per_transfer_from_this, max_spill = 0.3)
 					user.visible_message(SPAN_WARNING("[user] tries to squirt something into [target]'s eyes, but fails!"), SPAN_NOTICE("You transfer [trans] units of the solution."))
 					return TRUE
 			var/mob/living/M = target
 			if (reagents.should_admin_log())
 				var/contained = reagentlist()
 				admin_attack_log(user, M, "Squirted their victim with \a [src] (Reagents: [contained])", "Were squirted with \a [src] (Reagents: [contained])", "used \a [src] (Reagents: [contained]) to squirt at")
-			var/spill_amt = M.incapacitated()? 0 : 30
+			var/spill_amt = M.incapacitated() ? 0 : 0.3
 			trans += reagents.splash(target, reagents.total_volume/2, max_spill = spill_amt)
 			trans += reagents.trans_to_mob(target, reagents.total_volume/2, CHEM_BLOOD) //I guess it gets into the bloodstream through the eyes or something
 			user.visible_message(SPAN_WARNING("[user] squirts something into [target]'s eyes!"), SPAN_NOTICE("You transfer [trans] units of the solution."))
 			return TRUE
 		else
-			trans = reagents.splash(target, amount_per_transfer_from_this, max_spill=0) //sprinkling reagents on generic non-mobs. Droppers are very precise
+			trans = reagents.splash(target, amount_per_transfer_from_this, max_spill = 0) //sprinkling reagents on generic non-mobs. Droppers are very precise
 			to_chat(user, SPAN_NOTICE("You transfer [trans] units of the solution."))
 			return TRUE
 	else
