@@ -206,14 +206,14 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 /datum/reagents/proc/has_reagent(datum/reagent/type, amount)
 	if (!ispath(type, /datum/reagent))
 		warning("[log_info_line(my_atom)] has_reagent invalid type '[type]' ([usr])")
-		return
+		return FALSE
 	if (isnum(amount))
 		if (amount <= 0)
 			warning("[log_info_line(my_atom)] has_reagent invalid amount '[amount]' ([usr])")
-			return
+			return FALSE
 	else if (!isnull(amount))
 		warning("[log_info_line(my_atom)] has_reagent invalid amount '[amount]' ([usr])")
-		return
+		return FALSE
 	var/datum/reagent/instance = locate(type) in reagent_list
 	if (!instance)
 		return FALSE
@@ -290,7 +290,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 /datum/reagents/proc/get_reagent_amount(datum/reagent/type, include_subtypes)
 	if (!ispath(type, /datum/reagent))
 		warning("[log_info_line(my_atom)] get_reagent_amount invalid type '[type]' ([usr])")
-		return
+		return 0
 	if (include_subtypes)
 		var/volume = 0
 		for (var/datum/reagent/entry as anything in reagent_list)
@@ -309,7 +309,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 /datum/reagents/proc/get_reagent_amount_list(datum/reagent/type)
 	if (!ispath(type, /datum/reagent))
 		warning("[log_info_line(my_atom)] get_reagent_amount_list invalid type '[type]' ([usr])")
-		return
+		return list()
 	var/list/result = list()
 	for (var/datum/reagent/entry as anything in reagent_list)
 		if (istype(entry, type))
@@ -337,6 +337,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 * - `precision` - A scalar precision to round each reported volume to, eg 1 or 0.1
 */
 /datum/reagents/proc/get_reagent_display_list(scannable_only, precision)
+
 	var/list/sections = list()
 	for (var/datum/reagent/entry as anything in reagent_list)
 		if (!entry.scannable && scannable_only)
@@ -476,8 +477,9 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 * **Parameters**:
 */
 /datum/reagents/proc/touch(atom/target)
-	if (!target.simulated)
-		return
+	if (!istom(target) || !target.simulated)
+		warning("datum/reagents touch '[target]' fail; invalid target")
+		return 0
 	else if (ismob(target))
 		touch_mob(target)
 		return 1
@@ -562,14 +564,16 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 *
 */
 /datum/reagents/proc/splash(atom/target, amount, clone, min_spill = 0, max_spill = 0.6)
-	if (!istom(target))
+	if (!istom(target) || !target.simulated)
 		warning("trans_to '[target]' fail; invalid target")
 		return
 	if (!isnum(amount) || amount <= 0)
-		warning("trans_to '[target]' fail; invalid amount [amount]")
+		warning("trans_to '[target]' fail; invalid amount \"[amount]\"")
 		return
 	if (!isturf(target) && target.loc)
-		var/spill = amount * rand(min_spill, max_spill)
+		max_spill = clamp(max_spill, 0, 1)
+		min_spill = clamp(min_spill, 0, max_spill)
+		var/spill = amount * Frand(min_spill, max_spill)
 		if (spill)
 			splash(target.loc, spill, clone, min_spill, max_spill)
 		amount -= spill
@@ -583,16 +587,19 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 *
 */
 /datum/reagents/proc/trans_type_to(atom/target, type, amount, clone)
+	if (!istom(target) || !target.simulated || !target.reagents)
+		warning("trans_to '[target]' fail; invalid target")
+
 	if (!target || !target.reagents || !target.simulated)
 		return
 	amount = min(amount, get_reagent_amount(type))
 	if(!amount)
 		return
-	var/datum/reagents/F = new /datum/reagents(amount, GLOB.temp_reagents_holder)
+	var/datum/reagents/F = new (amount, GLOB.temp_reagents_holder)
 	var/tmpdata = get_data(type)
 	F.add_reagent(type, amount, tmpdata)
 	remove_reagent(type, amount)
-	. = F.trans_to(target, amount, multiplier)
+	. = F.trans_to(target, amount)
 	qdel(F)
 
 
@@ -633,7 +640,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 			var/datum/reagents/R = C.touching
 			return trans_to_holder(R, amount, multiplier, copy)
 	else
-		var/datum/reagents/R = new /datum/reagents(amount, GLOB.temp_reagents_holder)
+		var/datum/reagents/R = new (amount, GLOB.temp_reagents_holder)
 		. = trans_to_holder(R, amount, multiplier, copy, 1)
 		R.touch_mob(target)
 		qdel(R)
@@ -648,7 +655,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	PRIVATE_PROC(TRUE)
 	if(!target || !target.simulated)
 		return
-	var/datum/reagents/R = new /datum/reagents(amount * multiplier, GLOB.temp_reagents_holder)
+	var/datum/reagents/R = new  (amount * multiplier, GLOB.temp_reagents_holder)
 	. = trans_to_holder(R, amount, multiplier, copy, 1)
 	R.touch_turf(target)
 	qdel(R)
@@ -665,7 +672,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	if(!target || !target.simulated)
 		return
 	if(!target.reagents)
-		var/datum/reagents/R = new /datum/reagents(amount * multiplier, GLOB.temp_reagents_holder)
+		var/datum/reagents/R = new (amount * multiplier, GLOB.temp_reagents_holder)
 		. = trans_to_holder(R, amount, multiplier, copy, 1)
 		R.touch_obj(target)
 		qdel(R)

@@ -469,7 +469,7 @@
 	var/obj/item/reagent_containers/container = tool
 
 	var/amount = container.amount_per_transfer_from_this
-	var/datum/reagents/temp_reagents = new(amount, GLOB.temp_reagents_holder)
+	var/datum/reagents/temp_reagents = new (amount, GLOB.temp_reagents_holder)
 	container.reagents.trans_to_holder(temp_reagents, amount)
 
 	var/rejuvenate = temp_reagents.has_reagent(/datum/reagent/peridaxon)

@@ -136,9 +136,9 @@
 		for(var/turf/T in targetTurfs)
 			chemholder.reagents.touch(T)
 			for(var/atom/A in T.contents)
-				if(ismob(A) || istype(A, /obj/effect/smoke/chem))
+				if (ismob(A) || istype(A, /obj/effect/smoke/chem))
 					continue
-				else if(isobj(A) && !A.simulated)
+				else if (isobj(A))
 					chemholder.reagents.touch(A)
 
 	var/color = chemholder.reagents.get_color() //build smoke icon
