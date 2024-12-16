@@ -22,6 +22,9 @@ GLOBAL_LIST_INIT(fortune_cookie_default_fortunes, list(
 	nutriment_desc = list("fortune cookie" = 2)
 	nutriment_amt = 3
 	bitesize = 2
+	reagents = list(
+		/datum/reagent/nutriment = list(3, list("fortune cookie" = 2))
+	)
 
 	/// The paper fortune contained inside the cookie. Set during `Initialize()`.
 	var/obj/item/paper/fortune
